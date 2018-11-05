@@ -14,43 +14,60 @@ Comment.destroy_all
 CompletedTask.destroy_all
 Participation.destroy_all
 
+10.times do
+User.create(
+  first_name: Faker::Name.first_name,
+  last_name: Faker::Name.last_name,
+  email: Faker::Internet.free_email,
+  password: "123456"
 
-user1 = User.create(
-  first_name: "nick"
 )
+end
 
-user2 = User.create(
-  first_name: "dan"
-)
+["tourism", "social", "pub_crawl", "family", "know_your_neighbourhood"].each do |name|
+  Category.create(name: name)
+end
 
-category1 = Category.create(
-  name: "tourism"
-)
 
-hunt1 = Hunt.create(
-  name: "huntville",
-  user_id: user1.id,
-  category_id: category1.id
-)
 
-task1 = Task.create(
-  details: "take picture",
-  hunt_id: hunt1.id
-)
+10.times do
+  hunt = Hunt.create(
+    name: Faker::Name.name,
+    user: User.all.sample,
+    category: Category.all.sample,
+    difficulty_level: rand(1..3),
+    date_time: Time.now.utc + rand(500).hours
+  )
 
-task_user1 = CompletedTask.create(
-  proof: "code",
-  user_id: user1.id,
-  task_id: task1.id
-)
+    ['task1', 'task2', 'task3', 'task4', 'task5'].each do |task|
+      Task.create(
+        details: task,
+        hunt_id: hunt.id
+      )
+    end
 
-comment1 = Comment.create(
-  description: "good",
-  user_id: user1.id,
-  hunt_id: hunt1.id
-)
 
-participation1 = Participation.create(
-  user_id: user2.id,
-  hunt_id: hunt1.id
-)
+    rand(1..10).times do
+    Participation.create(
+      user: User.all.sample,
+      hunt: hunt
+    )
+    end
+
+    2.times do
+    CompletedTask.create(
+      proof: "done",
+      user: hunt.users.sample,
+      task: hunt.tasks.sample
+    )
+    end
+
+    3.times do
+    Comment.create(
+      description: "good",
+      user: hunt.users.sample,
+      hunt: hunt
+    )
+    end
+
+end
