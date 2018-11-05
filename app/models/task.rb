@@ -3,6 +3,6 @@ class Task < ApplicationRecord
   has_many :users, through: :completed_tasks
   belongs_to :hunt
 
-  validates :adress, :details, presence: true
-  
+  validates :details, presence: true
+
 end
