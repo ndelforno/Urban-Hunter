@@ -42,7 +42,7 @@ end
     ['task1', 'task2', 'task3', 'task4', 'task5'].each do |task|
       Task.create(
         details: task,
-        hunt_id: hunt.id
+        hunt: hunt
       )
     end
 
