@@ -1,4 +1,4 @@
-class CompletedTaskController < ApplicationController
+class CompletedTasksController < ApplicationController
   def index
   end
 

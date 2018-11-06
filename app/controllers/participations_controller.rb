@@ -1,5 +1,5 @@
-class UserController < ApplicationController
-  def show
+class ParticipationsController < ApplicationController
+  def index
   end
 
   def new
@@ -16,5 +16,4 @@ class UserController < ApplicationController
 
   def delete
   end
-
 end

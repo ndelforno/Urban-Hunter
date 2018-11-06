@@ -1,4 +1,10 @@
+<<<<<<< HEAD:app/controllers/hunt_controller.rb
 class HuntController < ApplicationController
+=======
+class TasksControllers< ApplicationController
+  def index
+  end
+>>>>>>> 171633896a370847799066083c32dfd3b0dfeafa:app/controllers/tasks_controller.rb
 
     before_action :select_hunt, except: [:index, :new, :create]
 
