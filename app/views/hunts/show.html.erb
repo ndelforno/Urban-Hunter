@@ -1,13 +1,13 @@
-<h1>Hunt: <%= @Hunt.name %></h1>
+<h1>Hunt: <%= @hunt.name %></h1>
 
-<h2><%= link_to('Back to index', projects_path) %></h2>
+<h2><%= link_to('Back to index', hunts_index_path) %></h2>
 <hr>
 
 <% if @hunt.image.present? %>
   <%= image_tag @hunt.image %>
 <% end %>
 
-  <li><%= link_to('Back to hunts', hunts_path) %></li>
+  <li><%= link_to('Back to hunts', hunts_index_path) %></li>
   <br>
   <% if session[:user_id] && @hunt.user && session[:user_id] == @hunt.user.id %>
     <li><%= link_to 'Edit Hunt', edit_hunt_path(@hunt) %></li>
@@ -25,5 +25,3 @@
   <p>Created by: <%=hunt.user.first_name%> <%=hunt.user.last_name%></p>
   <p>Date: <%=hunt.date_time%></p>
 </div>
-
-<% end %>

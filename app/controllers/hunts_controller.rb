@@ -16,6 +16,7 @@ class HuntsController < ApplicationController
     end
 
     def show
+      @hunt = Hunt.find(params[:id])
     end
 
     def edit

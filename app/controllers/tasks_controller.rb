@@ -1,4 +1,4 @@
-class TasksControllers< ApplicationController
+class TasksController < ApplicationController
   def index
   end
 
@@ -9,6 +9,7 @@ class TasksControllers< ApplicationController
   end
 
   def show
+    @task = Task.find(params[:id])
   end
 
   def edit
