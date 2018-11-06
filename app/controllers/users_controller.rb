@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   def show
-    @user = User.find_by(params[:id])
+    @user = User.find(params[:id])
   end
 
   def new
@@ -19,17 +19,28 @@ class UsersController < ApplicationController
       redirect_to root_url
     else
       render :new
-    end 
+    end
   end
 
   def edit
-
+    @user = User.find(params[:id])
   end
 
   def update
+    @user = User.find(params[:id])
+    @user.first_name = params[:user][:first_name]
+    @user.last_name = params[:user][:last_name]
+    if @user.save
+      redirect_to user_path(current_user)
+    else
+      render :edit
+    end
   end
 
-  def delete
+  def destroy
+    @user = User.find(params[:id])
+    @user.destroy
+    redirect_to root_url
   end
 
 end
