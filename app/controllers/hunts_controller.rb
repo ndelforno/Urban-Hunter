@@ -26,14 +26,14 @@ class HuntsController < ApplicationController
 
     def delete
     end
-end
 
-private
+    private
 
-def select_hunt
-    @hunt = Hunt.find(params[:id])
-end
+    def select_hunt
+        @hunt = Hunt.find(params[:id])
+    end
 
-def categories_hunts
-  @categories = Category.all
+    def categories_hunts
+      @categories = Category.all
+    end
 end
