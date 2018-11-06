@@ -1,2 +1,23 @@
-<h1>Task#show</h1>
-<p>Find me in app/views/task/show.html.erb</p>
+
+    <% @tasks.each do |t| %>
+    <li>
+          <p> <%= t.details %> </p>
+          <p> <%= t.address %> </p>
+          <p> <%= t.neighbourhood %> </p>
+
+
+    </li>
+          <% end  %>
+
+
+
+<!--
+<%@product.reviews.each do |review|%>
+  <ul>
+    <li>
+      <p><%=review.description%></p>
+      <p><%=review.created_at%></p>
+      <%= link_to('Edit', "/products/#{@product.id}/reviews/#{review.id}/edit") %> | <%= link_to("Delete", product_review_url(@product,review), method: :delete) %>
+    </li>
+    <br>
+  </ul> -->
