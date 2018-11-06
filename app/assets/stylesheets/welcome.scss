@@ -1,3 +1,27 @@
 // Place all the styles related to the Welcome controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.intro{
+  text-align: center;
+}
+
+.description{
+  text-align: center;
+}
+
+.images{
+  text-align: center;
+}
+
+.image{
+  display: inline;
+}
+
+.categories{
+  text-align: center;
+}
+.category{
+  text-align: center;
+  display: inline;
+  padding: 10px;
+}

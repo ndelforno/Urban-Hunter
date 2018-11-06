@@ -15,22 +15,24 @@
   <h2>Images</h2>
 
   <div class="image">
-    <img src="" alt="">image 1
+    <img src="https://picsum.photos/200/300?image=1" alt="">
   </div>
 
-  <div class="random_hunt">
-    <img src="" alt="">Random hunt
+  <div class="image">
+    <img src="https://picsum.photos/200/300?image=20" alt="">
   </div>
 
-  <div class="random_comment">
-    <img src="" alt="">random comment
+  <div class="image">
+    <img src="https://picsum.photos/200/300?image=30" alt="">
   </div>
 
 </div>
 
+<div class="categories">
 <h2>Categories</h2>
   <% @categories.each do |category| %>
     <div class="category">
       <%= category.name %>
     </div>
   <% end %>
+</div>
