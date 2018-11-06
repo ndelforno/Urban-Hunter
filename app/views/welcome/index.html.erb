@@ -1,0 +1,36 @@
+<h1>Welcome to Urban Hunter</h1>
+
+<div class="intro">
+  <h2>Join the Hunt !</h2>
+  <p>This is the intro</p>
+</div>
+
+<div class="description">
+  <h2>Description</h2>
+  <p>This is the description</p>
+</div>
+
+
+<div class="images">
+  <h2>Images</h2>
+
+  <div class="image">
+    <img src="" alt="">image 1
+  </div>
+
+  <div class="random_hunt">
+    <img src="" alt="">Random hunt
+  </div>
+
+  <div class="random_comment">
+    <img src="" alt="">random comment
+  </div>
+
+</div>
+
+<h2>Categories</h2>
+  <% @categories.each do |category| %>
+    <div class="category">
+      <%= category.name %>
+    </div>
+  <% end %>
