@@ -1,6 +1,13 @@
 <h1>User#new</h1>
 
 
+<% if @user.errors.any? %>
+  <% @user.errors.messages.each do |error| %>
+    <li><%= error %></li>
+  <% end %>
+<% end %>
+
+
 <div class="sign_up_form">
   <%= form_for @user do |f| %>
     <div class="field">
