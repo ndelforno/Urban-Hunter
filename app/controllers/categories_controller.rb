@@ -11,6 +11,11 @@ class CategoriesController < ApplicationController
   def edit
   end
 
+  def show
+    @categories = Category.all
+  end
+
+
   def update
   end
 
