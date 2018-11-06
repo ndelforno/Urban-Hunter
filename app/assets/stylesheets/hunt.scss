@@ -1,3 +1,13 @@
 // Place all the styles related to the Hunt controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.block {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: auto;
+}
+
+.text-center, h2 {
+  text-align: center;
+}
