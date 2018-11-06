@@ -1,4 +1,4 @@
-class CommentController < ApplicationController
+class CategoriesController < ApplicationController
   def index
   end
 
@@ -6,9 +6,6 @@ class CommentController < ApplicationController
   end
 
   def create
-  end
-
-  def show
   end
 
   def edit

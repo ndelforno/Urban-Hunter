@@ -1,4 +1,4 @@
-class HuntController < ApplicationController
+class ParticipationsController < ApplicationController
   def index
   end
 
@@ -6,9 +6,6 @@ class HuntController < ApplicationController
   end
 
   def create
-  end
-
-  def show
   end
 
   def edit

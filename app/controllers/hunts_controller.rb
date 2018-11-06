@@ -1,4 +1,4 @@
-class CategoryController < ApplicationController
+class HuntsController < ApplicationController
   def index
   end
 
@@ -6,6 +6,9 @@ class CategoryController < ApplicationController
   end
 
   def create
+  end
+
+  def show
   end
 
   def edit
