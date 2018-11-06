@@ -1,4 +1,4 @@
-class CompletedTaskController < ApplicationController
+class CommentsController < ApplicationController
   def index
   end
 
@@ -6,6 +6,9 @@ class CompletedTaskController < ApplicationController
   end
 
   def create
+  end
+
+  def show
   end
 
   def edit

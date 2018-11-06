@@ -4,14 +4,14 @@ Rails.application.routes.draw do
 
 root "welcome#index"
 
-resources :category do
-  resources :hunt  do
-    resources :task
-    resources :comment
+resources :categories do
+  resources :hunts do
+    resources :tasks
+    resources :comments
   end
 end
 
-  resources :user
+  resources :users
   resources :sessions
 
 end

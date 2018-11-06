@@ -10,6 +10,12 @@
   </head>
 
   <body>
+    <nav class="navigation_bar">
+      <ul class="nav_1">
+        <li><%= link_to "Sign Up", new_user_path %></li>
+        <li><%= link_to "Log In", new_user_path %></li>
+      </ul>
+    </nav>
     <%= yield %>
   </body>
 </html>

@@ -1,4 +1,4 @@
-class ParticipationController < ApplicationController
+class TasksControllers< ApplicationController
   def index
   end
 
@@ -6,6 +6,9 @@ class ParticipationController < ApplicationController
   end
 
   def create
+  end
+
+  def show
   end
 
   def edit
