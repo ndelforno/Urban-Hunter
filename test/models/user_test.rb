@@ -17,4 +17,11 @@ class UserTest < ActiveSupport::TestCase
 
   end
 
+  def test_full_name
+    user = create(:user, first_name: "nick", last_name:"delfo")
+    actual = user.full_name
+    expected = "nick delfo"
+    assert_equal(expected,actual)
+  end
+
 end
