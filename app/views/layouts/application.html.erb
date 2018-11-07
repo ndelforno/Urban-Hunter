@@ -24,27 +24,27 @@
   <body>
     <nav class="navigation_bar">
       <ul class="nav_1">
-          <li><%= link_to "Home", root_path %></li>
-          <% if current_user %>
-            <li>Hello!    <%= link_to "#{current_user.first_name}", user_path(current_user) %></li>
-            <li><%= link_to "Sign Out", session_path("purple"), :method => :delete %></li>
-          <% else %>
-            <li><%= link_to "Sign Up", new_user_path %></li>
-            <li><%= link_to "Log In", new_session_path %></li>
-          <% end %>
+        <li><%= link_to "Home", root_path %></li>
+        <% if current_user %>
+          <li>Hello!    <%= link_to "#{current_user.first_name}", user_path(current_user) %></li>
+          <li><%= link_to "Sign Out", session_path("purple"), :method => :delete %></li>
+        <% else %>
+          <li><%= link_to "Sign Up", new_user_path %></li>
+          <li class="log_in"><%= link_to "Log In", new_session_path %></li>
+        <% end %>
           <br>
           <div class="form">
           <%= form_tag(hunts_path, method: :get) do %>
             <%= submit_tag 'Search Hunts' %>
             <%= text_field_tag :hunt %>
           <% end %>
-
           </div>
       </ul>
     <% flash.each do |key, message| %>
     <div class="flash-<%= key %>"><span class="error_message"><%= message %><span></div>
     <% end %>
     </nav>
+     <%= render 'sessions/form' %>
     <%= yield %>
   </body>
 </html>
