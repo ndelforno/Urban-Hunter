@@ -53,7 +53,7 @@ class HuntsController < ApplicationController
       @category = Category.find_by(id: params[:category_id])
       if @hunt.save
         flash[:notice] = "Hunt added!"
-        redirect_to hunt_path(@hunt)
+        redirect_to new_hunt_task_path(@hunt)
       else
         # puts @hunt.errors.full_messages
         flash[:alert] = "Hunt not added!"
