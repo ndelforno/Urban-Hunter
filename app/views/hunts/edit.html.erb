@@ -1,5 +1,5 @@
 <h1>Edit <span><%=@hunt.name%><span></h1>
-<%=  link_to("Back to Hunt view", category_hunt_path(@category, @hunt)) %>
+<%=  link_to("Back to Hunt view", hunt_path(@hunt)) %>
 <br>
 <%=  link_to('Back to Hunts', hunts_path) %>
 <br>
@@ -10,4 +10,4 @@
 <%= render 'hunts/form_new_hunt', hunt: @hunt, category: @category, categories: @categories %>
 
 
-<%= link_to('Delete Hunt', category_hunt_path(@category, @hunt), method: :delete, data: {confirm: "Are you sure you want to delete this hunt?"}) %>
+<%= link_to('Delete Hunt', hunt_path(@hunt), method: :delete, data: {confirm: "Are you sure you want to delete this hunt?"}) %>
