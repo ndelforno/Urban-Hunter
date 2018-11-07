@@ -1,23 +1,12 @@
 
-    <% @tasks.each do |t| %>
-    <li>
-          <p> <%= t.details %> </p>
-          <p> <%= t.address %> </p>
-          <p> <%= t.neighbourhood %> </p>
+ 
 
+<% @task.details = "Get owner's name of dutch dream !" %>
+<h1><%= @task.details %></h1>
+<% @task.address = "21 vaughan road, Toronto, ON, M6G2N2" %>
+<h2>Locations:</h2>
+<p><%= @task.address %></p>
 
-    </li>
-          <% end  %>
+<div id="mapid">
 
-
-
-<!--
-<%@product.reviews.each do |review|%>
-  <ul>
-    <li>
-      <p><%=review.description%></p>
-      <p><%=review.created_at%></p>
-      <%= link_to('Edit', "/products/#{@product.id}/reviews/#{review.id}/edit") %> | <%= link_to("Delete", product_review_url(@product,review), method: :delete) %>
-    </li>
-    <br>
-  </ul> -->
+</div>
