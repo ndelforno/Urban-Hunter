@@ -5,6 +5,11 @@ class HuntsController < ApplicationController
     before_action :categories_hunts, only: [:index, :new, :create, :edit, :update]
 
     def index
+      if params[:hunt]
+        @hunts = Hunt.where("name like ?", "%#{params[:hunt]}%")
+      else
+        @hunts = Hunt.all
+      end
     end
 
     def new
