@@ -17,3 +17,8 @@
   <p>Date of hunt: <%=@hunt.hunt_date.strftime("%v")%></p>
   <p>Time of hunt: <%=@hunt.hunt_time.strftime("%H:%M")%></p>
 </div>
+
+
+<%= render('comments/form', hunt: @hunt, comment: @comment) %>
+
+<h1>test</h1>
