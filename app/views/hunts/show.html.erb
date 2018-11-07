@@ -18,6 +18,6 @@
 </div>
 
 
-<%= render('comments/form', hunt: @hunt, comment: @comment) %>
+<%= render(partial: 'comments/form', locals: { hunt: @hunt, comment: @comment }) %>
 
 <h1>test</h1>
