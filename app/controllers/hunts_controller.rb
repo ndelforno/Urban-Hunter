@@ -11,7 +11,9 @@ class HuntsController < ApplicationController
     end
 
     def show
-      @tasks = Task.all
+      @tasks = @hunt.tasks
+      @comment = Comment.new
+      @comments = @hunt.comments
     end
 
     def create
