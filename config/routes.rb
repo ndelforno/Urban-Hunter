@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   get 'hunts' => 'hunts#index'
   get 'hunts/new' =>'hunts#new'
   post 'hunts/create' => 'hunts#create'
+  resources :hunts, only: [:update, :create]
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
