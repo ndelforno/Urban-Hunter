@@ -20,4 +20,7 @@
 
 <%= render(partial: 'comments/form', locals: { hunt: @hunt, comment: @comment }) %>
 
-<h1>test</h1>
+<% @comments.each do |comment| %>
+  <p>posted by:  <%= comment.user.first_name %>   on   <%= comment.created_at.strftime("%B %d, %Y") %> <%= comment.created_at.strftime("%I:%M %p ") %></p>
+  <p><%= comment.description %></p>
+<% end %>
