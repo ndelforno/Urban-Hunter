@@ -6,7 +6,8 @@
 
   <br>
 
-    <li><%= link_to 'Edit Hunt', edit_hunt_path %></li>
+<li><%= link_to('Edit Hunt', edit_hunt_path) %></li>
+<li><%= link_to('Join Hunt', hunt_join_path, method: :post, data: {confirm: "Are you sure you want to join this hunt?"}) %></li>
 
 <hr>
 <div>
@@ -15,6 +16,15 @@
   <p>Created by: <%=@hunt.user.first_name%> <%=@hunt.user.last_name%></p>
   <p>Date of hunt: <%=@hunt.hunt_date.strftime("%v")%></p>
   <p>Time of hunt: <%=@hunt.hunt_time.strftime("%H:%M")%></p>
+  <p>Participants to the hunt:</p>
+  <% @hunt.users.each do |participant| %>
+    <div class="hunt_participants">
+      <li><%= participant.first_name%> <%= participant.last_name %>
+        <%if participant.id == current_user.id %>
+           | <%= link_to('Leave this hunt', hunt_unjoin_path, method: :post, data: {confirm: "Are you sure you want to leave this hunt?"})%>
+        <% end %></li>
+    </div>
+  <% end %>
 </div>
 
 
