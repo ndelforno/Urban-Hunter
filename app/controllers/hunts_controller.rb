@@ -2,49 +2,65 @@ class HuntsController < ApplicationController
 
     before_action :select_hunt, except: [:index, :new, :create]
     before_action :set_up_new, only: [:new, :create]
-    before_action :categories_hunts, only: [:index, :new, :create]
+    before_action :categories_hunts, only: [:index, :new, :create, :edit, :update]
 
     def index
-      # @hunts = Hunt.all
-      # @categories = Category.all
     end
 
     def new
-      # @categories = Category.all
-    end
-
-    def create
-      # @categories = Category.all
-      @hunt.name = params[:hunt][:name]
-      @hunt.difficulty_level = params[:difficulty_level]
-      @hunt.category_id = params[:category_id]
-      @hunt.hunt_date = params[:hunt][:hunt_date]
-      @hunt.hunt_time = params[:hunt][:hunt_time]
-      # @hunt.user_id = sessions[:user_id]
-      @category = Category.find_by(id: params[:category_id])
-      if @hunt.save
-        # if the picture gets saved, generate a get request to "/pictures" (the index)
-        flash[:notice] = "Hunt added!"
-        redirect_to category_hunt_path(@category, @hunt)
-      else
-        # otherwise render new.html.erb
-        puts @hunt.errors.full_messages
-        flash[:alert] = "Hunt not added!"
-        render :new
-      end
-
     end
 
     def show
     end
 
+    def create
+      @hunt.name = params[:hunt][:name]
+      @hunt.difficulty_level = params[:difficulty_level]
+      @hunt.category_id = params[:category_id]
+      @hunt.hunt_date = params[:hunt][:hunt_date]
+      @hunt.hunt_time = params[:hunt][:hunt_time]
+      @hunt.user_id = session[:user_id]
+      @category = Category.find_by(id: params[:category_id])
+      if @hunt.save
+        flash[:notice] = "Hunt added!"
+        redirect_to category_hunt_path(@category, @hunt)
+      else
+        # puts @hunt.errors.full_messages
+        flash[:alert] = "Hunt not added!"
+        render :new
+      end
+    end
+
     def edit
+      @category = Category.find_by(id: params[:category_id])
+      # puts @category.inspect
     end
 
     def update
+      # puts @hunt.errors.full_messages
+      # puts @hunt.inspect
+      @hunt.name = params[:hunt][:name]
+      @hunt.difficulty_level = params[:difficulty_level]
+      @hunt.category_id = params[:category_id]
+      @hunt.hunt_date = params[:hunt][:hunt_date]
+      @hunt.hunt_time = params[:hunt][:hunt_time]
+      @category = Category.find_by(id: params[:category_id])
+      if @hunt.save
+        flash[:notice] = "Hunt updated!"
+        redirect_to category_hunt_path(@category, @hunt)
+      else
+        puts @hunt.errors.full_messages
+        flash[:alert] = "Hunt not updated!"
+        render :edit
+      end
     end
 
-    def delete
+    def destroy
+      @hunt.destroy
+      if @hunt.destroy
+        flash[:notice] = "Restaurant deleted!"
+        redirect_to hunts_path
+      end
     end
 
     private
