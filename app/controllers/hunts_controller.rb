@@ -11,6 +11,8 @@ class HuntsController < ApplicationController
     end
 
     def show
+      @comment = Comment.new
+      @comments = @hunt.comments
     end
 
     def create
