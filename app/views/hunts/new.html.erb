@@ -1,2 +1,6 @@
-<h1>Hunt#new</h1>
-<p>Find me in app/views/hunt/new.html.erb</p>
+<h1>Add a new hunt...</h1>
+
+<%=  link_to("Back to Hunts", hunts_path) %>
+<hr>
+
+<%= render 'hunts/form_new_hunt', hunt: @hunt, categories: @categories %>
