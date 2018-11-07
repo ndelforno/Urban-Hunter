@@ -23,7 +23,7 @@ class HuntsController < ApplicationController
       @category = Category.find_by(id: params[:category_id])
       if @hunt.save
         flash[:notice] = "Hunt added!"
-        redirect_to category_hunt_path(@category, @hunt)
+        redirect_to hunt_path(@hunt)
       else
         # puts @hunt.errors.full_messages
         flash[:alert] = "Hunt not added!"
@@ -47,9 +47,9 @@ class HuntsController < ApplicationController
       @category = Category.find_by(id: params[:category_id])
       if @hunt.save
         flash[:notice] = "Hunt updated!"
-        redirect_to category_hunt_path(@category, @hunt)
+        redirect_to hunt_path(@hunt)
       else
-        puts @hunt.errors.full_messages
+        # puts @hunt.errors.full_messages
         flash[:alert] = "Hunt not updated!"
         render :edit
       end
