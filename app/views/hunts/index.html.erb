@@ -1,3 +1,5 @@
+<h3><%= link_to('Back to Welcome', root_path) %></h3>
+<li><%= link_to('Make a hunt', hunts_new_path) %></li>
 
 <h1 class="text-center">ALL FUTURE HUNTS</h1>
 
@@ -12,9 +14,10 @@
       <ul>
             <br>
             <li>
-            <h3><%=link_to("#{hunt.name}","/hunts/#{hunt.id}")%></h3>
+            <h3><%=link_to("#{hunt.name}", "/categories/#{category.id}/hunts/#{hunt.id}")%></h3>
             <h3>Created by: <%=hunt.user.first_name%> <%=hunt.user.last_name%></h3>
-            <h3>Date: <%=hunt.date_time%></h3>
+            <h3>Date: <%=hunt.hunt_date.strftime("%v")%></h3>
+            <h3>Time: <%=hunt.hunt_time.strftime("%H:%M")%></h3>
             <h3>Difficulty: <%=hunt.difficulty_level%></h3>
           </li>
           <br>
@@ -22,6 +25,4 @@
         <%end%>
         </div>
     <%end%>
-
 </div>
-

@@ -1,2 +1,33 @@
-<h1>Task#new</h1>
-<p>Find me in app/views/task/new.html.erb</p>
+
+
+
+<div class="Task_form">
+
+  <%= form_for([@hunt, @task], url: category_hunt_tasks_path) do |t| %>
+      <div class="field">
+        <%= t.label :details %>
+        <%= t.text_field :details %>
+      </div>
+
+      <div class="field">
+        <%= t.label :address %>
+        <%= t.text_field :address %>
+      </div>
+
+      <div class="field">
+        <%= t.label :neighbourhood %>
+        <%= t.text_field :neighbourhood %>
+      </div>
+
+
+      <div class="field">
+          <%= t.submit %>
+      </div>
+
+    <% end %>
+    <%= link_to("No more tasks", "/categories/#{@hunt.category_id}/hunts/#{@hunt.id}") %>
+    
+
+
+
+</div>

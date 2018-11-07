@@ -1,27 +1,19 @@
+
+<h3><%= link_to('Back to Welcome', root_path) %></h3>
+<h3><%= link_to('Back to Hunts', hunts_path) %></h3>
+
 <h1>Hunt: <%= @hunt.name %></h1>
 
-<h2><%= link_to('Back to index', hunts_index_path) %></h2>
-<hr>
-
-<% if @hunt.image.present? %>
-  <%= image_tag @hunt.image %>
-<% end %>
-
-  <li><%= link_to('Back to hunts', hunts_index_path) %></li>
   <br>
-  <% if session[:user_id] && @hunt.user && session[:user_id] == @hunt.user.id %>
-    <li><%= link_to 'Edit Hunt', edit_hunt_path(@hunt) %></li>
-    <br>
-  <% end %>
 
-  <% if current_user %>
-    <li><%= link_to('Make a hunt', new_hunt_path(@hunt)) %></li>
-  <% end %>
+    <li><%= link_to 'Edit Hunt', edit_category_hunt_path(@hunt) %></li>
+    <li><%= link_to('Make a hunt', hunts_new_path) %></li>
 
 <hr>
 <div>
-  <p> Category: <%= @hunt.category %></p>
+  <p> Category: <%= @hunt.category.name %></p>
   <p> Difficulty: <%= @hunt.difficulty_level %></p>
-  <p>Created by: <%=hunt.user.first_name%> <%=hunt.user.last_name%></p>
-  <p>Date: <%=hunt.date_time%></p>
+  <p>Created by: <%=@hunt.user.first_name%> <%=@hunt.user.last_name%></p>
+  <p>Date of hunt: <%=@hunt.hunt_date.strftime("%v")%></p>
+  <p>Time of hunt: <%=@hunt.hunt_time.strftime("%H:%M")%></p>
 </div>

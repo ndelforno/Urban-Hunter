@@ -36,8 +36,11 @@ end
     user: User.all.sample,
     category: Category.all.sample,
     difficulty_level: rand(1..3),
-    date_time: Time.now.utc + rand(500).hours
+    hunt_time: Time.now.utc - 15.hours + rand(12).hours,
+    hunt_date: Time.now.utc + rand(30).days
   )
+  # puts hunt.inspect
+  # hunt.save!
 
     ['task1', 'task2', 'task3', 'task4', 'task5'].each do |task|
       Task.create(
