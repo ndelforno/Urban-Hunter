@@ -3,7 +3,7 @@
 
 <div class="Task_form">
 
-  <%= form_for([@hunt, @task], url: category_hunt_tasks_path) do |t| %>
+  <%= form_for([@hunt, @task]) do |t| %>
       <div class="field">
         <%= t.label :details %>
         <%= t.text_field :details %>
@@ -25,8 +25,8 @@
       </div>
 
     <% end %>
-    <%= link_to("No more tasks", "/categories/#{@hunt.category_id}/hunts/#{@hunt.id}") %>
-    
+    <%= link_to "No more tasks", hunt_path(@hunt) %>
+
 
 
 
