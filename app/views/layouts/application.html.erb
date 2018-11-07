@@ -31,10 +31,11 @@
           <li><%= link_to "Sign Out", session_path("purple"), :method => :delete %></li>
         <% else %>
           <li><%= link_to "Sign Up", new_user_path %></li>
-          <li><%= link_to "Log In", new_session_path %></li>
+          <li class="log_in"><%= link_to "Log In", new_session_path %></li>
         <% end %>
       </ul>
     </nav>
+     <%= render 'sessions/form' %>
     <%= yield %>
   </body>
 </html>
