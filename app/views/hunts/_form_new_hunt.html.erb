@@ -1,0 +1,31 @@
+<%= form_for (hunt), url: hunts_create_path do |f| %>
+
+
+<p>  <%= f.label :name %>
+  <%= f.text_field :name %> </p>
+
+  <p><fieldset><legend>Difficulty_level</legend>
+    <%= radio_button_tag(:difficulty_level, "1") %>
+    <%= label_tag(:difficulty_level, "Easy") %>
+    <%= radio_button_tag(:difficulty_level, "2") %>
+    <%= label_tag(:difficulty_level, "Average") %>
+    <%= radio_button_tag(:difficulty_level, "3") %>
+    <%= label_tag(:difficulty_level, "Hard") %>
+  </p></fieldset>
+
+  <p><fieldset><legend>Category</legend>
+
+    <% categories.each do |category| %>
+      <%= radio_button_tag(:category_id, "#{category.id}") %>
+      <%= label_tag(:category_id, "#{category.name}") %>
+    <% end %>
+  </p></fieldset>
+
+<p>  <%= f.label :hunt_date %>
+      <%= f.date_field :hunt_date %></p>
+
+<p>  <%= f.label :hunt_time %>
+      <%= f.time_field :hunt_time %></p>
+
+<p> <%= f.submit "ADD"%></p>
+<% end %>

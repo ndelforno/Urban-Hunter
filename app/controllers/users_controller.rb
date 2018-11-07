@@ -12,10 +12,11 @@ class UsersController < ApplicationController
     @user.last_name = params[:user][:last_name]
     @user.email = params[:user][:email]
     @user.password_digest = params[:user][:password_digest]
-    if @user.save
-      redirect_to root_url
-    else
-      render 'new'
+      if @user.save
+        redirect_to root_url
+      else
+        render 'new'
+      end
   end
 
   def edit
