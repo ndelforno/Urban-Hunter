@@ -7,7 +7,7 @@
 
 <div class="description">
   <h2>Description</h2>
-  <p>Participate to a hunt and complete achievements !</p>
+  <p>Participate in a hunt and complete achievements !</p>
 </div>
 
 
@@ -28,11 +28,16 @@
 
 </div>
 
+
 <div class="categories">
 <h2>Categories</h2>
   <% @categories.each do |category| %>
     <div class="category">
-      <%= link_to "#{category.name}", "categories/#{category.id}/hunts" %>
+      <%= link_to("#{category.name}", category_path(category)) %>
     </div>
   <% end %>
+</div>
+
+<div class="all_hunts_homepage">
+      <h2><%= link_to("All Hunts", hunts_path) %></h2>
 </div>

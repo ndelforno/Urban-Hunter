@@ -6,7 +6,7 @@ class Hunt < ApplicationRecord
   has_many :tasks
   belongs_to :category
 
-  validates :name, :difficulty_level, :hunt_time, :hunt_date, presence: true
+  validates :name, :difficulty_level, :category, :hunt_time, :hunt_date, presence: true
   validates :hunt_date, inclusion:{ in: (Date.today..Date.today+6.months)}
 
 

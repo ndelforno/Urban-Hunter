@@ -1,0 +1,23 @@
+<h3><%= link_to('Back to Welcome', root_path) %></h3>
+
+<h1>Category: <%= @category.name %></h1>
+
+<br>
+
+<h2>Hunts in this category:</h2>
+
+<div class="block">
+      <% @category.hunts.each do |hunt|%>
+      <ul>
+            <br>
+            <li>
+            <h3><%=link_to("#{hunt.name}", hunt_path(hunt))%></h3>
+            <h3>Created by: <%=hunt.user.first_name%> <%=hunt.user.last_name%></h3>
+            <h3>Date: <%=hunt.hunt_date.strftime("%v")%></h3>
+            <h3>Time: <%=hunt.hunt_time.strftime("%H:%M")%></h3>
+            <h3>Difficulty: <%=hunt.difficulty_level%></h3>
+          </li>
+          <br>
+      </ul>
+        <%end%>
+</div>
