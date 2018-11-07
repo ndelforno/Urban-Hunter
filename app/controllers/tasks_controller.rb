@@ -19,7 +19,7 @@ class TasksController< ApplicationController
 
         if @task.save
 
-          redirect_to new_category_hunt_task_path(@task)
+          redirect_to new_hunt_task_path
         # else
         #   redirect_to category_hunt
         end

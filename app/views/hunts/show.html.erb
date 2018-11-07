@@ -16,3 +16,17 @@
   <p>Date of hunt: <%=@hunt.hunt_date.strftime("%v")%></p>
   <p>Time of hunt: <%=@hunt.hunt_time.strftime("%H:%M")%></p>
 </div>
+
+
+<h2>... Available Tasks ...</h2>
+<hr>
+
+   <% @tasks.each do |t| %>
+      <div class ="task"  >
+        <p> Details: <%= t.details %></p>
+        <p> Address: <%= t.address  %></p>
+        <p> Neighbourhood: <%= t.neighbourhood %> </p>
+        <li>  <%= link_to 'Edit Tasks' %> </li>
+
+      </div>
+   <% end  %>
