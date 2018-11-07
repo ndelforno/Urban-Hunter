@@ -1,2 +1,13 @@
-<h1>Hunt#edit</h1>
-<p>Find me in app/views/hunt/edit.html.erb</p>
+<h1>Edit <span><%=@hunt.name%><span></h1>
+<%=  link_to("Back to Hunt view", hunt_path(@hunt)) %>
+<br>
+<%=  link_to('Back to Hunts', hunts_path) %>
+<br>
+<%= @hunt.errors.full_messages.first if @hunt.errors.any? %>
+<hr>
+
+
+<%= render 'hunts/form_new_hunt', hunt: @hunt, category: @category, categories: @categories %>
+
+
+<%= link_to('Delete Hunt', hunt_path(@hunt), method: :delete, data: {confirm: "Are you sure you want to delete this hunt?"}) %>

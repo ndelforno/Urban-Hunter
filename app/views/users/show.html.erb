@@ -1,6 +1,6 @@
 <h1><%= @user.full_name %></h1>
 <h2><%= @user.email %></h2>
-
+<h2>Completed Tasks: <%= @user.completed_tasks.length %></h2>
 <h2>Hunts created:</h2>
 <% @user.hunts.each do |hunt| %>
   <div class="hunt">
@@ -23,3 +23,5 @@ Date: <%= participation.hunt.date_time.strftime("%A %b %d %Y") %>
   <%= link_to 'Edit your profile', edit_user_path%> |
   <%= link_to 'Delete your profile', user_path(@user) ,method: :delete, data: {confirm: "Are you sure you want to delete this profile This cannot be undone!"} %>
 <% end %>
+
+<%= render partial: "comments/form", locals: { hunt: @hunt, comment: Comment.new } %>

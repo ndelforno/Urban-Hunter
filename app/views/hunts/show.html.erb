@@ -6,8 +6,7 @@
 
   <br>
 
-    <li><%= link_to 'Edit Hunt', edit_category_hunt_path(@hunt) %></li>
-    <li><%= link_to('Make a hunt', hunts_new_path) %></li>
+    <li><%= link_to 'Edit Hunt', edit_hunt_path %></li>
 
 <hr>
 <div>
@@ -19,3 +18,13 @@
 </div>
 
 <div id="mapid">
+</div>
+
+
+<%= render(partial: 'comments/form', locals: { hunt: @hunt, comment: @comment }) %>
+
+<% @comments.each do |comment| %>
+  <p>posted by:  <%= comment.user.first_name %>   on   <%= comment.created_at.strftime("%B %d, %Y") %> <%= comment.created_at.strftime("%I:%M %p ") %></p>
+  <p><%= comment.description %></p>
+<% end %>
+
