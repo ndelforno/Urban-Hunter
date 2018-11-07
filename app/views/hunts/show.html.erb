@@ -26,3 +26,31 @@
     </div>
   <% end %>
 </div>
+
+
+
+<h2>... Available Tasks ...</h2>
+<hr>
+
+   <% @tasks.each do |t| %>
+      <div class ="task"  >
+        <p> Details: <%= t.details %></p>
+        <p> Address: <%= t.address  %></p>
+        <p> Neighbourhood: <%= t.neighbourhood %> </p>
+        <li>  <%= link_to 'Edit Tasks' %> </li>
+
+      </div>
+   <% end  %>
+
+<div id="mapid">
+</div>
+
+
+<%= render(partial: 'comments/form', locals: { hunt: @hunt, comment: @comment }) %>
+
+<% @comments.each do |comment| %>
+  <p>posted by:  <%= comment.user.first_name %>   on   <%= comment.created_at.strftime("%B %d, %Y") %> <%= comment.created_at.strftime("%I:%M %p ") %></p>
+  <p><%= comment.description %></p>
+<% end %>
+
+

@@ -1,6 +1,6 @@
 <h1><%= @user.full_name %></h1>
 <h2><%= @user.email %></h2>
-
+<h2>Completed Tasks: <%= @user.completed_tasks.length %></h2>
 <h2>Hunts created:</h2>
 <% @user.hunts.each do |hunt| %>
   <div class="hunt">

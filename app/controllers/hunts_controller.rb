@@ -16,6 +16,9 @@ class HuntsController < ApplicationController
     end
 
     def show
+      @tasks = @hunt.tasks
+      @comment = Comment.new
+      @comments = @hunt.comments
     end
 
     def join
