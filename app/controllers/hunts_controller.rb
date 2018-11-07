@@ -13,6 +13,28 @@ class HuntsController < ApplicationController
     def show
     end
 
+    def join
+      if(current_user)
+        if @hunt.users.include?(current_user)
+          flash[:alert] = "You cannot join the hunt twice!"
+        else
+          @hunt.users << current_user
+          flash[:notice] = "You have joined the hunt!"
+        end
+      else
+        flash[:alert] = "You need to log in to join a hunt!"
+      end
+      redirect_to hunt_path
+    end
+
+    def unjoin
+      if @hunt.users.include?(current_user)
+        @hunt.users.delete(current_user)
+        flash[:notice] = "You have left the hunt!"
+      end
+      redirect_to hunt_path
+    end
+
     def create
       @hunt.name = params[:hunt][:name]
       @hunt.difficulty_level = params[:difficulty_level]
@@ -58,7 +80,7 @@ class HuntsController < ApplicationController
     def destroy
       @hunt.destroy
       if @hunt.destroy
-        flash[:notice] = "Restaurant deleted!"
+        flash[:notice] = "Hunt deleted!"
         redirect_to hunts_path
       end
     end
