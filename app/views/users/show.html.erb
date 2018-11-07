@@ -19,6 +19,7 @@ Date: <%= participation.hunt.date_time.strftime("%A %b %d %Y") %>
 <hr>
 <% end %>
 
-
-<%= link_to 'Edit your profile', edit_user_path%> |
-<%= link_to 'Delete your profile', user_path(@user) ,method: :delete, data: {confirm: "Are you sure you want to delete this profile This cannot be undone!"} %>
+<% if current_user[:id] == @user.id %>
+  <%= link_to 'Edit your profile', edit_user_path%> |
+  <%= link_to 'Delete your profile', user_path(@user) ,method: :delete, data: {confirm: "Are you sure you want to delete this profile This cannot be undone!"} %>
+<% end %>
