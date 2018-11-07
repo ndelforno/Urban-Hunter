@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", function(event) {
 
-  var mymap = L.map('mapid')
+  var mymap = L.map('mapid');
   var address = document.getElementById("address");
   var addressText = address.innerText;
 
