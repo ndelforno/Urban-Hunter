@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_11_06_211541) do
+ActiveRecord::Schema.define(version: 2018_11_08_181331) do
 
   create_table "categories", force: :cascade do |t|
     t.string "name"
@@ -44,6 +44,7 @@ ActiveRecord::Schema.define(version: 2018_11_06_211541) do
     t.datetime "updated_at", null: false
     t.datetime "hunt_date"
     t.datetime "hunt_time"
+    t.integer "max_participants"
   end
 
   create_table "participations", force: :cascade do |t|

@@ -37,7 +37,8 @@ end
     category: Category.all.sample,
     difficulty_level: rand(1..3),
     hunt_time: Time.now.utc - 15.hours + rand(12).hours,
-    hunt_date: Time.now.utc + rand(30).days
+    hunt_date: Time.now.utc + rand(30).days,
+    max_participants: 20
   )
   # puts hunt.inspect
   # hunt.save!
