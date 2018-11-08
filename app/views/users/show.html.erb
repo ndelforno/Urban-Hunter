@@ -3,12 +3,12 @@
 <% if current_user == @user %>
 <div class="private">
   <%= form_for(@user, url: users_profile_path) do |f| %>
-  <% if @user.public == false %>
-    <%= f.hidden_field :public, :value => true %>
-    <%= f.submit "Set to public", :class => 'set_private' %>
-  <% else %>
+  <% if @user.public == true %>
     <%= f.hidden_field :public, :value => false %>
     <%= f.submit "Set to private", :class => 'set_public' %>
+  <% else %>
+    <%= f.hidden_field :public, :value => true %>
+    <%= f.submit "Set to public", :class => 'set_private' %>
   <% end %>
   <% end %>
 </div>
