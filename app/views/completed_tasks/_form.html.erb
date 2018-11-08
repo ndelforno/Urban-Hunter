@@ -1,0 +1,16 @@
+<%= form_for ([hunt, task, completed_task]) do |f| %>
+
+  <div class="field">
+    <%= f.radio_button :completed, "Completed" %>
+    <%= f.label :completed, "Completed" %>
+  </div>
+
+  <div class="field">
+      <%= f.label :image  %>
+      <%= f.file_field :image %>
+  </div>
+
+  <div class="submit">
+    <%= f.submit 'Complete task' %>
+  </div>
+<% end %>
