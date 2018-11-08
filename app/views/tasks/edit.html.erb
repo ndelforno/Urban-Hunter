@@ -1,4 +1,30 @@
 <h1>Task#edit</h1>
 <p>Find me in app/views/task/edit.html.erb</p>
 
-<%= link_to ("Back to Task View",  task_) %>
+
+<div class="Task_form">
+
+  <%= form_for ([@hunt,@task]) do |t| %>
+      <div class="field">
+        <%= t.label :details %>
+        <%= t.text_field :details %>
+      </div>
+
+      <div class="field">
+        <%= t.label :address %>
+        <%= t.text_field :address %>
+      </div>
+
+      <div class="field">
+        <%= t.label :neighbourhood %>
+        <%= t.text_field :neighbourhood %>
+      </div>
+
+
+      <div class="field">
+          <%= t.submit %>
+      </div>
+
+    <% end %>
+
+  </div>

@@ -27,7 +27,7 @@
         <p> Details: <%= t.details %></p>
         <p> Address: <%= t.address  %></p>
         <p> Neighbourhood: <%= t.neighbourhood %> </p>
-        <li>  <%= link_to 'Edit Tasks' %> </li>
+        <li>  <%= link_to 'Edit Task', "/hunts/#{@hunt.id}/tasks/#{t.id}/edit" %> </li>
 
       </div>
    <% end  %>
@@ -42,5 +42,3 @@
   <p>posted by:  <%= comment.user.first_name %>   on   <%= comment.created_at.strftime("%B %d, %Y") %> <%= comment.created_at.strftime("%I:%M %p ") %></p>
   <p><%= comment.description %></p>
 <% end %>
-
-
