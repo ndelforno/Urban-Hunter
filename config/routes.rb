@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   get '/hunts/search', :as => 'hunt_search'
   patch '/users/:id/update_public' => "users#update_public", :as => 'users_profile'
 
+
   root "welcome#index"
 
 
