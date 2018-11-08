@@ -14,7 +14,7 @@
 <% @user.participations.each do |participation| %>
 <div class="hunt_joined">
 <p> <%= participation.hunt.name %> </p>
-Date: <%= participation.hunt.date_time.strftime("%A %b %d %Y") %>
+Date: <%= participation.hunt.hunt_date.strftime("%A %b %d %Y") %>
 </div>
 <hr>
 <% end %>
