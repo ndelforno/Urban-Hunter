@@ -34,14 +34,31 @@ class TasksController< ApplicationController
   def edit
     @task = Task.find(params[:id])
     @hunt = Hunt.find(params[:hunt_id])
+
   end
 
   def update
     @task = Task.find(params[:id])
     @hunt = Hunt.find(params[:hunt_id])
+    @task.details = params[:task][:details]
+    @task.neighbourhood = params[:task][:neighbourhood]
+    @task.address = params[:task][:address]
+
+    if @task.save
+      flash[:notice] = "Modified Task :  #{@task.details.upcase} !"
+      redirect_to("/hunts/#{@hunt.id}")
+    end
+
   end
 
-  def delete
+  def destroy
+    @task = Task.find(params[:id])
+    @hunt = Hunt.find(params[:hunt_id])
+    @task.destroy
+    if @task.destroy
+      flash[:notice] = "Task Deleted !"
+      redirect_to ("/hunts/#{@hunt.id}")
+    end
   end
 
 end
