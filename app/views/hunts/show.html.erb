@@ -38,7 +38,7 @@
         <p> Address: <span class = "taskaddress"> <%= t.address  %></span></p>
         <p> Neighbourhood: <%= t.neighbourhood %> </p>
         <% if current_user == @hunt.user %>
-        <li>  <%= link_to 'Edit Tasks' %> </li>
+        <li>  <%= link_to 'Edit Task', "/hunts/#{@hunt.id}/tasks/#{t.id}/edit" %> </li>
         <li><%= link_to 'Add a task', new_hunt_task_path(@hunt) %></li>
         <% end %>
       </div>

@@ -32,9 +32,13 @@ class TasksController< ApplicationController
   end
 
   def edit
+    @task = Task.find(params[:id])
+    @hunt = Hunt.find(params[:hunt_id])
   end
 
   def update
+    @task = Task.find(params[:id])
+    @hunt = Hunt.find(params[:hunt_id])
   end
 
   def delete
