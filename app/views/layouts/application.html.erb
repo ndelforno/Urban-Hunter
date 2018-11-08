@@ -35,7 +35,7 @@
         <% end %>
           <br>
           <div class="form">
-          <%= form_tag(hunt_search_path, method: :get) do %>
+          <%= form_tag(hunt_search_path) do %>
             <%= submit_tag 'Search Hunts', name: nil %>
             <%= text_field_tag :hunt, params[:hunt] %>
           <% end %>

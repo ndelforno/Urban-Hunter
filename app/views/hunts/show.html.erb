@@ -1,27 +1,34 @@
-
-<h3><%= link_to('Back to Welcome', root_path) %></h3>
 <h3><%= link_to('Back to Hunts', hunts_path) %></h3>
 
 <h1>Hunt: <%= @hunt.name %></h1>
 
   <br>
-<% if current_user == @hunt.user %>
-  <li><%= link_to('Edit Hunt', edit_hunt_path) %></li>
-  <li><%= link_to('Join Hunt', hunt_join_path, method: :post, data: {confirm: "Are you sure you want to join this hunt?"}) %></li>
+
+<% if current_user %>
+    <li><%= link_to('Join Hunt', hunt_join_path, method: :post, data: {confirm: "Are you sure you want to join this hunt?"}) %></li>
+      <% if current_user == @hunt.user %>
+        <li><%= link_to('Edit Hunt', edit_hunt_path) %></li>
+      <% end %>
 <% end %>
+
 <hr>
 <div>
   <p> Category: <%= @hunt.category.name %></p>
-  <p> Difficulty: <%= @hunt.difficulty_level %></p>
+  <p> Difficulty: <%= @hunt.difflevel_int_to_text %></p>
   <p>Created by: <%=@hunt.user.first_name%> <%=@hunt.user.last_name%></p>
   <p>Date of hunt: <%=@hunt.hunt_date.strftime("%v")%></p>
   <p>Time of hunt: <%=@hunt.hunt_time.strftime("%H:%M")%></p>
+  <p>Available spots: <%=@hunt.max_participants - @hunt.users.count%></p>
   <p>Participants to the hunt:</p>
   <% @hunt.users.each do |participant| %>
     <div class="hunt_participants">
       <li><%= participant.first_name%> <%= participant.last_name %>
-        <%if participant.id == current_user.id %>
-           | <%= link_to('Leave this hunt', hunt_unjoin_path, method: :post, data: {confirm: "Are you sure you want to leave this hunt?"})%>
+        <%if current_user %>
+          <%if participant.id == current_user.id %>
+            | <%= link_to('Leave this hunt', hunt_unjoin_path, method: :post, data: {confirm: "Are you sure you want to leave this hunt?"})%>
+          <% end %>
+        <% else %>
+          <% flash.now[:warning] = "You can see the hunt but not edit or join it!"%>
         <% end %></li>
     </div>
   <% end %>
