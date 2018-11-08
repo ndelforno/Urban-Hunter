@@ -1,10 +1,22 @@
 class HuntsController < ApplicationController
 
-    before_action :select_hunt, except: [:index, :new, :create]
+    before_action :select_hunt, except: [:index, :new, :create, :search]
     before_action :set_up_new, only: [:new, :create]
     before_action :categories_hunts, only: [:index, :new, :create, :edit, :update]
 
     def index
+    end
+
+    def search
+      if params[:hunt]
+        @hunts = Hunt.where("name like ?", "%#{params[:hunt]}%")
+        if @hunts.count > 0
+          flash[:notice] = "This search returned #{@hunts.count} hunt(s)."
+        end
+        if params[:hunt] == ""
+          flash[:notice] = "This search returned all hunts!"
+        end
+      end
     end
 
     def new
@@ -14,6 +26,28 @@ class HuntsController < ApplicationController
       @tasks = @hunt.tasks
       @comment = Comment.new
       @comments = @hunt.comments
+    end
+
+    def join
+      if(current_user)
+        if @hunt.users.include?(current_user)
+          flash[:alert] = "You cannot join the hunt twice!"
+        else
+          @hunt.users << current_user
+          flash[:notice] = "You have joined the hunt!"
+        end
+      else
+        flash[:alert] = "You need to log in to join a hunt!"
+      end
+      redirect_to hunt_path
+    end
+
+    def unjoin
+      if @hunt.users.include?(current_user)
+        @hunt.users.delete(current_user)
+        flash[:notice] = "You have left the hunt!"
+      end
+      redirect_to hunt_path
     end
 
     def create
@@ -26,7 +60,7 @@ class HuntsController < ApplicationController
       @category = Category.find_by(id: params[:category_id])
       if @hunt.save
         flash[:notice] = "Hunt added!"
-        redirect_to hunt_path(@hunt)
+        redirect_to new_hunt_task_path(@hunt)
       else
         # puts @hunt.errors.full_messages
         flash[:alert] = "Hunt not added!"
@@ -61,7 +95,7 @@ class HuntsController < ApplicationController
     def destroy
       @hunt.destroy
       if @hunt.destroy
-        flash[:notice] = "Restaurant deleted!"
+        flash[:notice] = "Hunt deleted!"
         redirect_to hunts_path
       end
     end

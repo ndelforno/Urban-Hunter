@@ -5,7 +5,6 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
-
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.4/dist/leaflet.css"
        integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
        crossorigin=""/>
@@ -29,12 +28,24 @@
         <% if current_user %>
           <li>Hello!    <%= link_to "#{current_user.first_name}", user_path(current_user) %></li>
           <li><%= link_to "Sign Out", session_path("purple"), :method => :delete %></li>
+          <li><%= link_to('Make your hunt !', new_hunt_path) %></li>
         <% else %>
           <li><%= link_to "Sign Up", new_user_path %></li>
-          <li><%= link_to "Log In", new_session_path %></li>
+          <li class="log_in"><%= link_to "Log In", new_session_path %></li>
         <% end %>
+          <br>
+          <div class="form">
+          <%= form_tag(hunt_search_path, method: :get) do %>
+            <%= submit_tag 'Search Hunts', name: nil %>
+            <%= text_field_tag :hunt, params[:hunt] %>
+          <% end %>
+          </div>
       </ul>
+    <% flash.each do |key, message| %>
+    <div class="flash-<%= key %>"><span class="error_message"><%= message %><span></div>
+    <% end %>
     </nav>
+     <%= render 'sessions/form' %>
     <%= yield %>
   </body>
 </html>

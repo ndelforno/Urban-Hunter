@@ -5,7 +5,7 @@
 <% @user.hunts.each do |hunt| %>
   <div class="hunt">
     <p> <%= hunt.name %> </p>
-    <p> Date: <%= hunt.date_time.strftime("%A %b %d %Y") %> </p>
+    <p> Date: <%= hunt.hunt_date.strftime("%A %b %d %Y") %> </p>
     <p> Participants: <%= hunt.participations.length %> </p>
   </div>
 <% end  %>
