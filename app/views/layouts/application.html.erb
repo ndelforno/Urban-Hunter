@@ -28,6 +28,7 @@
         <% if current_user %>
           <li>Hello!    <%= link_to "#{current_user.first_name}", user_path(current_user) %></li>
           <li><%= link_to "Sign Out", session_path("purple"), :method => :delete %></li>
+          <li><%= link_to('Make your hunt !', new_hunt_path) %></li>
         <% else %>
           <li><%= link_to "Sign Up", new_user_path %></li>
           <li class="log_in"><%= link_to "Log In", new_session_path %></li>
@@ -39,7 +40,7 @@
             <%= text_field_tag :hunt %>
           <% end %>
           </div>
-      </ul>  
+      </ul>
     <% flash.each do |key, message| %>
     <div class="flash-<%= key %>"><span class="error_message"><%= message %><span></div>
     <% end %>
