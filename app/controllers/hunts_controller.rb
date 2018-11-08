@@ -1,14 +1,21 @@
 class HuntsController < ApplicationController
 
-    before_action :select_hunt, except: [:index, :new, :create]
+    before_action :select_hunt, except: [:index, :new, :create, :search]
     before_action :set_up_new, only: [:new, :create]
     before_action :categories_hunts, only: [:index, :new, :create, :edit, :update]
 
     def index
+    end
+
+    def search
       if params[:hunt]
         @hunts = Hunt.where("name like ?", "%#{params[:hunt]}%")
-      else
-        @hunts = Hunt.all
+        if @hunts.count > 0
+          flash[:notice] = "This search returned #{@hunts.count} hunt(s)."
+        end
+        if params[:hunt] == ""
+          flash[:notice] = "This search returned all hunts!"
+        end
       end
     end
 
