@@ -1,11 +1,11 @@
 require 'test_helper'
 
 class UserTest < ActiveSupport::TestCase
+
   test "factory_must_be_valid" do
     user = build(:user)
 
     assert user.valid?
-
 
   end
 
