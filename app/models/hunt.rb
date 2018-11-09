@@ -6,8 +6,9 @@ class Hunt < ApplicationRecord
   has_many :tasks
   belongs_to :category
 
-  validates :name, :difficulty_level, :category, :hunt_time, :hunt_date, presence: true
-  validates :hunt_date, inclusion:{ in: (Date.today..Date.today+6.months)}
+  validates :name, :difficulty_level, :category, :hunt_time, :hunt_date, :max_participants, presence: true
+  # validates :hunt_date, inclusion:{ in: (Date.today-6.months..Date.today+6.months)}
+  # validates :hunt_time, inclusion:{ in: (8.hours..20.hours)}
   validates :max_participants, inclusion: { in: (1..20)}
 
   def difflevel_int_to_text
@@ -19,6 +20,17 @@ class Hunt < ApplicationRecord
     when 3
       return "Hard"
     end
+  end
+
+  def available_spots
+    return self.max_participants - self.users.count
+  end
+
+  def hunt_exists_on_that_day?
+    answer = []
+    my_created_hunts = self.user.hunts
+    answer << my_created_hunts.find_by(hunt_date: self.hunt_date)
+    answer.length > 0 ? true : false
   end
 
 end

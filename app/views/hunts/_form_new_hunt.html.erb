@@ -22,10 +22,10 @@
   </p></fieldset>
 
 <p>  <%= f.label :hunt_date %>
-      <%= f.date_field :hunt_date %></p>
+      <%= f.date_field :hunt_date, min: Date.tomorrow %></p>
 
 <p>  <%= f.label :hunt_time %>
-      <%= f.time_field :hunt_time %></p>
+      <%= f.time_field :hunt_time, step: 1800, min: "08:00:00", max: "20:00:00" %></p>
 
 <p>  <%= f.label(:max_participants)%>
       <%= f.number_field :max_participants, value: 20, min: 1, max: 20 %></p>

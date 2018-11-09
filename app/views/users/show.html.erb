@@ -1,24 +1,53 @@
 <h1><%= @user.full_name %></h1>
 <h2><%= @user.email %></h2>
 <h2>Completed Tasks: <%= @user.completed_tasks.length %></h2>
-<h2>Hunts created:</h2>
+
+<h2>Future Hunts created:</h2>
+
 <% @user.hunts.each do |hunt| %>
-  <div class="hunt">
-    <p> <%= hunt.name %> </p>
-    <p> Date: <%= hunt.hunt_date.strftime("%A %b %d %Y") %> </p>
-    <p> Participants: <%= hunt.participations.length %> </p>
-  </div>
+  <% if Time.now < hunt.hunt_date %>
+    <div class="hunt">
+      <p> <%=link_to("#{hunt.name}", hunt_path(hunt))%> </p>
+      <p> Date: <%= hunt.hunt_date.strftime("%A %b %d %Y") %> </p>
+      <p> Participants: <%= hunt.participations.length %> </p>
+      <p> Available spots: <%= hunt.available_spots %> </p>
+    </div>
+  <% end  %>
 <% end  %>
 
-<h2>Participations:</h2>
-<% @user.participations.each do |participation| %>
-<div class="hunt_joined">
-<p> <%= participation.hunt.name %> </p>
-Date: <%= participation.hunt.hunt_date.strftime("%A %b %d %Y") %>
-</div>
-<hr>
-<% end %>
+<h2>Past Hunts created:</h2>
+<% @user.hunts.each do |hunt| %>
+  <% if Time.now > hunt.hunt_date %>
+    <div class="hunt">
+      <p> <%=link_to("#{hunt.name}", hunt_path(hunt))%> </p>
+      <p> Date: <%= hunt.hunt_date.strftime("%A %b %d %Y") %> </p>
+      <p> Participants: <%= hunt.participations.length %> </p>
+      <p> Available spots: <%= hunt.available_spots %> </p>
+    </div>
+  <% end  %>
+<% end  %>
 
+    <h2>Participations in future Hunts:</h2>
+<% @user.participations.each do |participation| %>
+  <% if Time.now < participation.hunt.hunt_date %>
+    <div class="hunt_joined">
+      <p> <%= link_to("#{participation.hunt.name}", hunt_path(participation.hunt))  %> </p>
+      Date: <%= participation.hunt.hunt_date.strftime("%A %b %d %Y") %>
+    </div>
+  <% end %>
+<% end %>
+    <br>
+    <h2>Participations in past Hunts:</h2>
+<% @user.participations.each do |participation| %>
+  <% if Time.now > participation.hunt.hunt_date %>
+    <div class="hunt_joined">
+      <p> <%= link_to("#{participation.hunt.name}", hunt_path(participation.hunt))  %> </p>
+      Date: <%= participation.hunt.hunt_date.strftime("%A %b %d %Y") %>
+    </div>
+  <% end %>
+<% end %>
+<br>
+<hr>
 <% if current_user[:id] == @user.id %>
   <%= link_to 'Edit your profile', edit_user_path%> |
   <%= link_to 'Delete your profile', user_path(@user) ,method: :delete, data: {confirm: "Are you sure you want to delete this profile This cannot be undone!"} %>
