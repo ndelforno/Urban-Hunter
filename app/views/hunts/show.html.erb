@@ -18,7 +18,7 @@
   <p>Created by: <%= link_to "#{@hunt.user.full_name}", user_path(@hunt.user) %></p>
   <p>Date of hunt: <%=@hunt.hunt_date.strftime("%v")%></p>
   <p>Time of hunt: <%=@hunt.hunt_time.strftime("%H:%M")%></p>
-  <p>Available spots: <%=@hunt.max_participants - @hunt.users.count%></p>
+  <p>Available spots: <%=@hunt.available_spots%></p>
   <p>Participants to the hunt:</p>
   <% @hunt.users.each do |participant| %>
     <div class="hunt_participants">
