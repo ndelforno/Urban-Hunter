@@ -19,6 +19,7 @@ class HuntsController < ApplicationController
   def create
     @hunt.hunt_date = params[:hunt][:hunt_date]
     @hunt.user_id = session[:user_id]
+    @category = Category.find_by(id: params[:category_id])
     if @hunt.hunt_exists_on_that_day?
         params[:hunt] = nil
         flash.now[:alert] = "You cannot create more than 1 hunt per day!"
@@ -31,7 +32,6 @@ class HuntsController < ApplicationController
       @hunt.hunt_time = params[:hunt][:hunt_time]
       @hunt.max_participants = params[:hunt][:max_participants]
       @hunt.user_id = session[:user_id]
-      @category = Category.find_by(id: params[:category_id])
       if @hunt.save
         flash[:notice] = "Hunt added!"
         redirect_to hunt_path(@hunt)

@@ -31,11 +31,9 @@ class Hunt < ApplicationRecord
   end
 
   def hunt_exists_on_that_day?
-    puts "I'm here"
     answer = []
     my_created_hunts = self.user.hunts
     answer << my_created_hunts.find_by(hunt_date: self.hunt_date)
-    puts answer.inspect
     answer.nil? ? true : false
   end
 
