@@ -25,7 +25,7 @@
     <% @user.hunts.future_hunts.each do |hunt| %>
         <div class="hunt">
           <li> <%=link_to("#{hunt.name}", hunt_path(hunt))%> </li>
-          <p> Date: <%= hunt.hunt_date.strftime("%A %b %d %Y") %> </p>
+          <p> Date: <%= hunt.hunt_date.strftime("%A %b %d %Y") %> | In <%= ((hunt.hunt_date - DateTime.now)/1.day).round(0) %> days time </p>
           <p> Participants: <%= hunt.participations.length %> </p>
           <p> Available spots: <%= hunt.available_spots %> </p>
         </div>
@@ -44,27 +44,23 @@
     <% end  %>
   <% end  %>
 
-  <%if @user.participated_hunts.chronological_order.length > 0%>
+  <%if @user.participated_hunts.future_hunts.length > 0%>
     <h2>Participations in future Hunts:</h2>
-    <% @user.participated_hunts.chronological_order.each do |hunt| %>
-      <% if Time.now < hunt.hunt_date %>
-        <div class="hunt_joined">
-          <li> <%= link_to("#{hunt.name}", hunt_path(hunt))  %> </li>
-          Date: <%= hunt.hunt_date.strftime("%A %b %d %Y") %>
-        </div>
-      <% end %>
+    <% @user.participated_hunts.future_hunts.each do |hunt| %>
+      <div class="hunt_joined">
+        <li> <%= link_to("#{hunt.name}", hunt_path(hunt))  %> </li>
+        Date: <%= hunt.hunt_date.strftime("%A %b %d %Y")%> | In <%= ((hunt.hunt_date - DateTime.now)/1.day).round(0) %> days time </p>
+      </div>
     <% end %>
   <% end %>
       <br>
-  <%if @user.participated_hunts.chronological_order.length > 0%>
+  <%if @user.participated_hunts.past_hunts.length > 0%>
     <h2>Participations in past Hunts:</h2>
-    <% @user.participated_hunts.chronological_order.each do |hunt| %>
-      <% if Time.now > hunt.hunt_date %>
-        <div class="hunt_joined">
-          <li> <%= link_to("#{hunt.name}", hunt_path(hunt))  %> </li>
-          Date: <%= hunt.hunt_date.strftime("%A %b %d %Y") %>
-        </div>
-      <% end %>
+    <% @user.participated_hunts.past_hunts.each do |hunt| %>
+      <div class="hunt_joined">
+        <li> <%= link_to("#{hunt.name}", hunt_path(hunt))  %> </li>
+        Date: <%= hunt.hunt_date.strftime("%A %b %d %Y") %>
+      </div>
     <% end %>
   <% end %>
   <br>

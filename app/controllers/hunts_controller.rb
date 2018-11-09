@@ -75,7 +75,7 @@ class HuntsController < ApplicationController
   def search
     if params[:hunt]
       @hunts = Hunt.where("name like ?", "%#{params[:hunt]}%")
-      if @hunts.count > 0
+      if @hunts.count >= 0
         flash.now[:notice] = "This search returned #{@hunts.count} hunt(s)."
       elsif params[:hunt] == ""
         flash.now[:notice] = "This search returned all hunts!"
