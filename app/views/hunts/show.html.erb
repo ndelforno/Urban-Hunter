@@ -22,7 +22,7 @@
   <p>Participants to the hunt:</p>
   <% @hunt.users.each do |participant| %>
     <div class="hunt_participants">
-      <li><%= link_to "#{participant.full_name}", user_path(@hunt.user) %>
+      <li><%= link_to "#{participant.full_name}", user_path(participant) %>
         <%if current_user %>
           <%if participant.id == current_user.id %>
             | <%= link_to('Leave this hunt', hunt_unjoin_path, method: :post, data: {confirm: "Are you sure you want to leave this hunt?"})%>
