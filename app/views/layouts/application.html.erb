@@ -23,16 +23,22 @@
 
   <body>
     <nav class="navigation_bar">
-      <ul class="nav_1">
-        <li><%= link_to "Home", root_path %></li>
-        <% if current_user %>
-          <li>Hello!    <%= link_to "#{current_user.first_name}", user_path(current_user) %></li>
-          <li><%= link_to "Sign Out", session_path("purple"), :method => :delete %></li>
-          <li><%= link_to('Make your hunt !', new_hunt_path) %></li>
-        <% else %>
-          <li><%= link_to "Sign Up", new_user_path %></li>
-          <li class="log_in"><%= link_to "Log In", new_session_path %></li>
-        <% end %>
+      <div class="nav_1">
+        <img src="https://mbtskoudsalg.com/images/raccoon-logo-png.png" class="logo" width="100" length="100">
+        <%= link_to "Urban Hunter", root_path, :class => "logo_text" %>
+      </div>
+      <div class="nav_2">
+        <ul class="user_options">
+          <% if current_user %>
+            <li>Hello!    <%= link_to "#{current_user.first_name}", user_path(current_user) %></li>
+            <li><%= link_to "Sign Out", session_path("purple"), :method => :delete %></li>
+            <li><%= link_to('Make your hunt !', new_hunt_path) %></li>
+          <% else %>
+            <li><%= link_to "Sign Up", new_user_path %></li>
+            <li class="log_in"><%= link_to "Log In", new_session_path %></li>
+          <% end %>
+        </ul>
+      </div>
           <br>
           <div class="form">
           <%= form_tag(hunt_search_path) do %>
@@ -47,5 +53,6 @@
     </nav>
      <%= render 'sessions/form' %>
     <%= yield %>
+    </nav>
   </body>
 </html>
