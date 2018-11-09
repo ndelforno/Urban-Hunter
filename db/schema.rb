@@ -12,10 +12,8 @@
 
 ActiveRecord::Schema.define(version: 2018_11_08_181331) do
 
-
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
-
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
