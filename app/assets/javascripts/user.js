@@ -17,7 +17,7 @@ if(document.querySelector(".sign_in")){
     sign_up_form.style.display = "none";
 
 
-}) ;
+}); 
 
 
 
