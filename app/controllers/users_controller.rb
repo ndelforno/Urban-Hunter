@@ -27,6 +27,14 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
   end
 
+  def update_public
+    @user = User.find(params[:id])
+    @user.public = params[:user][:public]
+    if @user.save
+      redirect_to user_path(current_user)
+    end
+  end
+
   def update
     @user = User.find(params[:id])
     @user.first_name = params[:user][:first_name]

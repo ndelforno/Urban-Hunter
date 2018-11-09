@@ -10,6 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+
 ActiveRecord::Schema.define(version: 2018_11_08_154117) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
@@ -65,6 +66,7 @@ ActiveRecord::Schema.define(version: 2018_11_08_154117) do
     t.datetime "updated_at", null: false
     t.datetime "hunt_date"
     t.datetime "hunt_time"
+    t.integer "max_participants"
   end
 
   create_table "participations", force: :cascade do |t|
@@ -90,6 +92,7 @@ ActiveRecord::Schema.define(version: 2018_11_08_154117) do
     t.string "password_digest"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean "public", default: true
   end
 
 end
