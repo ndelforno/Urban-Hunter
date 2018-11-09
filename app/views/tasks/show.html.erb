@@ -2,17 +2,27 @@
 <h2>Locations:</h2>
 <p id="address"><%= @task.address %></p>
 
+<%= link_to 'Back to hunt', hunt_path(@task.hunt) %>
+
 <% if @task.completed_by_user?(current_user) == true %>
+  <div class="completed_task">
   <p> Task completed !</p>
-<% else %>
-  <div class = "Completed_task_form">
-    <%= render partial: "completed_tasks/form", locals: { hunt: @hunt, task: @task, completed_task: @completed_task } %>
+  <% proof_image = current_user.completed_tasks.find_by(task_id: @task.id) %>
+  <%= image_tag proof_image.image %>
   </div>
+
+<% else %>
+  <% if @task.hunt.users.include?(current_user) %>
+    <div class = "Completed_task_form">
+      <h3>Did you complete this task ?</h3>
+      <%= render partial: "completed_tasks/form", locals: { hunt: @hunt, task: @task, completed_task: @completed_task } %>
+    </div>
+  <% end %>
 <% end %>
 
 
 <br>
-<br>
+<br >
 
 <div id="mapid">
 </div>

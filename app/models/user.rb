@@ -2,7 +2,7 @@ class User < ApplicationRecord
   has_secure_password
 
   has_many :participations
-  has_many :hunts, through: :participations
+  has_many :participated_hunts, through: :participations, source: :hunt
   has_many :completed_tasks
   has_many :tasks, through: :completed_tasks
   has_many :hunts #owned_hunt
