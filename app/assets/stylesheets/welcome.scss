@@ -2,31 +2,33 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-body {
-  margin: 0;
-}
-
-.nav_1 {
-  background-color: #06552D
-}
-
-.logo {
-
-}
-
-.logo_text {
-  text-decoration: none;
+.hero {
+  background-color: blue;
+  padding: 10px;
   color: white;
-  font-size: 100px;
-  display: inline-block;
-  text-shadow:
-    4px 4px 0 #000,
-  -2px -2px 0 #000,
-   2px -2px 0 #000,
-   -2px 2px 0 #000,
-    2px 2px 0 #000;
 }
 
+.circles {
+  background-color: red;
+  text-align: center;
+  .circle {
+    display: inline-block;
+    width: 100px;
+    background-color: yellow;
+    height: 100px;
+    border-radius: 50%;
+    margin-left: 20px;
+    margin-right: 20px;
+    a {
+      text-decoration: none;
+      position: relative;
+      top: 40px;
+    }
+    @media screen and (max-width: 600px) {
+        width: 45%;
+    }
+  }
+}
 
 .intro{
   text-align: center;
