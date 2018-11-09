@@ -1,20 +1,24 @@
 class SessionsController < ApplicationController
   def new
+     @user = User.new
     flash[:previous_page] = request.referer
   end
 
   def create
-    user = User.find_by(email: params[:email])
-    if user && user.authenticate(params[:password])
-      session[:user_id] = user.id
+    @user = User.new
+    @user = User.find_by(email: params[:email])
+    if @user && @user.authenticate(params[:password])
+      session[:user_id] = @user.id
       if flash[:previous_page] && flash[:previous_page] != :login
         redirect_to flash[:previous_page], notice: "Logged in!"
       else
-        redirect_to root_path, notice: "Logged in!"
+        redirect_to root_path, notice: "Logged in as #{@user.first_name} #{@user.last_name}!"
       end
+
     else
-      flash.now[:notice] = "Login Failed"
-      render "new"
+       flash[:notice] = "Login Failed"
+
+      redirect_to request.referer
     end
   end
 

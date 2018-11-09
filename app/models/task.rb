@@ -8,7 +8,6 @@ class Task < ApplicationRecord
   def completed_by_user?(user)
     @tasks_completed = CompletedTask.all
     @tasks_completed.each do |completed|
-      p user.id == completed.user_id && self.id == completed.task_id
       if (user.id == completed.user_id && self.id == completed.task_id)
         return true
       end

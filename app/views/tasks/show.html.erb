@@ -4,7 +4,7 @@
 
 <%= link_to 'Back to hunt', hunt_path(@task.hunt) %>
 
-<% if @task.completed_by_user?(current_user) == true %>
+<% if current_user && @task.completed_by_user?(current_user) == true %>
   <div class="completed_task">
   <p> Task completed !</p>
   <% proof_image = current_user.completed_tasks.find_by(task_id: @task.id) %>
