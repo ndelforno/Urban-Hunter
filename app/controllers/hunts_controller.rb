@@ -17,13 +17,13 @@ class HuntsController < ApplicationController
   end
 
   def create
-      @hunt.hunt_date = params[:hunt][:hunt_date]
-      @hunt.user_id = session[:user_id]
-      if @hunt.hunt_exists_on_that_day?
-          params[:hunt] = nil
-          flash.now[:alert] = "You cannot create more than 1 hunt per day!"
-          render :new
-      else
+    @hunt.hunt_date = params[:hunt][:hunt_date]
+    @hunt.user_id = session[:user_id]
+    if @hunt.hunt_exists_on_that_day?
+        params[:hunt] = nil
+        flash.now[:alert] = "You cannot create more than 1 hunt per day!"
+        render :new
+    else
       @hunt.name = params[:hunt][:name]
       @hunt.difficulty_level = params[:difficulty_level]
       @hunt.category_id = params[:category_id]

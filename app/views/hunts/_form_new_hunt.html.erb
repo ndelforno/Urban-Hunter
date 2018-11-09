@@ -1,5 +1,14 @@
 <%= form_for (hunt) do |f| %>
 
+    <%  if @hunt.errors.any? %>
+        <%= flash.now[:notice] = "Please check all the fields !" %>
+        <h3> Errors: </h3>
+        <ul>
+            <%  @hunt.errors.full_messages.each do |message| %>
+              <li> <%= message %> </li>
+            <% end  %>
+        </ul>
+    <% end %>
 
 <p>  <%= f.label :name %>
   <%= f.text_field :name %> </p>

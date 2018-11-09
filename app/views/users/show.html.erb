@@ -1,57 +1,91 @@
 <h1><%= @user.full_name %></h1>
-<h2><%= @user.email %></h2>
-<h2>Completed Tasks: <%= @user.completed_tasks.length %></h2>
 
-<%if @user.hunts.future_hunts.length > 0 %>
-<h2>Future Hunts created:</h2>
-  <% @user.hunts.future_hunts.each do |hunt| %>
-      <div class="hunt">
-        <li> <%=link_to("#{hunt.name}", hunt_path(hunt))%> </li>
-        <p> Date: <%= hunt.hunt_date.strftime("%A %b %d %Y") %> </p>
-        <p> Participants: <%= hunt.participations.length %> </p>
-        <p> Available spots: <%= hunt.available_spots %> </p>
-      </div>
+<% if current_user == @user %>
+  <div class="private">
+  <%= form_for(@user, url: users_profile_path) do |f| %>
+  <% if @user.public == true %>
+    <%= f.hidden_field :public, :value => false %>
+    <%= f.submit "Set to private", :class => 'set_public' %>
+  <% else %>
+    <%= f.hidden_field :public, :value => true %>
+    <%= f.submit "Set to public", :class => 'set_private' %>
+  <% end %>
+  <% end %>
+  </div>
+<% end %>
+
+<% if @user.public == false && current_user != @user %>
+  <p> this profile is private! </p>
+<% else %>
+  <h2><%= @user.email %></h2>
+  <h2>Completed Tasks: <%= @user.completed_tasks.length %></h2>
+
+  <%if @user.hunts.future_hunts.length > 0 %>
+  <h2>Future Hunts created:</h2>
+    <% @user.hunts.future_hunts.each do |hunt| %>
+        <div class="hunt">
+          <li> <%=link_to("#{hunt.name}", hunt_path(hunt))%> </li>
+          <p> Date: <%= hunt.hunt_date.strftime("%A %b %d %Y") %> </p>
+          <p> Participants: <%= hunt.participations.length %> </p>
+          <p> Available spots: <%= hunt.available_spots %> </p>
+        </div>
+    <% end  %>
   <% end  %>
-<% end  %>
 
-<%if @user.hunts.past_hunts.length > 0%>
-  <h2>Past Hunts created:</h2>
-  <% @user.hunts.past_hunts.each do |hunt| %>
-      <div class="hunt">
-        <li> <%=link_to("#{hunt.name}", hunt_path(hunt))%> </li>
-        <p> Date: <%= hunt.hunt_date.strftime("%A %b %d %Y") %> </p>
-        <p> Participants: <%= hunt.participations.length %> </p>
-        <p> Available spots: <%= hunt.available_spots %> </p>
-      </div>
+  <%if @user.hunts.past_hunts.length > 0%>
+    <h2>Past Hunts created:</h2>
+    <% @user.hunts.past_hunts.each do |hunt| %>
+        <div class="hunt">
+          <li> <%=link_to("#{hunt.name}", hunt_path(hunt))%> </li>
+          <p> Date: <%= hunt.hunt_date.strftime("%A %b %d %Y") %> </p>
+          <p> Participants: <%= hunt.participations.length %> </p>
+          <p> Available spots: <%= hunt.available_spots %> </p>
+        </div>
+    <% end  %>
   <% end  %>
-<% end  %>
 
-<%if @user.participated_hunts.chronological_order.length > 0%>
-  <h2>Participations in future Hunts:</h2>
-  <% @user.participated_hunts.chronological_order.each do |hunt| %>
-    <% if Time.now < hunt.hunt_date %>
-      <div class="hunt_joined">
-        <li> <%= link_to("#{hunt.name}", hunt_path(hunt))  %> </li>
-        Date: <%= hunt.hunt_date.strftime("%A %b %d %Y") %>
-      </div>
+  <%if @user.participated_hunts.chronological_order.length > 0%>
+    <h2>Participations in future Hunts:</h2>
+    <% @user.participated_hunts.chronological_order.each do |hunt| %>
+      <% if Time.now < hunt.hunt_date %>
+        <div class="hunt_joined">
+          <li> <%= link_to("#{hunt.name}", hunt_path(hunt))  %> </li>
+          Date: <%= hunt.hunt_date.strftime("%A %b %d %Y") %>
+        </div>
+      <% end %>
     <% end %>
   <% end %>
-<% end %>
-    <br>
-<%if @user.participated_hunts.chronological_order.length > 0%>
-  <h2>Participations in past Hunts:</h2>
-  <% @user.participated_hunts.chronological_order.each do |hunt| %>
-    <% if Time.now > hunt.hunt_date %>
-      <div class="hunt_joined">
-        <li> <%= link_to("#{hunt.name}", hunt_path(hunt))  %> </li>
-        Date: <%= hunt.hunt_date.strftime("%A %b %d %Y") %>
-      </div>
+      <br>
+  <%if @user.participated_hunts.chronological_order.length > 0%>
+    <h2>Participations in past Hunts:</h2>
+    <% @user.participated_hunts.chronological_order.each do |hunt| %>
+      <% if Time.now > hunt.hunt_date %>
+        <div class="hunt_joined">
+          <li> <%= link_to("#{hunt.name}", hunt_path(hunt))  %> </li>
+          Date: <%= hunt.hunt_date.strftime("%A %b %d %Y") %>
+        </div>
+      <% end %>
     <% end %>
   <% end %>
-<% end %>
-<br>
-<hr>
-<% if current_user[:id] == @user.id %>
-  <%= link_to 'Edit your profile', edit_user_path%> |
-  <%= link_to 'Delete your profile', user_path(@user) ,method: :delete, data: {confirm: "Are you sure you want to delete this profile This cannot be undone!"} %>
+  <br>
+    <h2>Tasks completed:</h2>
+    <% @completed_tasks.each do |task| %>
+      <div class="completed_task">
+        <p> <%= task.task.details %> </p>
+        <% if task.proof  %>
+          <p><%= task.proof %></p>
+        <% end  %>
+        <div class="image_proof">
+        <% if task.image.attached? %>
+          <%= image_tag(task.image) %>
+        <% end %>
+        </div>
+      </div>
+      <hr>
+    <% end %>
+  <hr>
+  <% if current_user[:id] == @user.id %>
+    <%= link_to 'Edit your profile', edit_user_path%> |
+    <%= link_to 'Delete your profile', user_path(@user) ,method: :delete, data: {confirm: "Are you sure you want to delete this profile This cannot be undone!"} %>
+  <% end %>
 <% end %>

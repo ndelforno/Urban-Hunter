@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
-    @user_hunts = @user.hunts.order(hunt_date: :desc)
+    @completed_tasks = @user.completed_tasks
   end
 
   def new
@@ -25,6 +25,14 @@ class UsersController < ApplicationController
 
   def edit
     @user = User.find(params[:id])
+  end
+
+  def update_public
+    @user = User.find(params[:id])
+    @user.public = params[:user][:public]
+    if @user.save
+      redirect_to user_path(current_user)
+    end
   end
 
   def update
