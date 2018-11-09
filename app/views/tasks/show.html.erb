@@ -2,7 +2,7 @@
 <h2>Locations:</h2>
 <p id="address"><%= @task.address %></p>
 
-<% if @task.completed_by_user?(current_user) %>
+<% if @task.completed_by_user?(current_user) == true %>
   <p> Task completed !</p>
 <% else %>
   <div class = "Completed_task_form">
