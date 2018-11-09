@@ -16,8 +16,7 @@ class SessionsController < ApplicationController
       end
 
     else
-       flash[:notice] = "Login Failed"
-
+      flash[:notice] = "Login Failed"
       redirect_to request.referer
     end
   end
