@@ -34,7 +34,7 @@ class HuntsController < ApplicationController
       @hunt.user_id = session[:user_id]
       if @hunt.save
         flash[:notice] = "Hunt added!"
-        redirect_to hunt_path(@hunt)
+        redirect_to new_hunt_task_path(@hunt)
       else
         # puts @hunt.errors.full_messages
         params[:hunt] = nil
@@ -75,7 +75,7 @@ class HuntsController < ApplicationController
   def search
     if params[:hunt]
       @hunts = Hunt.where("name like ?", "%#{params[:hunt]}%")
-      if @hunts.count > 0
+      if @hunts.count >= 0
         flash.now[:notice] = "This search returned #{@hunts.count} hunt(s)."
       elsif params[:hunt] == ""
         flash.now[:notice] = "This search returned all hunts!"
