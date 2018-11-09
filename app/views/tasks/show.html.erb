@@ -2,6 +2,17 @@
 <h2>Locations:</h2>
 <p id="address"><%= @task.address %></p>
 
-<div id="mapid">
+<% if @task.completed_by_user?(current_user) == true %>
+  <p> Task completed !</p>
+<% else %>
+  <div class = "Completed_task_form">
+    <%= render partial: "completed_tasks/form", locals: { hunt: @hunt, task: @task, completed_task: @completed_task } %>
+  </div>
+<% end %>
 
+
+<br>
+<br>
+
+<div id="mapid">
 </div>

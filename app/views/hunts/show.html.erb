@@ -44,7 +44,7 @@
 
    <% @tasks.each do |t| %>
       <div class = "task"  >
-        <p> Details: <%= t.details %></p>
+        <p> Details: <%= link_to "#{t.details}", "/hunts/#{@hunt.id}/tasks/#{t.id}" %></p>
         <p> Address: <span class = "taskaddress"> <%= t.address  %></span></p>
         <p> Neighbourhood: <%= t.neighbourhood %> </p>
         <% if current_user == @hunt.user %>

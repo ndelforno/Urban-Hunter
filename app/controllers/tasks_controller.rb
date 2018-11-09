@@ -29,6 +29,8 @@ class TasksController< ApplicationController
 
   def show
     @task = Task.find(params[:id])
+    @completed_task = CompletedTask.new
+    @hunt = Hunt.find(params[:hunt_id])
   end
 
   def edit

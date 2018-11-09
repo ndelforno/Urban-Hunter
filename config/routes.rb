@@ -10,7 +10,9 @@ Rails.application.routes.draw do
 
 
   resources :hunts do
-    resources :tasks
+    resources :tasks do
+      resources :completed_tasks, only: [:new, :create]
+    end
     resources :comments
   end
 
