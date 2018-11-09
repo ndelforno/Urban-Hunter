@@ -1,11 +1,7 @@
 class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
-    # @user_hunts = @user.hunts.order(hunt_date: :desc)
-    # @user_participations = @user.participations.order(id: :desc)
-    # <% @articles.joins(:comments).order('comments.created_at desc').group('articles.title').each do |article| %>
-    # <% @user.participations.each do |participation| %>
-    
+    @user_hunts = @user.hunts.order(hunt_date: :desc)
   end
 
   def new

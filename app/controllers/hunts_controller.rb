@@ -20,6 +20,7 @@ class HuntsController < ApplicationController
       @hunt.hunt_date = params[:hunt][:hunt_date]
       @hunt.user_id = session[:user_id]
       if @hunt.hunt_exists_on_that_day?
+          params[:hunt] = nil
           flash.now[:alert] = "You cannot create more than 1 hunt per day!"
           render :new
       else
@@ -37,7 +38,6 @@ class HuntsController < ApplicationController
       else
         # puts @hunt.errors.full_messages
         params[:hunt] = nil
-        flash.now[:alert] = "Hunt not added! Fields to check: #{@hunt.errors.full_messages}"
         render :new
       end
     end
@@ -60,7 +60,6 @@ class HuntsController < ApplicationController
       redirect_to hunt_path(@hunt)
     else
       # puts @hunt.errors.full_messages
-      flash.now[:alert] = "Hunt not updated! Fields to check: #{@hunt.errors.full_messages}"
       render :edit
     end
   end

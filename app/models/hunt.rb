@@ -6,6 +6,10 @@ class Hunt < ApplicationRecord
   has_many :tasks
   belongs_to :category
 
+  scope :chronological_order, -> {order(hunt_date: :desc)}
+  scope :future_hunts, -> {where("#{Date.today} < hunt_date").order(hunt_date: :desc)}
+  scope :past_hunts, -> {where("#{Date.today} > hunt_date").order(hunt_date: :desc)}
+
   validates :name, :difficulty_level, :category, :hunt_time, :hunt_date, :max_participants, presence: true
   # validates :hunt_date, inclusion:{ in: (Date.today-6.months..Date.today+6.months)}
   # validates :hunt_time, inclusion:{ in: (8.hours..20.hours)}
@@ -27,10 +31,12 @@ class Hunt < ApplicationRecord
   end
 
   def hunt_exists_on_that_day?
+    puts "I'm here"
     answer = []
     my_created_hunts = self.user.hunts
     answer << my_created_hunts.find_by(hunt_date: self.hunt_date)
-    answer.length > 0 ? true : false
+    puts answer.inspect
+    answer.nil? ? true : false
   end
 
 end
