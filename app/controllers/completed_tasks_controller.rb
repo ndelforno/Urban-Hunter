@@ -13,6 +13,9 @@ class CompletedTasksController < ApplicationController
 
     @completed_task.user = current_user
     @completed_task.task = @task
+    @completed_task.proof = params[:completed_task][:proof]
+    @completed_task.image = params[:completed_task][:image]
+
     @completed_task.completed = true
     if @completed_task.save
       redirect_to("/hunts/#{@task.hunt_id}/tasks/#{@task.id}")

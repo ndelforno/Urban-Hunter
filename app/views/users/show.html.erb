@@ -19,7 +19,25 @@ Date: <%= participation.hunt.hunt_date.strftime("%A %b %d %Y") %>
 <hr>
 <% end %>
 
+<h2>Tasks completed:</h2>
+<% @completed_tasks.each do |task| %>
+  <div class="completed_task">
+    <p> <%= task.task.details %> </p>
+    <% if task.proof  %>
+    <p><%= task.proof %></p>
+    <% end  %>
+    <div class="image_proof">
+    <% if task.image.attached? %>
+    <%= image_tag(task.image) %>
+    <% end %>
+    </div>
+  </div>
+  <hr>
+<% end %>
+
 <% if current_user[:id] == @user.id %>
   <%= link_to 'Edit your profile', edit_user_path%> |
   <%= link_to 'Delete your profile', user_path(@user) ,method: :delete, data: {confirm: "Are you sure you want to delete this profile This cannot be undone!"} %>
 <% end %>
+
+<%= console %>
