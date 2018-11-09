@@ -1,0 +1,31 @@
+
+<div class="sign_up_form">
+  <div class="close_sign_up">
+    <%= button_tag "x" %>
+  </div>
+  <%= form_for sign_up do |f| %>
+    <div class="">
+      <%= f.label :first_name %>
+      <%= f.text_field :first_name %>
+    </div>
+    <div class="">
+      <%= f.label :last_name %>
+      <%= f.text_field :last_name %>
+    </div>
+    <div class="">
+      <%= f.label :email %>
+      <%= f.text_field :email %>
+    </div>
+    <div class="">
+      <%= f.label :password %>
+      <%= f.password_field :password %>
+    </div>
+    <div class="">
+      <%= f.label :password_confirmation %>
+      <%= f.password_field :password_confirmation %>
+    </div>
+    <div class="">
+      <%= f.submit "Submit" %>
+    </div>
+  <% end %>
+</div>

@@ -11,6 +11,10 @@ def require_login
   end
 end
 
-helper_method :current_user
+def sign_up
+  @user = User.new
+end
 
+helper_method :current_user
+helper_method :sign_up
 end

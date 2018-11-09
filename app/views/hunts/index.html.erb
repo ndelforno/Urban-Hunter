@@ -18,7 +18,7 @@
             <h3>Date: <%=hunt.hunt_date.strftime("%v")%></h3>
             <h3>Time: <%=hunt.hunt_time.strftime("%H:%M")%></h3>
             <h3>Difficulty: <%=hunt.difflevel_int_to_text%></h3>
-            <h3>Available spots: <%=hunt.max_participants - hunt.users.count%></h3>
+            <h3>Available spots: <%=hunt.available_spots%></h3>
           </li>
           <br>
       </ul>

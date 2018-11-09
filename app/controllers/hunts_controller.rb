@@ -17,33 +17,37 @@ class HuntsController < ApplicationController
   end
 
   def create
-    @hunt.name = params[:hunt][:name]
-    @hunt.difficulty_level = params[:difficulty_level]
-    @hunt.category_id = params[:category_id]
     @hunt.hunt_date = params[:hunt][:hunt_date]
-    @hunt.hunt_time = params[:hunt][:hunt_time]
-    @hunt.max_participants = params[:hunt][:max_participants]
     @hunt.user_id = session[:user_id]
-    @category = Category.find_by(id: params[:category_id])
-    if @hunt.save
-      flash.now[:notice] = "Hunt added!"
-      redirect_to hunt_path(@hunt)
+    if @hunt.hunt_exists_on_that_day?
+        params[:hunt] = nil
+        flash.now[:alert] = "You cannot create more than 1 hunt per day!"
+        render :new
     else
-      # puts @hunt.errors.full_messages
-      params[:hunt] = nil
-      flash.now[:alert] = "Hunt not added!"
-      render :new
+      @hunt.name = params[:hunt][:name]
+      @hunt.difficulty_level = params[:difficulty_level]
+      @hunt.category_id = params[:category_id]
+      @hunt.hunt_date = params[:hunt][:hunt_date]
+      @hunt.hunt_time = params[:hunt][:hunt_time]
+      @hunt.max_participants = params[:hunt][:max_participants]
+      @hunt.user_id = session[:user_id]
+      @category = Category.find_by(id: params[:category_id])
+      if @hunt.save
+        flash[:notice] = "Hunt added!"
+        redirect_to hunt_path(@hunt)
+      else
+        # puts @hunt.errors.full_messages
+        params[:hunt] = nil
+        render :new
+      end
     end
   end
 
   def edit
     @category = Category.find_by(id: params[:category_id])
-    # puts @category.inspect
   end
 
   def update
-    # puts @hunt.errors.full_messages
-    # puts @hunt.inspect
     @hunt.name = params[:hunt][:name]
     @hunt.difficulty_level = params[:difficulty_level]
     @hunt.category_id = params[:category_id]
@@ -52,11 +56,10 @@ class HuntsController < ApplicationController
     @hunt.max_participants = params[:hunt][:max_participants]
     @category = Category.find_by(id: params[:category_id])
     if @hunt.save
-      flash.now[:notice] = "Hunt updated!"
+      flash[:notice] = "Hunt updated!"
       redirect_to hunt_path(@hunt)
     else
       # puts @hunt.errors.full_messages
-      flash.now[:alert] = "Hunt not updated!"
       render :edit
     end
   end
@@ -64,7 +67,7 @@ class HuntsController < ApplicationController
   def destroy
     @hunt.destroy
     if @hunt.destroy
-      flash.now[:notice] = "Hunt deleted!"
+      flash[:notice] = "Hunt deleted!"
       redirect_to hunts_path
     end
   end
@@ -81,15 +84,15 @@ class HuntsController < ApplicationController
   end
 
   def join
-    if current_user
+    if @hunt.available_spots == 0
+      flash[:notice] = "This Hunt is fully booked"
+    else
       if @hunt.users.include?(current_user)
         flash[:alert] = "You cannot join the hunt twice!"
       else
         @hunt.users << current_user
         flash[:notice] = "You have joined the hunt!"
       end
-    else
-      flash[:alert] = "You need to log in to join a hunt!"
     end
     redirect_to hunt_path
   end
@@ -97,7 +100,7 @@ class HuntsController < ApplicationController
   def unjoin
     if @hunt.users.include?(current_user)
       @hunt.users.delete(current_user)
-      flash.now[:notice] = "You have left the hunt!"
+      flash[:notice] = "You have left the hunt!"
     end
     redirect_to hunt_path
   end
