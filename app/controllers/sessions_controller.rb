@@ -13,8 +13,8 @@ class SessionsController < ApplicationController
         redirect_to root_path, notice: "Logged in!"
       end
     else
-      flash.now[:notice] = "Login Failed"
-      render "new"
+      flash[:notice] = "Login Failed"
+      redirect_to request.referer
     end
   end
 
