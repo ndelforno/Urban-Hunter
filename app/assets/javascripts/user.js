@@ -13,7 +13,7 @@ if(document.querySelector(".sign_in")){
   });
 
   close.addEventListener('click', function(){
-    event.preventDefault
+    event.preventDefault;
     sign_up_form.style.display = "none";
 
 
