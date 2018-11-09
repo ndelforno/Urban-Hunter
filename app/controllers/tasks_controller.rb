@@ -20,8 +20,8 @@ class TasksController< ApplicationController
         if @task.save
 
           redirect_to new_hunt_task_path
-        # else
-        #   redirect_to category_hunt
+        else
+         render 'tasks/new'
         end
 
 
@@ -49,6 +49,9 @@ class TasksController< ApplicationController
     if @task.save
       flash[:notice] = "Modified Task :  #{@task.details.upcase} !"
       redirect_to("/hunts/#{@hunt.id}")
+    else
+      flash.now[:notice] = "Task not Updated !"
+      render :new
     end
 
   end
