@@ -4,6 +4,16 @@
 <div class="Task_form">
 
   <%= form_for([@hunt, @task]) do |t| %>
+  <%  if @task.errors.any? %>
+      <%= flash.now[:notice] = "Please check all the fields !" %>
+      <h3> Errors: </h3>
+      <ul>
+          <%  @task.errors.full_messages.each do |message| %>
+            <li> <%= message %> </li>
+          <% end  %>
+      </ul>
+  <% end %>
+
       <div class="field">
         <%= t.label :details %>
         <%= t.text_field :details %>

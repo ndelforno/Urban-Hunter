@@ -4,5 +4,7 @@ class Task < ApplicationRecord
   belongs_to :hunt
 
   validates :details, presence: true
+  validates :neighbourhood, presence: true
+  validates :address, presence: true
 
 end

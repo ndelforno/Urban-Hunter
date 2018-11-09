@@ -3,7 +3,21 @@
 <br>
 <%=  link_to('Back to Hunts', hunts_path) %>
 <br>
-<%= @hunt.errors.full_messages.first if @hunt.errors.any? %>
+
+<%  if @hunt.errors.any? %>
+    <%= flash.now[:notice] = "Please check all the fields !" %>
+    <h3> Errors: </h3>
+    <ul>
+        <%  @hunt.errors.full_messages.each do |message| %>
+          <li> <%= message %> </li>
+        <% end  %>
+    </ul>
+<% end %>
+
+
+
+
+
 <hr>
 
 

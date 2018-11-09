@@ -1,15 +1,18 @@
 <h1>User#new</h1>
 
 
-<% if @user.errors.any? %>
-  <% @user.errors.messages.each do |error| %>
-    <li><%= error %></li>
-  <% end %>
-<% end %>
-
 
 <div class="sign_up_form">
   <%= form_for @user do |f| %>
+  <%  if @user.errors.any? %>
+      <%= flash.now[:notice] = "Please check all the fields !" %>
+      <h3> Errors: </h3>
+      <ul>
+          <%  @user.errors.full_messages.each do |message| %>
+            <li> <%= message %> </li>
+          <% end  %>
+      </ul>
+  <% end %>
     <div class="field">
       <%= f.label :first_name %>
       <%= f.text_field :first_name %>
