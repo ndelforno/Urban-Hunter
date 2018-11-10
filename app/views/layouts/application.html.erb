@@ -29,20 +29,24 @@
         <div class="top_center">
           <%= link_to "Urban Hunter", root_path, :class => "logo_text" %>
         </div>
-
         <div class="top_right">
           <ul class="user_options">
             <% if current_user %>
-              <li>Hello!    <%= link_to "#{current_user.first_name}", user_path(current_user) %></li>
-              <li><%= link_to "Sign Out", session_path("purple"), :method => :delete %></li>
-              <li><%= link_to('Make your hunt !', new_hunt_path) %></li>
+              <div class="logged_in">
+                <li>Hello!    <%= link_to "#{current_user.first_name}", user_path(current_user) %></li>
+                <li><%= link_to "Sign Out", session_path("purple"), :method => :delete %></li>
+                <li><%= link_to('Make your hunt !', new_hunt_path) %></li>
+              </div>
             <% else %>
-              <li class="sign_in"><%= link_to "Sign Up", new_user_path %></li>
-              <li class="log_in"><%= link_to "Log In", new_session_path %></li>
+              <div class="logged_out">
+                <li class="sign_in"><%= link_to "Sign Up", new_user_path %></li>
+                <li class="log_in"><%= link_to "Log In", new_session_path %></li>
+              </div>
             <% end %>
           </ul>
         </div>
       </div>
+
 
       <div class="nav_2">
         <div class="search_form">
@@ -61,7 +65,14 @@
       <%= yield %>
     </main>
     <footer>
-      <p>copyright</p>
+      <div class="info_nav">
+        <ul class="info_list">
+          <li>Made by Nicholas, Constantine, Mamun and Kevin ©</li>
+          <li>Contact us</li>
+          <li>Careers</li>
+          <li>Happy Hunting!</li>
+        </ul>
+      </div>
     </footer>
   </body>
 </html>

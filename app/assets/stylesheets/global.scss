@@ -7,8 +7,8 @@ body {
 .top_left, .top_center, .top_right {
   display: inline-block;
   @media screen and (max-width: 600px) {
-      display: block;
-      text-align: center;
+    display: block;
+    text-align: center;
   }
 }
 
@@ -29,17 +29,27 @@ body {
        -2px 2px 0 #000,
         2px 2px 0 #000;
       @media screen and (max-width: 1000px) {
-        font-size: 30px;
+      font-size: 30px;
       }
     }
   }
   .top_right {
-    float: right;
+    text-align: right;
+    @media screen and (max-width: 600px) {
+      text-align: center;
+    }
+     .user_options {
+      .logged_in {
+      }
+      .logged_out {
+      }
+    }
   }
 }
 
 
 .user_options {
+  padding-left: 0px;
   li {
     list-style-type: none;
     display:inline-block;
@@ -52,7 +62,6 @@ body {
     font-size: 35px;
     margin: 10px;
     color: white;
-    padding: 15px;
     border-radius: 15px;
     @media screen and (max-width: 600px) {
       font-size: 10px;
@@ -70,4 +79,16 @@ a{
 h1{
   color: #09aa66;
   text-align: center;
+}
+
+footer {
+  padding: 30px;
+  background-color: #06552D;
+}
+
+.info_nav {
+  .info_list {
+    list-style-type: none;
+    text-align: center;
+  }
 }

@@ -8,10 +8,23 @@
   color: white;
 }
 
-.circles {
+.welcome_section  {
+  margin-left: 20%;
+  margin-right: 20%;
+  background-color: #a2e295;
+  .welcome_content {
+    padding: 20px;
+      a, h1, h2, p {
+        color: white;
+    }
+  }
+}
+
+
+.categories {
   // background-color: red;
   text-align: center;
-  .circle {
+  .category {
     display: inline-block;
     width: 100px;
     background-color: grey;
@@ -32,20 +45,38 @@
 }
 
 .intro{
-  text-align: center;
+  text-align: left;
+  .intro_text {
+    h2, p {
+      text-align: left;
+    }
+  }
 }
+      
 
 .description {
-  text-align: center;
+  text-align: left;
+  .description_text {
+    h2, p {
+      text-align: left;
+    }
+  }
 }
 
 .images{
   text-align: center;
+  .image{
+    display: inline;
+    margin-left: 20px;
+    margin-right: 20px;
+  }
+  img {
+    border-radius: 15px;
+    border-color: black;
+    border-style: solid;
+  }
 }
 
-.image{
-  display: inline;
-}
 
 .categories{
   text-align: center;
@@ -61,5 +92,5 @@
 }
 
 #hunt{
-  border: 1px solid black;  
+  border: 1px solid black;
 }
