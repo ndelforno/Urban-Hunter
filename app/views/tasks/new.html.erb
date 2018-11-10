@@ -3,7 +3,7 @@
 
 <div class="Task_form">
 
-  <%= form_for([@hunt, @task]) do |t| %>
+  <%= form_for([@hunt, @task]) do |f| %>
   <%  if @task.errors.any? %>
       <%= flash.now[:notice] = "Please check all the fields !" %>
       <h3> Errors: </h3>
@@ -15,29 +15,22 @@
   <% end %>
 
       <div class="field">
-        <%= t.label :details %>
-        <%= t.text_field :details %>
+        <h3><%= f.label :details %></h3>
+        <%= f.text_field :details %>
       </div>
 
       <div class="field">
-        <%= t.label :address %>
-        <%= t.text_field :address %>
+        <h3><%= f.label :address %></h3>
+        <%= f.text_field :address %>
       </div>
 
       <div class="field">
-        <%= t.label :neighbourhood %>
-        <%= t.text_field :neighbourhood %>
+        <h3><%= f.label :neighbourhood %></h3>
+        <%= f.text_field :neighbourhood %>
       </div>
 
-
-      <div class="field">
-          <%= t.submit %>
-      </div>
+      <h3><%= f.submit 'add task' %></h3>
 
     <% end %>
     <%= link_to "No more tasks", hunt_path(@hunt) %>
-
-
-
-
 </div>

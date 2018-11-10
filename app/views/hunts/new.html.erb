@@ -1,6 +1,7 @@
-<h1>Add a new hunt...</h1>
+<h1>Create your hunt:</h1>
 
+<div class="back_link">
 <%=  link_to("Back to Hunts", hunts_path) %>
-<hr>
+</div>
 
 <%= render 'hunts/form_new_hunt', hunt: @hunt, categories: @categories %>

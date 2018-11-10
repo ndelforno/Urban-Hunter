@@ -1,10 +1,10 @@
 
 <%= form_for ([hunt, comment]) do |f| %>
   <div class="field">
-    <%= f.label :description %>
+    <h3><%= f.label :comment %></h3>
     <%= f.text_field :description %>
   </div>
   <div class="field">
-    <%= f.submit 'Submit' %>
+    <h3><%= f.submit 'Post your comment' %></h3>
   </div>
 <% end %>

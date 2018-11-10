@@ -4,16 +4,14 @@
   </div>
   <%= form_tag sessions_path, :method => :post do %>
 
-  <div class="field">
-    <%= label_tag :email %>
+  <div class="email_field">
+    <h3><%= label_tag :email %></h3>
     <%= text_field_tag :email %>
   </div>
-  <div class="field">
-    <%= label_tag :password %>
+  <div class="password_field">
+    <h3><%= label_tag :password %></h3>
     <%= password_field_tag :password %>
   </div>
-  <div class="field">
-    <%= submit_tag "Login" %>
-  </div>
+    <h3><%= submit_tag "Login" %></h3>
   <% end %>
 </div>

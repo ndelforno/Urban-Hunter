@@ -10,8 +10,8 @@
         </ul>
     <% end %>
 
-<p>  <%= f.label :name %>
-  <%= f.text_field :name %> </p>
+<h3> <%= f.label :name %> </h3>
+  <%= f.text_field :name %>
 
   <p><fieldset><legend>Difficulty_level</legend>
     <%= radio_button_tag(:difficulty_level, "1") %>
@@ -30,14 +30,14 @@
     <% end %>
   </p></fieldset>
 
-<p>  <%= f.label :hunt_date %>
-      <%= f.date_field :hunt_date, min: Date.tomorrow %></p>
+<h3>  <%= f.label :hunt_date %></h3>
+      <%= f.date_field :hunt_date, min: Date.tomorrow %>
 
-<p>  <%= f.label :hunt_time %>
-      <%= f.time_field :hunt_time, step: 1800, min: "08:00:00", max: "20:00:00" %></p>
+<h3>  <%= f.label :hunt_time %></h3>
+      <%= f.time_field :hunt_time, step: 1800, min: "08:00:00", max: "20:00:00" %>
 
-<p>  <%= f.label(:max_participants)%>
-      <%= f.number_field :max_participants, value: 20, min: 1, max: 20 %></p>
+<h3>  <%= f.label(:max_participants)%></h3>
+      <%= f.number_field :max_participants, value: 20, min: 1, max: 20 %>
 
 <p> <%= f.submit "ADD"%></p>
 <% end %>
