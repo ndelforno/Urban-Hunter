@@ -45,11 +45,22 @@
 }
 
 .intro{
-  text-align: center;
+  text-align: left;
+  .intro_text {
+    h2, p {
+      text-align: left;
+    }
+  }
 }
+      
 
 .description {
-  text-align: center;
+  text-align: left;
+  .description_text {
+    h2, p {
+      text-align: left;
+    }
+  }
 }
 
 .images{
