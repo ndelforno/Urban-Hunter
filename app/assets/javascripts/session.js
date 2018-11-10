@@ -1,9 +1,9 @@
 document.addEventListener('DOMContentLoaded', function(){
 
 if(document.querySelector(".log_in")){
-  var sign_up_form = document.querySelector(".sign_up_form")
+  var sign_up_form = document.querySelector(".signup")
   var login = document.querySelector(".log_in");
-  var log_in_form = document.querySelector(".log_in_form");
+  var log_in_form = document.querySelector(".signin");
   var close = document.querySelector(".close_log_in")
 
   login.addEventListener('click', function(event){

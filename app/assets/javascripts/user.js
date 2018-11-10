@@ -2,9 +2,9 @@ document.addEventListener('DOMContentLoaded', function(){
 
 if(document.querySelector(".sign_in")){
   var signin = document.querySelector(".sign_in");
-  var sign_up_form = document.querySelector(".sign_up_form");
+  var sign_up_form = document.querySelector(".signup");
   var close = document.querySelector(".close_sign_up");
-  var log_in_form = document.querySelector(".log_in_form");
+  var log_in_form = document.querySelector(".signin");
 
   signin.addEventListener('click', function(event){
     event.preventDefault();

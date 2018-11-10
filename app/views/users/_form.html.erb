@@ -1,8 +1,9 @@
-
-<div class="sign_up_form">
+<form class="signup" action="index.html" method="post">
+  
   <div class="close_sign_up">
     <%= button_tag "x" %>
   </div>
+
   <%= form_for sign_up do |f| %>
     <div class="">
       <%= f.label :first_name %>
@@ -28,4 +29,4 @@
       <%= f.submit "Submit" %>
     </div>
   <% end %>
-</div>
+</form>

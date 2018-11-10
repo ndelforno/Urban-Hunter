@@ -1,19 +1,19 @@
-<div class="log_in_form">
+<form class="signin">
   <div class="close_log_in">
     <%= button_tag "x" %>
   </div>
-  <%= form_tag sessions_path, :method => :post do %>
 
-  <div class="field">
-    <%= label_tag :email %>
-    <%= text_field_tag :email %>
-  </div>
-  <div class="field">
-    <%= label_tag :password %>
-    <%= password_field_tag :password %>
-  </div>
-  <div class="field">
-    <%= submit_tag "Login" %>
-  </div>
+  <%= form_tag sessions_path, :method => :post do %>
+    <div class="field">
+      <h3><%= label_tag :email %></h3>
+      <%= text_field_tag :email %>
+    </div>
+    <div class="field">
+      <h3><%= label_tag :password %></h3>
+      <%= password_field_tag :password %>
+    </div>
+    <div class="submit" id= "login_button">
+      <%= submit_tag "Login" %>
+    </div>
   <% end %>
-</div>
+</form>
