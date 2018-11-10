@@ -1,6 +1,7 @@
 
 body {
   margin: 0;
+  font-family: "Avenir Next", "Avenir", sans-serif;
 }
 
 .top_left, .top_center, .top_right {
@@ -57,4 +58,16 @@ body {
       font-size: 10px;
     }
   }
+}
+
+a{
+  text-decoration: none;
+  color: #09aa66;
+  font-weight: bold;
+}
+
+
+h1{
+  color: #09aa66;
+  text-align: center;
 }
