@@ -17,26 +17,6 @@
 <% if @user.public == false && current_user != @user %>
     <p> this profile is private! </p>
 <% else %>
-    <h2><%= @user.email %></h2>
-    <h2>Completed Tasks: <%= @user.completed_tasks.length %></h2>
-    <h2>Hunts created:</h2>
-      <% @user.hunts.each do |hunt| %>
-        <div class="hunt">
-          <p> <%= link_to "#{hunt.name}", hunt_path(hunt) %> </p>
-          <p> Date: <%= hunt.hunt_date.strftime("%A %b %d %Y") %> </p>
-          <p> Participants: <%= hunt.participations.length %> </p>
-        </div>
-      <% end  %>
-
-    <h2>Participations:</h2>
-    <% @user.participations.each do |participation| %>
-      <div class="hunt_joined">
-      <p> <%= participation.hunt.name %> </p>
-      Date: <%= participation.hunt.hunt_date.strftime("%A %b %d %Y") %>
-      </div>
-      <hr>
-    <% end %>
-
   <h2><%= @user.email %></h2>
   <h2>Completed Tasks: <%= @user.completed_tasks.length %></h2>
 
@@ -59,7 +39,6 @@
           <li> <%=link_to("#{hunt.name}", hunt_path(hunt))%> </li>
           <p> Date: <%= hunt.hunt_date.strftime("%A %b %d %Y") %> </p>
           <p> Participants: <%= hunt.participations.length %> </p>
-          <p> Available spots: <%= hunt.available_spots %> </p>
         </div>
     <% end  %>
   <% end  %>
@@ -68,7 +47,7 @@
     <h2>Participations in future Hunts:</h2>
     <% @user.participated_hunts.future_hunts.each do |hunt| %>
       <div class="hunt_joined">
-        <li> <%= link_to("#{hunt.name}", hunt_path(hunt))  %> </li>
+        <li> <%= link_to("#{hunt.name}", hunt_path(hunt))%> </li>
         Date: <%= hunt.hunt_date.strftime("%A %b %d %Y")%> | In <%= ((hunt.hunt_date - DateTime.now)/1.day).round(0) %> days time </p>
       </div>
     <% end %>
