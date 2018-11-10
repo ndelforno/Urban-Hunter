@@ -1,49 +1,23 @@
+
+#email, #password, #user_first_name, #user_last_name, #user_email, #user_password, #user_password_confirmation{
+  width: 100%;
+  padding: 10px;
+  height: 45px;
+
+  border: 1px solid #09aa66;
+  border-radius: 3px;
+  box-sizing: border-box;
+
+  font-size: 18px;
+  color: #09aa66;
+  font-family: "Avenir Next", "Avenir", sans-serif;
+  text-align: left;
+
+  outline: none;
+}
+
+
 .log_in_form {
-  display: none;
-  // background-color: #fefefe;
-  // margin: 5px auto; /* 15% from the top and centered */
-  // border: 1px solid #888;
-  // width: 80%; /* Could be more or less, depending on screen size */
-  // border-radius: 10px;
-  // text-align: center;
-  // padding: 8px;
-}
-
-#email{
-  width: 100%;
-  padding: 10px;
-  height: 45px;
-
-  border: 1px solid #09aa66;
-  border-radius: 3px;
-  box-sizing: border-box;
-
-  font-size: 18px;
-  color: #09aa66;
-  font-family: "Avenir Next", "Avenir", sans-serif;
-  text-align: left;
-
-  outline: none;
-}
-
-#password{
-  width: 100%;
-  padding: 10px;
-  height: 45px;
-
-  border: 1px solid #09aa66;
-  border-radius: 3px;
-  box-sizing: border-box;
-
-  font-size: 18px;
-  color: #09aa66;
-  font-family: "Avenir Next", "Avenir", sans-serif;
-  text-align: left;
-
-  outline: none;
-}
-
-form {
   font-family: "Avenir Next", "Avenir", sans-serif;
   border: 1px solid #09aa66;
   text-align: center;
@@ -81,4 +55,22 @@ button{
 
 .close_log_in{
   text-align: right;
+}
+
+input[type=submit]{
+  width: 100%;
+  padding: 10px;
+
+  border: 0;
+  background: #09aa66;
+  border-radius: 3px;
+
+  font-family: "Avenir Next", "Avenir", sans-serif;
+  font-size: 16px;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: #fff;
+	-webkit-font-smoothing: antialiased;
+
+  cursor: pointer;
 }
