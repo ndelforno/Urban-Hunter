@@ -1,8 +1,8 @@
 <h1>Edit <span><%=@hunt.name%><span></h1>
-<%=  link_to("Back to Hunt view", hunt_path(@hunt)) %>
-<br>
-<%=  link_to('Back to Hunts', hunts_path) %>
-<br>
+  <div class="links_nav">
+    <%=  link_to("Back to Hunt view", hunt_path(@hunt)) %>
+    <%=  link_to('Back to Hunts', hunts_path) %>
+  </div>
 
 <%  if @hunt.errors.any? %>
     <%= flash.now[:notice] = "Please check all the fields !" %>
@@ -17,8 +17,6 @@
 
 
 
-
-<hr>
 
 
 <%= render 'hunts/form_new_hunt', hunt: @hunt, category: @category, categories: @categories %>

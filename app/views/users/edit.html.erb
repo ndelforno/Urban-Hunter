@@ -1,4 +1,4 @@
-<h1>User#edit</h1>
+<h1>Edit your profile</h1>
 
 <%= form_for @user do |f| %>
 
@@ -13,16 +13,16 @@
 <% end %>
 
   <div class="field">
-    <%= f.label :first_name %>
+    <h3><%= f.label :first_name %></h3>
     <%= f.text_field :first_name %>
   </div>
 
   <div class="field">
-    <%= f.label :last_name %>
+    <h3><%= f.label :last_name %></h3>
     <%= f.text_field :last_name %>
   </div>
 
   <div class="field">
-    <%= f.submit %>
+    <h3><%= f.submit %></h3>
   </div>
 <% end %>
