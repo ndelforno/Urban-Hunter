@@ -2,7 +2,7 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.new_hunt {
+.new_hunt, .edit_hunt {
   font-family: "Avenir Next", "Avenir", sans-serif;
   border: 1px solid #09aa66;
   text-align: center;
@@ -42,8 +42,10 @@ legend{
   font-weight: bold;
 }
 
-.back_link{
+.back_link,.links_nav{
   text-align: center;
 }
+
+
 
 #mapid_all { height: 300px; }

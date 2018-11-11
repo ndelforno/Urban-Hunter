@@ -1,6 +1,4 @@
-<h1>Task#edit</h1>
-<p>Find me in app/views/task/edit.html.erb</p>
-
+<h1>Edit <%= @task.details %> </h1>
 
 <div class="Task_form">
 
@@ -16,23 +14,23 @@
   <% end %>
 
       <div class="field">
-        <%= t.label :details %>
+        <h3><%= t.label :details %></h3>
         <%= t.text_field :details %>
       </div>
 
       <div class="field">
-        <%= t.label :address %>
+        <h3><%= t.label :address %></h3>
         <%= t.text_field :address %>
       </div>
 
       <div class="field">
-        <%= t.label :neighbourhood %>
+        <h3><%= t.label :neighbourhood %></h3>
         <%= t.text_field :neighbourhood %>
       </div>
 
 
       <div class="field">
-          <%= t.submit %>
+        <h3><%= t.submit %></h3>
       </div>
 
     <% end %>
