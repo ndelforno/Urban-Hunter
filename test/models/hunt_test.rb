@@ -30,7 +30,7 @@ class HuntTest < ActiveSupport::TestCase
     hunt2.category_id = category.id
     hunt2.users << user
 
-    p hunt2
+    hunt2
 
 
     actual = hunt2.hunt_exists_on_that_day?
