@@ -19,7 +19,31 @@
   a {
     color: rgb(137, 214, 229);
   }
+
 }
+
+
+
+.error_css{
+
+    font-family: "Avenir Next", "Avenir", sans-serif;
+    color: red;
+    font-weight: bold;
+    // border: 5px solid red;
+
+    text-align: center;
+
+    ul{
+      font-family: "Avenir Next", "Avenir", sans-serif;
+      color: red;
+      text-align: center;
+    }
+
+
+    }
+
+
+
 
 #task_details, #task_address, #task_neighbourhood{
   width: 100%;

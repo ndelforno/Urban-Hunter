@@ -3,15 +3,17 @@
 <div class="Task_form">
 
   <%= form_for ([@hunt,@task]) do |t| %>
-  <%  if @task.errors.any? %>
-      <%= flash.now[:notice] = "Please check all the fields !" %>
-      <h3> Errors: </h3>
-      <ul>
-          <%  @task.errors.full_messages.each do |message| %>
-            <li> <%= message %> </li>
-          <% end  %>
-      </ul>
-  <% end %>
+  <div class="error_css">
+      <%  if @task.errors.any? %>
+          <h2> Errors ! </h2>
+
+          <ul>
+              <%  @task.errors.full_messages.each do |message| %>
+                <li> <%= message %> </li>
+              <% end  %>
+          </ul>
+      <% end %>
+  </div>
 
       <div class="field">
         <h3><%= t.label :details %></h3>

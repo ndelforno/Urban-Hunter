@@ -1,14 +1,17 @@
 <%= form_for (hunt) do |f| %>
 
+
+<div class="error_css">
     <%  if @hunt.errors.any? %>
-        <%= flash.now[:notice] = "Please check all the fields !" %>
-        <h3> Errors: </h3>
+        <h2> Errors ! </h2>
+
         <ul>
             <%  @hunt.errors.full_messages.each do |message| %>
               <li> <%= message %> </li>
             <% end  %>
         </ul>
     <% end %>
+</div>
 
 <h3> <%= f.label :name %> </h3>
   <%= f.text_field :name %>

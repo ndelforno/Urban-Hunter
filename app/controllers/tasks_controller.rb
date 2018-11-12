@@ -50,7 +50,7 @@ class TasksController< ApplicationController
       flash[:notice] = "Modified Task :  #{@task.details.upcase} !"
       redirect_to("/hunts/#{@hunt.id}")
     else
-      flash.now[:notice] = "Task not Updated !"
+      # flash.now[:notice] = "Task not Updated !"
       render :new
     end
 
@@ -61,7 +61,8 @@ class TasksController< ApplicationController
     @hunt = Hunt.find(params[:hunt_id])
     @task.destroy
     if @task.destroy
-      flash[:notice] = "Task Deleted !"
+
+      flash[:notice] = "Task  #{@task.details.upcase} Deleted !"
       redirect_to ("/hunts/#{@hunt.id}")
     end
   end
