@@ -1,18 +1,22 @@
+
 <h3><%= link_to('Back to Hunts', hunts_path) %></h3>
 
-<h1>Hunt: <%= @hunt.name %></h1>
+<h1><%= @hunt.name %></h1>
 
-  <br>
-
+<div class = "hunt">
 <% if current_user %>
-    <li><%= link_to('Join Hunt', hunt_join_path, method: :post, data: {confirm: "Are you sure you want to join this hunt?"}) %></li>
+    <div class="join_hunt">
+      <%= link_to('Join Hunt', hunt_join_path, method: :post, data: {confirm: "Are you sure you want to join this hunt?"}) %>
+    </div>
       <% if current_user == @hunt.user %>
-        <li><%= link_to('Edit Hunt', edit_hunt_path) %></li>
+      <div class="edit_hunt_button">
+        <%= link_to('Edit Hunt', edit_hunt_path) %>
+      </div>
       <% end %>
+
 <% end %>
 
-<hr>
-<div>
+
   <p> Category: <%= @hunt.category.name %></p>
   <p> Difficulty: <%= @hunt.difflevel_int_to_text %></p>
   <p>Created by: <%= link_to "#{@hunt.user.full_name}", user_path(@hunt.user) %></p>
@@ -36,23 +40,24 @@
 
 
 
-<h2>... Available Tasks ...</h2>
-<% if current_user == @hunt.user %>
-    <h2> <%= link_to 'Add New Task', new_hunt_task_path(@hunt) %></h2>
-<% end %>
-<hr>
+<h2>Tasks :</h2>
+  <div class="tasks">
+  <% if current_user == @hunt.user %>
+      <h2> <%= link_to 'Add New Task', new_hunt_task_path(@hunt) %></h2>
+  <% end %>
 
-   <% @tasks.each do |t| %>
-      <div class = "task"  >
-        <p> Details: <%= link_to "#{t.details}", "/hunts/#{@hunt.id}/tasks/#{t.id}" %></p>
-        <p> Address: <span class = "taskaddress"> <%= t.address  %></span></p>
-        <p> Neighbourhood: <%= t.neighbourhood %> </p>
-        <% if current_user == @hunt.user %>
-        <li> <%= link_to 'Edit Task', "/hunts/#{@hunt.id}/tasks/#{t.id}/edit" %> </li>
-        <li><%= link_to 'Delete Task', "/hunts/#{@hunt.id}/tasks/#{t.id}", method: :delete %></li>
-        <% end %>
-      </div>
-   <% end  %>
+     <% @tasks.each do |t| %>
+        <div class = "task"  >
+          <p> Details: <%= link_to "#{t.details}", "/hunts/#{@hunt.id}/tasks/#{t.id}" %></p>
+          <p> Address: <span class = "taskaddress"> <%= t.address  %></span></p>
+          <p> Neighbourhood: <%= t.neighbourhood %> </p>
+          <% if current_user == @hunt.user %>
+          <li> <%= link_to 'Edit Task', "/hunts/#{@hunt.id}/tasks/#{t.id}/edit" %> </li>
+          <li><%= link_to 'Delete Task', "/hunts/#{@hunt.id}/tasks/#{t.id}", method: :delete %></li>
+          <% end %>
+        </div>
+     <% end  %>
+  </div>
 
 
 
