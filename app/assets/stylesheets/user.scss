@@ -3,7 +3,7 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 .sign_up_form, .edit_user {
   font-family: "Avenir Next", "Avenir", sans-serif;
-  border: 1px solid #09aa66;
+  border: 1px solid #96dbe8;
   text-align: center;
   display: none;
   width: 350px;
@@ -17,6 +17,7 @@
   z-index: 10;
   background-color: white;
   left: 40%;
+  bottom: 5%;
 }
 
 .edit_user{
@@ -32,7 +33,7 @@
 
 button{
   border: 0;
-  background: #09aa66;
+  background: #96dbe8;
   border-radius: 3px;
 
   font-family: "Avenir Next", "Avenir", sans-serif;

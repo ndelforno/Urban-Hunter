@@ -10,7 +10,7 @@
 
 .intro {
   grid-column: 2/4;
-  border-style: solid;
+  border-style: solid white;
   border-radius: 25px;
   margin: 10px;
   background-color: rgba(255, 255, 255, 0.5);
@@ -32,7 +32,7 @@
 .description {
   grid-row: 2/3;
   grid-column: 2/4;
-  border-style: solid;
+  border-style: solid white;
   border-radius: 25px;
   margin: 10px;
   background-color: rgba(255, 255, 255, 0.5);
@@ -73,7 +73,7 @@
     border-radius: 50%;
     margin-left: 50px;
     margin-right: 50px;
-    border: solid 5px black;
+    border: solid 5px white;
     a {
       text-decoration: none;
       position: relative;

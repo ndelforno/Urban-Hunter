@@ -7,7 +7,7 @@
 
 .Task_form{
   font-family: "Avenir Next", "Avenir", sans-serif;
-  border: 1px solid #09aa66;
+  border: 1px solid #96dbe8;
   text-align: center;
   width: 350px;
   margin: 50px auto 50px auto;
@@ -16,13 +16,16 @@
   border-radius: 7px;
   box-shadow: 0 2px 5px #000;
   box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+  a {
+    color: rgb(137, 214, 229);
+  }
 }
 
 #task_details, #task_address, #task_neighbourhood{
   width: 100%;
   padding: 10px;
 
-  border: 1px solid #09aa66;
+  border: 1px solid #96dbe8;
   border-radius: 3px;
   box-sizing: border-box;
 
