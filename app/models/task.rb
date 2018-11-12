@@ -4,6 +4,8 @@ class Task < ApplicationRecord
   belongs_to :hunt
 
   validates :details, presence: true
+  validates :address, presence: true
+  validates :neighbourhood, presence: true
 
   def completed_by_user?(user)
     @tasks_completed = CompletedTask.all
