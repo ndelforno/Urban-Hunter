@@ -4,6 +4,7 @@
     <title>UrbanHunter</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
+    <%= include_gon %>
 
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.4/dist/leaflet.css"
        integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
@@ -54,7 +55,51 @@
           <%= submit_tag 'Search Hunts', name: nil %> <%= text_field_tag :hunt, params[:hunt] %>
         <% end %>
         </div>
+        <br>
       </div>
+
+      <div id="mySidenav" class="sidenav">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+        <a href="#">About</a>
+        <a href="#">Services</a>
+        <a href="#">Clients</a>
+        <a href="#">Contact</a>
+
+        <h2>First 5 hunts:</h2>
+        <div class = "firsthunt"
+          <li><%=link_to("#{@future_hunts_first.name}", hunt_path(@future_hunts_first))%> hunt starts in:</li>
+        </div>
+
+
+        <div id="clockdiv">
+          <div>
+            <span class="days"></span>
+            <div class="smalltext">Days</div>
+          </div>
+          <div>
+            <span class="hours"></span>
+            <div class="smalltext">Hrs</div>
+          </div>
+          <div>
+            <span class="minutes"></span>
+            <div class="smalltext">Min</div>
+          </div>
+          <div>
+            <span class="seconds"></span>
+            <div class="smalltext">Sec</div>
+          </div>
+        </div>
+
+      <div class = "first_5">
+        <div class = "five">
+          <% @future_hunts_five.each do |hunt| %>
+             <li><%=link_to("#{hunt.name}", hunt_path(hunt))%></li>
+          <% end %>
+        </div>
+      </div>
+      </div>
+
+      <span style="font-size:30px;cursor:pointer" onclick="openNav()">☰ open</span>
 
     <main>
       <% flash.each do |key, message| %>
@@ -68,11 +113,12 @@
       <div class="info_nav">
         <ul class="info_list">
           <li>Made by Nicholas, Constantine, Mamun and Kevin ©</li>
-          <li>Contact us</li>
-          <li>Careers</li>
+          <li><%= link_to('Contact us', contact_us_path) %></li>
+          <li><%= link_to('Careers', careers_path) %></li>
           <li>Happy Hunting!</li>
         </ul>
       </div>
     </footer>
   </body>
+<script src="assets/welcome.js"></script>
 </html>

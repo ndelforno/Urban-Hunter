@@ -52,7 +52,7 @@
     }
   }
 }
-      
+
 
 .description {
   text-align: left;
@@ -93,4 +93,56 @@
 
 #hunt{
   border: 1px solid black;
+}
+
+body{
+    text-align: center;
+    // background: #00ECB9;
+  font-family: sans-serif;
+  font-weight: 100;
+}
+
+h1{
+  color: #396;
+  font-weight: 100;
+  font-size: 40px;
+  margin: 40px 0px 20px;
+}
+
+#clockdiv{
+    font-family: sans-serif;
+    color: #fff;
+    display: inline-block;
+    font-weight: 100;
+    text-align: center;
+    font-size: 30px;
+}
+
+#clockdiv > div{
+    padding: 3px;
+    border-radius: 3px;
+    background: #00BF96;
+    display: inline-block;
+}
+
+#clockdiv div > span{
+    padding: 5px;
+    border-radius: 3px;
+    background: #00816A;
+    display: inline-block;
+}
+
+.smalltext{
+    padding-top: 1px;
+    font-size: 16px;
+}
+
+.firsthunt, .first_5, .five > li {
+    padding: 5px;
+}
+
+.team > li {
+    padding: 15px;
+    display: block;
+    text-align: left;
 }

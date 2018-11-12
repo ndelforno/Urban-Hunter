@@ -4,7 +4,8 @@ Rails.application.routes.draw do
   post '/hunts/:id/unjoin' => "hunts#unjoin", :as => 'hunt_unjoin'
   post '/hunts/search', :as => 'hunt_search'
   patch '/users/:id/update_public' => "users#update_public", :as => 'users_profile'
-
+  get '/welcome/team', :as => 'contact_us'
+  get '/welcome/careers', :as => 'careers'
 
   root "welcome#index"
 

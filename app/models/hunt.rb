@@ -24,6 +24,8 @@ class Hunt < ApplicationRecord
     self.where('hunt_date < ?', Date.today).order(hunt_date: :desc)
   end
 
+  
+
   def difflevel_int_to_text
     case self.difficulty_level
     when 1
