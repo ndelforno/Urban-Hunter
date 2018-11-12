@@ -50,7 +50,7 @@
 
       <div class="nav_2">
         <div class="search_form">
-          <%= form_tag(hunt_search_path) do %> 
+          <%= form_tag(hunt_search_path) do %>
           <%= submit_tag 'Search Hunts', name: nil, :class => "search_button" %> <%= text_field_tag :hunt, params[:hunt], :class => "search_field" %>
         <% end %>
         </div>

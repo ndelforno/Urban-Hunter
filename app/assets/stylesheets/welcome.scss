@@ -14,6 +14,7 @@
   border-radius: 25px;
   margin: 10px;
   background-color: rgba(255, 255, 255, 0.5);
+
   h2 {
     font-size: 90px;
     text-align: center;
@@ -35,6 +36,8 @@
   border-radius: 25px;
   margin: 10px;
   background-color: rgba(255, 255, 255, 0.5);
+  position: relative;
+  top: 30px;
   h2 {
     font-size: 90px;
     text-align: center;
@@ -53,6 +56,8 @@
 .images_content {
   grid-column: 1/5;
   grid-row: 3/4;
+  position: relative;
+  top: 90px;
 }
 
 .categories {

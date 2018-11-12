@@ -13,6 +13,10 @@
   border-radius: 7px;
   box-shadow: 0 2px 5px #000;
   box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+  position: fixed;
+  z-index: 10;
+  background-color: white;
+  left: 40%;
 }
 
 .edit_user{

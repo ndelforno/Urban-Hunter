@@ -15,6 +15,9 @@ body {
 
 .nav_1 {
   padding: 50px;
+  border-bottom: 2px solid;
+  background-color: rgba(255, 255, 255, 0.2);
+  text-align: center;
   .top_center {
     .logo_text {
       box-sizing: border-box;
@@ -50,9 +53,10 @@ body {
 
 .user_options {
   padding-left: 0px;
+
   li {
     list-style-type: none;
-    display:inline-block;
+    display: block;
   }
   a:hover {
     background-color: black;
@@ -66,6 +70,15 @@ body {
     @media screen and (max-width: 600px) {
       font-size: 10px;
     }
+  }
+  .sign_in {
+    position: relative;
+    left: 363px;
+    border-bottom: 1px solid;
+  }
+  .log_in {
+    position: relative;
+    left: 350px;
   }
 }
 
@@ -84,7 +97,7 @@ h1{
 
 footer {
   padding: 30px;
-  background-color: rgba(255, 255, 255, 0.1);;
+  background-color: rgba(255, 255, 255, 0.1);
 }
 
 .info_nav {
