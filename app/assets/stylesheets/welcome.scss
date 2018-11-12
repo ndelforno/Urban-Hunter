@@ -68,17 +68,24 @@
   text-align: center;
   grid-column: 1/5;
   grid-row: 4/5;
+  margin-top: 45px;
   .categories {
+    text-align: center;
+    margin-bottom: 30px;
     // background-color: red;
     .category {
+      // background-image: url("https://foodrevolution.org/wp-content/uploads/2018/04/blog-featured-diabetes-20180406-1330.jpg");
+      text-align: center;
+      padding: 10px;
       display: inline-block;
-      width: 100px;
+      width: 200px;
       background-color: white;
-      height: 100px;
+      height: 200px;
       border-radius: 50%;
       margin-left: 50px;
       margin-right: 50px;
       border: solid 5px white;
+      }
       a:hover {
         color: #404040 !important;
         font-weight: 700 !important;
@@ -88,30 +95,77 @@
         -moz-box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
         transition: all 0.3s ease 0s;
       }
-      a {
-        text-decoration: none;
-        position: relative;
-        top: 40px;
-        color: black;
-      }
       @media screen and (max-width: 600px) {
         width: 45%;
+      }
+    .category_button {
+      display: inline-flex;
+      justify-content: space-between;
+      margin-top: 30px;
+      margin-left: 50px;
+      margin-right: 50px;
+
+      a {
+      height: 20px;
+      font-weight: bold;
+      border: none;
+      background: #f19f4d;
+      color: #ffffff !important;
+      font-weight: 100;
+      padding: 20px;
+      text-transform: uppercase;
+      border-radius: 6px;
+      display: inline-block;
+      }
+      a:hover {
+        color: #404040 !important;
+        font-weight: 700 !important;
+        letter-spacing: 3px;
+        background: none;
+        -webkit-box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
+        -moz-box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
+        transition: all 0.3s ease 0s;
       }
     }
   }
 }
 
+.category_section {
+  display: inline-block;
+}
+
+#tourism {
+  background-image: url("https://foodrevolution.org/wp-content/uploads/2018/04/blog-featured-diabetes-20180406-1330.jpg");
+  background-size: 400px 250px;
+}
+
+#social {
+  background-image: url("https://www.canada.ca/content/dam/themes/science/images/20170105-22.jpg");
+  background-position: center;
+}
+
+#pub_crawl {
+  background-image: url("https://static.standard.co.uk/s3fs-public/thumbnails/image/2017/06/05/10/the-agenda-10-87.jpg?w968");
+  background-position: center;
+  background-size: 400px 250px;
+}
+
+#family {
+  background-image: url("https://us.123rf.com/450wm/pushnova/pushnova1510/pushnova151000238/46373133-stock-vector-family-logo-concept-.jpg?ver=6");
+  background-position: center;
+
+}
+
+#know_your_neighbourhood {
+  background-image: url("https://upload.wikimedia.org/wikipedia/commons/thumb/b/b0/Openstreetmap_logo.svg/1200px-Openstreetmap_logo.svg.png");
+  background-position: center;
+  background-size: 220px 220px;
+
+}
+
 .intro{
   text-align: left;
   .intro_text {
-
-  }
-}
-
-
-.description {
-  text-align: left;
-  .description_text {
 
   }
 }
@@ -128,16 +182,6 @@
     border-color: 1px black;
     border-style: solid;
   }
-}
-
-
-.categories{
-  text-align: center;
-}
-.category{
-  text-align: center;
-  display: inline;
-  padding: 10px;
 }
 
 .search_form {
@@ -258,7 +302,8 @@ h1{
 
 /* Style page content - use this if you want to push the page content to the right when you open the side navigation */
  .main_to_slide {
-    transition: margin-left .5s;
+    transition: margin-left 0.1s;
+    transition-timing-function: ease-in-out;
     padding: 20px;
 }
 
