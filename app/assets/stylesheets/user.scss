@@ -2,7 +2,6 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 .sign_up_form {
-  font-family: "Avenir Next", "Avenir", sans-serif;
   border: 1px solid #96dbe8;
   text-align: center;
   display: none;
@@ -48,10 +47,9 @@
 
 button{
   border: 0;
-  background: #96dbe8;
+  background: rgb(204, 148, 93);
   border-radius: 3px;
 
-  font-family: "Avenir Next", "Avenir", sans-serif;
   font-size: 16px;
   font-weight: bold;
   text-transform: uppercase;
@@ -78,7 +76,7 @@ button{
   a{
     width: 100%;
     padding: 10px;
-    background: #96dbe8;
+    background: #f19f4d;
     border-radius: 3px;
     font-weight: bold;
     text-transform: uppercase;

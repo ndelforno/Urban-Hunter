@@ -3,7 +3,6 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 .new_hunt, .edit_hunt {
-  font-family: "Avenir Next", "Avenir", sans-serif;
   border: 1px solid #96dbe8;
   text-align: center;
   width: 500px;
@@ -33,7 +32,6 @@ fieldset, #hunt_name, #hunt_hunt_date, #hunt_hunt_time, #hunt_max_participants{
   box-sizing: border-box;
 
   font-size: 18px;
-  font-family: "Avenir Next", "Avenir", sans-serif;
 
   outline: none;
 }
@@ -73,10 +71,9 @@ legend{
   width: 150px;
   padding: 10px;
   border: 0;
-  background: #96dbe8;
+  background: #f19f4d;
   border-radius: 3px;
 
-  font-family: "Avenir Next", "Avenir", sans-serif;
   font-size: 16px;
   font-weight: bold;
   text-transform: uppercase;

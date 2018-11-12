@@ -10,7 +10,7 @@
 
   font-size: 18px;
   color: #96dbe8;
-  font-family: "Avenir Next", "Avenir", sans-serif;
+
   text-align: left;
 
   outline: none;
@@ -18,7 +18,6 @@
 
 
 .log_in_form {
-  font-family: "Avenir Next", "Avenir", sans-serif;
   border: 1px solid #96dbe8;
   text-align: center;
   display: none;
@@ -44,10 +43,10 @@
 
 button{
   border: 0;
-  background: #96dbe8;
+  background: rgb(204, 148, 93);
   border-radius: 3px;
 
-  font-family: "Avenir Next", "Avenir", sans-serif;
+
   font-size: 16px;
   font-weight: bold;
   text-transform: uppercase;
@@ -66,10 +65,10 @@ input[type=submit]{
   padding: 10px;
 
   border: 0;
-  background: #96dbe8;
+  background: #f19f4d;
   border-radius: 3px;
 
-  font-family: "Avenir Next", "Avenir", sans-serif;
+
   font-size: 16px;
   font-weight: bold;
   text-transform: uppercase;
