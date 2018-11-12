@@ -2,8 +2,13 @@
 body {
   margin: 0;
   font-family: "Avenir Next", "Avenir", sans-serif;
-  background-image: url("https://i.pinimg.com/originals/a7/fc/1f/a7fc1f3874aee04ceafaacfed6870e99.jpg");
+  background-image: linear-gradient(rgba(66, 217, 244, 0.3), rgba(255, 255, 255, 0.9)), url("https://i.pinimg.com/originals/a7/fc/1f/a7fc1f3874aee04ceafaacfed6870e99.jpg");
+  // background-color: rgba(255, 255, 255, 0.5);
+
+
 }
+
+
 
 .top_left, .top_center, .top_right {
   display: inline-block;
@@ -15,8 +20,8 @@ body {
 
 .nav_1 {
   padding: 50px;
-  border-bottom: 2px solid;
-  background-color: rgba(255, 255, 255, 0.2);
+  // border-bottom: 2px solid;
+  // background-color: rgba(255, 255, 255, 0.2);
   text-align: center;
   .top_center {
     .logo_text {
@@ -65,7 +70,7 @@ body {
     text-decoration: none;
     font-size: 35px;
     margin: 10px;
-    color: black;
+    color: #0892d0;
     border-radius: 15px;
     @media screen and (max-width: 600px) {
       font-size: 10px;
@@ -74,7 +79,7 @@ body {
   .sign_in {
     position: relative;
     left: 363px;
-    border-bottom: 1px solid;
+
   }
   .log_in {
     position: relative;
