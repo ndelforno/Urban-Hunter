@@ -84,7 +84,7 @@
       <div class="completed_task">
         <p> <%= link_to "#{task.task.details}", "/hunts/#{task.task.hunt_id}/tasks/#{task.task.id}" %> </p>
         <% if task.proof  %>
-          <p><%= task.proof %></p>
+          <p>Proof : <%= task.proof %></p>
         <% end  %>
         <div class="image_proof">
         <% if task.image.attached? %>
