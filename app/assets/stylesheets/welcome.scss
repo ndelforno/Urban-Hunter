@@ -205,6 +205,8 @@ h1{
   margin: 40px 0px 20px;
 }
 
+//Countdown on Navbar styling
+
 #clockdiv{
     font-family: sans-serif;
     color: #fff;
@@ -212,6 +214,7 @@ h1{
     font-weight: 100;
     text-align: center;
     font-size: 30px;
+    margin-bottom: 30px;
 }
 
 #clockdiv > div{
@@ -228,37 +231,51 @@ h1{
     display: inline-block;
 }
 
+//Navebar styling
+
+.nav_2 .open_nav > span {
+  font-size: 30px;
+  cursor:pointer;
+}
+
 .smalltext{
-    padding-top: 1px;
+    padding-top: 3px;
     font-size: 16px;
 }
 
-.firsthunt, .first_5, .first_5_hunts, .five > li {
-    padding: 5px;
-}
-
-.firsthunt > li > p {
-  color:  #818181;
+.firsthunt > p {
+  color:  rgb(204, 148, 93);
   font-weight: 700;
   display: block;
   position: relative;
   font-family: inherit;
-  left: 10px;
 }
 
-.first_5_hunts {
-  padding-top: 12px;
-  padding-bottom: 10px;
+.next_5_hunts {
+  margin-top: 20px;
   font-weight: 1000;
   font-size: 32px;
-  color: #818181;
+  color: rgb(204, 148, 93);
 }
 
+.first_4, .project-info {
+  margin: 15px 0px;
+}
 
-.team > li {
-    padding: 15px;
-    display: block;
-    text-align: left;
+.nav_hrz_divider {
+  margin: 30px 0px;
+}
+
+.logo_img_mini {
+  margin: 10px 10px;
+}
+
+.all_hunts_homepage {
+  margin: 15px 0px;
+}
+
+.sidenav .all_hunts_homepage > a {
+  font-size: 50px;
 }
 
 /* The side navigation menu */
@@ -269,7 +286,8 @@ h1{
     z-index: 1; /* Stay on top */
     top: 0; /* Stay at the top */
     left: 0;
-    background-color: #111; /* Black*/
+    background-color: rgba(45, 45, 45, 0.5); /* Black*/
+
     overflow-x: hidden; /* Disable horizontal scroll */
     // overflow-y:visible;
     padding-top: 60px; /* Place content 60px from the top */
@@ -278,10 +296,10 @@ h1{
 
 /* The navigation menu links */
 .sidenav a {
-    padding: 8px 8px 8px 32px;
+    padding: 8px 8px 8px 8px;
     text-decoration: none;
     font-size: 25px;
-    color: #818181;
+    color: rgb(204, 148, 93);
     display: block;
     transition: 0.3s;
 }
@@ -296,7 +314,7 @@ h1{
     position: absolute;
     top: 0;
     right: 25px;
-    font-size: 36px;
+    font-size: 50px;
     margin-left: 50px;
 }
 

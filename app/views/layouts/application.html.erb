@@ -54,7 +54,7 @@
 
       <div class="nav_2">
         <div class="open_nav">
-          <span class="open_button" style="font-size:30px;cursor:pointer" onclick="openNav()">☰ Menu</span>
+          <span class="open_button" onclick="openNav()">☰ Menu</span>
         </div>
         <div class="search_bar">
           <%= form_tag(hunt_search_path, {:id => 'search_form'}) do %>
@@ -63,30 +63,25 @@
         </div>
         <br>
       </div>
+
     </div>
-
-
 
       <div id="mySidenav" class="sidenav">
         <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-        <li><%= link_to('About this project', about_path) %></li>
-        <li><%= link_to('Contact us', contact_us_path) %></li>
-        <li><%= link_to('Careers', careers_path) %></li>
 
-        <div class = "first_5_hunts">
-          <h2>First 5 hunts:</h2>
+        <div class = "next_5_hunts">
+          <h2>Next 5 hunts:</h2>
         </div>
         <div class = "firsthunt">
-          <li>
+          <p>
             <% @future_hunts_five = first_five_hunts %>
             <%d = @future_hunts_five[0].hunt_date%>
             <%t = Time.parse(@future_hunts_five[0].hunt_time.to_s)%>
             <%time = Time.now%>
             <%first_future_hunt_time = DateTime.new(d.year, d.month, d.day, t.hour, t.min, t.sec, time.zone)%>
             <input type = "hidden" value = "<%=first_future_hunt_time%>" id = "deadline"/>
-            <%=link_to("#{@future_hunts_five[0].name}", hunt_path(@future_hunts_five[0])) %>
+            <%=link_to("#{@future_hunts_five[0].name}", hunt_path(@future_hunts_five[0])) %></p>
             <p>hunt starts in:</p>
-          </li>
         </div>
 
         <div id="clockdiv">
@@ -108,21 +103,37 @@
           </div>
         </div>
 
-        <div class = "first_5">
-          <div class = "five">
+        <div class = "first_4">
             <% @future_hunts_five[1..4].each do |hunt| %>
-               <li><%=link_to("#{hunt.name}", hunt_path(hunt))%></li>
+               <p><%=link_to("#{hunt.name}", hunt_path(hunt))%></p>
             <% end %>
-          </div>
+        </div>
+
+        <div class = "nav_hrz_divider">
+          <img src="https://mbtskoudsalg.com/images/raccoon-logo-png.png" class="logo_img_mini" width="50" length="50">
+          <img src="https://mbtskoudsalg.com/images/raccoon-logo-png.png" class="logo_img_mini" width="50" length="50">
+          <img src="https://mbtskoudsalg.com/images/raccoon-logo-png.png" class="logo_img_mini" width="50" length="50">
+          <img src="https://mbtskoudsalg.com/images/raccoon-logo-png.png" class="logo_img_mini" width="50" length="50">
         </div>
 
         <div class="all_hunts_homepage">
-          <h2><%= link_to("All Hunts", hunts_path) %></h2>
+          <%= link_to("All hunts", hunts_path) %>
         </div>
 
+        <div class = "nav_hrz_divider">
+          <img src="https://mbtskoudsalg.com/images/raccoon-logo-png.png" class="logo_img_mini" width="50" length="50">
+          <img src="https://mbtskoudsalg.com/images/raccoon-logo-png.png" class="logo_img_mini" width="50" length="50">
+          <img src="https://mbtskoudsalg.com/images/raccoon-logo-png.png" class="logo_img_mini" width="50" length="50">
+          <img src="https://mbtskoudsalg.com/images/raccoon-logo-png.png" class="logo_img_mini" width="50" length="50">
+        </div>
+
+      <div class = "project-info">
+        <p><%= link_to('About this project', about_path) %></p>
+        <p><%= link_to('Contact us', contact_us_path) %></p>
+        <p><%= link_to('Careers', careers_path) %></p>
       </div>
 
-
+    </div>
 
         <main>
           <% flash.each do |key, message| %>
