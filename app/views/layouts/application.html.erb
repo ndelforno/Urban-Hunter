@@ -67,7 +67,14 @@
 
         <h2>First 5 hunts:</h2>
         <div class = "firsthunt"
-          <li><%=link_to("#{@future_hunts_first.name}", hunt_path(@future_hunts_first))%> hunt starts in:</li>
+          <li>
+            <% @future_hunts_five = first_five_hunts %>
+            <%d = @future_hunts_five[0].hunt_date%>
+            <%t = Time.parse(@future_hunts_five[0].hunt_time.to_s)%>
+            <%time = Time.now%>
+            <%first_future_hunt_time = DateTime.new(d.year, d.month, d.day, t.hour, t.min, t.sec, time.zone)%>
+            <input type = "hidden" value = "<%=first_future_hunt_time%>" id = "deadline"/>
+            <%=link_to("#{@future_hunts_five[0].name}", hunt_path(@future_hunts_five[0]))%> hunt starts in:</li>
         </div>
 
 
@@ -92,7 +99,7 @@
 
       <div class = "first_5">
         <div class = "five">
-          <% @future_hunts_five.each do |hunt| %>
+          <% @future_hunts_five[1..4].each do |hunt| %>
              <li><%=link_to("#{hunt.name}", hunt_path(hunt))%></li>
           <% end %>
         </div>

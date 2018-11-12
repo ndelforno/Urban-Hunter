@@ -7,5 +7,9 @@ class WelcomeController < ApplicationController
     t = Time.parse(Hunt.future_hunts.first.hunt_time.to_s)
     time = Time.now
     gon.first_future_hunt_time = DateTime.new(d.year, d.month, d.day, t.hour, t.min, t.sec, time.zone)
+
+    puts "..............................#{gon.first_future_hunt_time}"
   end
+
+
 end
