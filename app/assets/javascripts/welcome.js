@@ -1,3 +1,16 @@
+/* Set the width of the side navigation to 250px and the left margin of the page content to 250px */
+function openNav() {
+    document.getElementById("mySidenav").style.width = "350px";
+    document.getElementById("main_to_slide").style.marginLeft = "350px";
+}
+
+/* Set the width of the side navigation to 0 and the left margin of the page content to 0 */
+function closeNav() {
+    document.getElementById("mySidenav").style.width = "0";
+    document.getElementById("main_to_slide").style.marginLeft = "0";
+}
+
+
 function getTimeRemaining(endtime) {
   var t = Date.parse(endtime) - Date.parse(new Date());
   var seconds = Math.floor((t / 1000) % 60);
@@ -38,6 +51,8 @@ function initializeClock(id, endtime) {
 }
 
 // var deadline = new Date(Date.parse(new Date()) + 15 * 24 * 60 * 60 * 1000);
-var time = document.querySelector("#deadline")
-var deadline = new Date(Date.parse(time.value));
-initializeClock('clockdiv', deadline);
+document.addEventListener("DOMContentLoaded", function(){
+  var time = document.querySelector("#deadline")
+  var deadline = new Date(Date.parse(time.value));
+  initializeClock('clockdiv', deadline);
+});
