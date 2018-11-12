@@ -1,9 +1,9 @@
 // Place all the styles related to the User controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-.sign_up_form {
+.sign_up_form, .edit_user {
   font-family: "Avenir Next", "Avenir", sans-serif;
-  border: 1px solid #09aa66;
+  border: 1px solid #96dbe8;
   text-align: center;
   display: none;
   width: 350px;
@@ -13,6 +13,15 @@
   border-radius: 7px;
   box-shadow: 0 2px 5px #000;
   box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+  position: fixed;
+  z-index: 10;
+  background-color: white;
+  left: 40%;
+  bottom: 5%;
+}
+
+.edit_user{
+  display: block;
 }
 
 .submit {
@@ -24,7 +33,7 @@
 
 button{
   border: 0;
-  background: #09aa66;
+  background: #96dbe8;
   border-radius: 3px;
 
   font-family: "Avenir Next", "Avenir", sans-serif;
