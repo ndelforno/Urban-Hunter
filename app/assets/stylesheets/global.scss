@@ -65,6 +65,7 @@ a {
   li {
     list-style-type: none;
     display: block;
+    margin: 25px;
   }
   a:hover {
     background-color: #f19f4d;
@@ -95,7 +96,6 @@ a {
   display: flex;
   justify-content: space-between;
   .search_bar {
-    margin-left: 1100px;
     #search_form {
       display: inline-flex;
     }

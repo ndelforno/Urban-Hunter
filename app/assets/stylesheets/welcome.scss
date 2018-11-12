@@ -170,18 +170,24 @@
   }
 }
 
+.images_content {
+  display: inline-block;
+  .images{
+    text-align: center;
+    .image{
+      display: inline;
+      width: 50px;
+    }
+    img {
+      border-color: 1px black;
+      border-style: solid;
+    }
+  }
+}
 
-.images{
-  text-align: center;
-  .image{
-    display: inline;
-    margin-left: 50px;
-    margin-right: 50px;
-  }
-  img {
-    border-color: 1px black;
-    border-style: solid;
-  }
+
+.stock_pic1 {
+  background-size: auto;
 }
 
 .search_form {

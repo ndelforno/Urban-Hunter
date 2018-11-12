@@ -39,7 +39,7 @@
           <ul class="user_options">
             <% if current_user %>
               <div class="logged_in">
-                <li>Hello!    <%= link_to "#{current_user.first_name}", user_path(current_user) %></li>
+                <li><%= link_to "Hello! #{current_user.first_name}", user_path(current_user) %></li>
                 <li><%= link_to "Sign Out", session_path("purple"), :method => :delete %></li>
                 <li><%= link_to('Make your hunt !', new_hunt_path) %></li>
               </div>
