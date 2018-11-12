@@ -63,6 +63,30 @@ legend{
   list-style: none;
 }
 
+.hunt_show{
+  text-align: center;
+}
+
+.join_hunt, .edit_hunt_button {
+  margin: 5px;
+  display: inline-block;
+  width: 150px;
+  padding: 10px;
+  border: 0;
+  background: #96dbe8;
+  border-radius: 3px;
+
+  font-family: "Avenir Next", "Avenir", sans-serif;
+  font-size: 16px;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: #fff;
+	-webkit-font-smoothing: antialiased;
+
+  cursor: pointer;
+
+}
+
 
 
 #mapid_all { height: 300px; }

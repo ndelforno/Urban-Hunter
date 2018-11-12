@@ -5,7 +5,7 @@
 
 #mapid { height: 300px; }
 
-.Task_form{
+.Task_form, .new_completed_task{
   font-family: "Avenir Next", "Avenir", sans-serif;
   border: 1px solid #96dbe8;
   text-align: center;
@@ -20,6 +20,20 @@
     color: rgb(137, 214, 229);
   }
 
+}
+
+
+.tasks {
+  margin-bottom: 10px;
+}
+
+.task {
+  margin: 10px;
+  display: inline-block;
+  width: 300px;
+  border: 2px solid white;
+  padding: 10px;
+  border-radius: 7px;
 }
 
 
@@ -43,8 +57,6 @@
     }
 
 
-
-
 #task_details, #task_address, #task_neighbourhood{
   width: 100%;
   padding: 10px;
@@ -59,10 +71,11 @@
   outline: none;
 }
 
-.completed_task{
+.completed_task {
   display: inline-block;
   width: 300px;
   img{
+    width: 300px;
     border: 2px solid white;
     border-radius: 7px;
   }
