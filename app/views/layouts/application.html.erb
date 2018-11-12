@@ -24,7 +24,10 @@
 
   <div id="main_to_slide" class ="main_to_slide">
   <body>
-      <div class="nav_1 navigation_bar">
+
+    <div class="navigation_bar">
+
+      <div class="nav_1">
         <div class="top_left">
             <img src="https://mbtskoudsalg.com/images/raccoon-logo-png.png" class="logo_img" width="100" length="100">
         </div>
@@ -49,15 +52,20 @@
         </div>
       </div>
 
-
       <div class="nav_2">
-        <div class="search_form">
-          <%= form_tag(hunt_search_path) do %>
-          <%= submit_tag 'Search Hunts', name: nil, :class => "search_button" %> <%= text_field_tag :hunt, params[:hunt], :class => "search_field" %>
+        <div class="open_nav">
+          <span class="open_button" style="font-size:30px;cursor:pointer" onclick="openNav()">☰ Menu</span>
+        </div>
+        <div class="search_bar">
+          <%= form_tag(hunt_search_path, {:id => 'search_form'}) do %>
+          <%= text_field_tag :hunt, params[:hunt], :class => "search_field" %><%= submit_tag 'Search Hunts', name: nil, :class => "search_button" %>
         <% end %>
         </div>
         <br>
       </div>
+    </div>
+
+
 
       <div id="mySidenav" class="sidenav">
         <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
@@ -114,7 +122,6 @@
 
       </div>
 
-      <span style="font-size:30px;cursor:pointer" onclick="openNav()">☰ open</span>
 
 
         <main>
