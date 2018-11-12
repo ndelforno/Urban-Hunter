@@ -38,5 +38,6 @@ function initializeClock(id, endtime) {
 }
 
 // var deadline = new Date(Date.parse(new Date()) + 15 * 24 * 60 * 60 * 1000);
-var deadline = new Date(Date.parse(gon.first_future_hunt_time));
+var time = document.querySelector("#deadline")
+var deadline = new Date(Date.parse(time.value));
 initializeClock('clockdiv', deadline);
