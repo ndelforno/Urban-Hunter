@@ -1,52 +1,60 @@
-<div class="all_hunts_homepage">
-  <h2><%= link_to("All Hunts", hunts_path) %></h2>
-</div>
+
 
 <div class="welcome_section">
   <div class="welcome_content">
 
-  <div class="intro">
-    <div class="intro_title">
-      <h2>Join the Hunt</h2>
-    </div>
-    <div class="intro_text">
-      <p>And be part of the largest hunt accross your city</p>
-    </div>
+    <div class="intro">
+      <div class="intro_title">
+        <h2><%= link_to("Join the Hunt", hunts_path) %></h2>
+      </div>
+      <div class="intro_text">
+        <p>And be part of the largest hunt accross your city</p>
+      </div>
   </div>
 
 
 
-    <div class="description">
-      <div class="description_title">
-        <h2>Description</h2>
+  <div class="description">
+    <div class="description_title">
+      <h2>Description</h2>
+    </div>
+    <div class="description_text">
+      <p>Participate in a hunt and complete achievements !</p>
+    </div>
+  </div>
+
+  <div class="images_content">
+    <div class="images">
+      <div class="image">
+        <img src="https://picsum.photos/300/380?image=1" alt="">
       </div>
-      <div class="description_text">
-        <p>Participate in a hunt and complete achievements !</p>
+      <div class="image">
+        <img src="https://picsum.photos/300/380?image=20" alt="">
+      </div>
+      <div class="image">
+        <img src="https://picsum.photos/300/380?image=30" alt="">
       </div>
     </div>
+  </div>
 
-    <div class="images_content">
-      <div class="images">
-        <div class="image">
-          <img src="https://picsum.photos/300/380?image=1" alt="">
-        </div>
-        <div class="image">
-          <img src="https://picsum.photos/300/380?image=20" alt="">
-        </div>
-        <div class="image">
-          <img src="https://picsum.photos/300/380?image=30" alt="">
-        </div>
-      </div>
-    </div>
-
+  <div class="category_menu">
     <div class="categories">
-      <h2>Categories</h2>
       <% @categories.each do |category| %>
       <div class="category">
         <%= link_to("#{category.name}", category_path(category)) %>
       </div>
       <% end %>
-
+    <div class="categories">
+      <% @categories.each do |category| %>
+      <div class="category">
+        <%= link_to("#{category.name}", category_path(category)) %>
+      </div>
+      <% end %>
+      </div>
     </div>
   </div>
+
+
+
+
 </div>
