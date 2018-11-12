@@ -46,6 +46,23 @@ legend{
   text-align: center;
 }
 
+.hunt{
+  list-style: none;
+  display: inline-block;
+  margin: 10px;
+  border: 2px solid white;
+  padding: 10px;
+  width: 300px;
+  border-radius: 7px;
+  box-shadow: 5px 8px;
+}
+
+.participations{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  list-style: none;
+}
+
 
 
 #mapid_all { height: 300px; }

@@ -22,6 +22,7 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
+  <div id="main_to_slide" class ="main_to_slide">
   <body>
 
     <div class="navigation_bar">
@@ -68,13 +69,14 @@
 
       <div id="mySidenav" class="sidenav">
         <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-        <a href="#">About</a>
-        <a href="#">Services</a>
-        <a href="#">Clients</a>
-        <a href="#">Contact</a>
+        <li><%= link_to('About this project', about_path) %></li>
+        <li><%= link_to('Contact us', contact_us_path) %></li>
+        <li><%= link_to('Careers', careers_path) %></li>
 
-        <h2>First 5 hunts:</h2>
-        <div class = "firsthunt"
+        <div class = "first_5_hunts">
+          <h2>First 5 hunts:</h2>
+        </div>
+        <div class = "firsthunt">
           <li>
             <% @future_hunts_five = first_five_hunts %>
             <%d = @future_hunts_five[0].hunt_date%>
@@ -82,9 +84,10 @@
             <%time = Time.now%>
             <%first_future_hunt_time = DateTime.new(d.year, d.month, d.day, t.hour, t.min, t.sec, time.zone)%>
             <input type = "hidden" value = "<%=first_future_hunt_time%>" id = "deadline"/>
-            <%=link_to("#{@future_hunts_five[0].name}", hunt_path(@future_hunts_five[0]))%> hunt starts in:</li>
+            <%=link_to("#{@future_hunts_five[0].name}", hunt_path(@future_hunts_five[0])) %>
+            <p>hunt starts in:</p>
+          </li>
         </div>
-
 
         <div id="clockdiv">
           <div>
@@ -105,34 +108,40 @@
           </div>
         </div>
 
-      <div class = "first_5">
-        <div class = "five">
-          <% @future_hunts_five[1..4].each do |hunt| %>
-             <li><%=link_to("#{hunt.name}", hunt_path(hunt))%></li>
-          <% end %>
+        <div class = "first_5">
+          <div class = "five">
+            <% @future_hunts_five[1..4].each do |hunt| %>
+               <li><%=link_to("#{hunt.name}", hunt_path(hunt))%></li>
+            <% end %>
+          </div>
         </div>
-      </div>
+
+        <div class="all_hunts_homepage">
+          <h2><%= link_to("All Hunts", hunts_path) %></h2>
+        </div>
+
       </div>
 
 
-    <main>
-      <% flash.each do |key, message| %>
-      <div class="flash-<%= key %>"><span class="error_message"><%= message %><span></div>
-      <% end %>
-       <%= render 'sessions/form' %>
-       <%= render 'users/form' %>
-      <%= yield %>
-    </main>
-    <footer>
-      <div class="info_nav">
-        <ul class="info_list">
-          <li>Made by Nicholas, Constantine, Mamun and Kevin ©</li>
-          <li><%= link_to('Contact us', contact_us_path) %></li>
-          <li><%= link_to('Careers', careers_path) %></li>
-          <li>Happy Hunting!</li>
-        </ul>
-      </div>
-    </footer>
+
+        <main>
+          <% flash.each do |key, message| %>
+          <div class="flash-<%= key %>"><span class="error_message"><%= message %><span></div>
+          <% end %>
+           <%= render 'sessions/form' %>
+           <%= render 'users/form' %>
+          <%= yield %>
+        </main>
+        <footer>
+          <div class="info_nav">
+            <ul class="info_list">
+              <li>Made by Nicholas, Constantine, Mamun and Kevin ©</li>
+              <li><%= link_to('Contact us', contact_us_path) %></li>
+              <li><%= link_to('Careers', careers_path) %></li>
+              <li>Happy Hunting!</li>
+            </ul>
+          </div>
+        </footer>
   </body>
-<script src="assets/welcome.js"></script>
+</div>
 </html>

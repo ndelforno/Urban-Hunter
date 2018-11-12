@@ -1,24 +1,33 @@
-<h1><%= @user.full_name %></h1>
+<div class="user_info" id="user_info">
+  <h1><%= @user.full_name %></h1>
 
-<% if current_user == @user %>
-  <div class="private">
-    <%= form_for(@user, url: users_profile_path) do |f| %>
-      <% if @user.public == true %>
-        <%= f.hidden_field :public, :value => false %>
-        <%= f.submit "Set to private", :class => 'set_public' %>
-      <% else %>
-        <%= f.hidden_field :public, :value => true %>
-        <%= f.submit "Set to public", :class => 'set_private' %>
+  <% if @user.public == false && current_user != @user %>
+      <p> this profile is private! </p>
+  <% else %>
+    <h2><%= @user.email %></h2>
+    <h2>Completed Tasks: <%= @user.completed_tasks.length %></h2>
+
+  <% if current_user == @user %>
+      <%= form_for(@user, url: users_profile_path, :class => "security") do |f| %>
+        <% if @user.public == true %>
+          <%= f.hidden_field :public, :value => false %>
+            <%= f.submit "Set to private", :class => 'set_public' %>
+          </div>
+        <% else %>
+          <%= f.hidden_field :public, :value => true %>
+            <%= f.submit "Set to public", :class => 'set_private' %>
+        <% end %>
       <% end %>
+      </div>
     <% end %>
-  </div>
-<% end %>
 
-<% if @user.public == false && current_user != @user %>
-    <p> this profile is private! </p>
-<% else %>
-  <h2><%= @user.email %></h2>
-  <h2>Completed Tasks: <%= @user.completed_tasks.length %></h2>
+    <div class="edit_profile">
+      <% if current_user && current_user[:id] == @user.id %>
+        <%= link_to 'Edit profile', edit_user_path%>
+        <%= link_to 'Delete profile', user_path(@user) ,method: :delete, data: {confirm: "Are you sure you want to delete this profile This cannot be undone!"} %>
+      <% end %>
+    </div>
+</div>
 
   <%if @user.hunts.future_hunts.length > 0 %>
   <h2>Future Hunts created:</h2>
@@ -42,33 +51,40 @@
         </div>
     <% end  %>
   <% end  %>
+<div class="participations">
+  <div class="participations_future">
+    <%if @user.participated_hunts.future_hunts.length > 0%>
+      <h2>Participations in future Hunts:</h2>
+      <% @user.participated_hunts.future_hunts.each do |hunt| %>
+        <div class="hunt_joined">
+          <p> <%= link_to("#{hunt.name}", hunt_path(hunt))%> </p>
+          <p>Date: <%= hunt.hunt_date.strftime("%A %b %d %Y")%> | In <%= ((hunt.hunt_date - DateTime.now)/1.day).round(0) %> days time </p>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
 
-  <%if @user.participated_hunts.future_hunts.length > 0%>
-    <h2>Participations in future Hunts:</h2>
-    <% @user.participated_hunts.future_hunts.each do |hunt| %>
-      <div class="hunt_joined">
-        <li> <%= link_to("#{hunt.name}", hunt_path(hunt))%> </li>
-        Date: <%= hunt.hunt_date.strftime("%A %b %d %Y")%> | In <%= ((hunt.hunt_date - DateTime.now)/1.day).round(0) %> days time </p>
-      </div>
+
+  <div class="participations_past">
+    <%if @user.participated_hunts.past_hunts.length > 0%>
+      <h2>Participations in past Hunts:</h2>
+      <% @user.participated_hunts.past_hunts.each do |hunt| %>
+        <div class="hunt_joined">
+          <p> <%= link_to("#{hunt.name}", hunt_path(hunt))  %> </p>
+          <p> Date: <%= hunt.hunt_date.strftime("%A %b %d %Y") %></p>
+        </div>
+      <% end %>
     <% end %>
-  <% end %>
-      <br>
-  <%if @user.participated_hunts.past_hunts.length > 0%>
-    <h2>Participations in past Hunts:</h2>
-    <% @user.participated_hunts.past_hunts.each do |hunt| %>
-      <div class="hunt_joined">
-        <li> <%= link_to("#{hunt.name}", hunt_path(hunt))  %> </li>
-        Date: <%= hunt.hunt_date.strftime("%A %b %d %Y") %>
-      </div>
-    <% end %>
-  <% end %>
-  <br>
+  </div>
+</div>
+
+<div class="tasks_completed">
     <h2>Tasks completed:</h2>
     <% @completed_tasks.each do |task| %>
       <div class="completed_task">
-        <p> <%= task.task.details %> </p>
+        <p> <%= link_to "#{task.task.details}", "/hunts/#{task.task.hunt_id}/tasks/#{task.task.id}" %> </p>
         <% if task.proof  %>
-          <p><%= task.proof %></p>
+          <p>Proof : <%= task.proof %></p>
         <% end  %>
         <div class="image_proof">
         <% if task.image.attached? %>
@@ -76,13 +92,9 @@
         <% end %>
         </div>
       </div>
-      <hr>
     <% end %>
+  </div>
 
 
-    <% if current_user && current_user[:id] == @user.id %>
-      <%= link_to 'Edit your profile', edit_user_path%> |
-      <%= link_to 'Delete your profile', user_path(@user) ,method: :delete, data: {confirm: "Are you sure you want to delete this profile This cannot be undone!"} %>
-    <% end %>
 
 <% end %>
