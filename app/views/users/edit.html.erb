@@ -2,15 +2,18 @@
 
 <%= form_for @user do |f| %>
 
+
+
+<div class="error_css">
 <%  if @user.errors.any? %>
-    <%= flash.now[:notice] = "Please check all the fields !" %>
-    <h3> Errors: </h3>
-    <ul>
-        <%  @user.errors.full_messages.each do |message| %>
-          <li> <%= message %> </li>
-        <% end  %>
-    </ul>
+  <h2> Errors: </h2>
+  <ul>
+      <%  @user.errors.full_messages.each do |message| %>
+        <li> <%= message %> </li>
+      <% end  %>
+  </ul>
 <% end %>
+</div>
 
   <div class="field">
     <h3><%= f.label :first_name %></h3>
