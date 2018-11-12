@@ -175,9 +175,27 @@ h1{
     font-size: 16px;
 }
 
-.firsthunt, .first_5, .five > li {
+.firsthunt, .first_5, .first_5_hunts, .five > li {
     padding: 5px;
 }
+
+.firsthunt > li > p {
+  color:  #818181;
+  font-weight: 700;
+  display: block;
+  position: relative;
+  font-family: inherit;
+  left: 10px;
+}
+
+.first_5_hunts {
+  padding-top: 12px;
+  padding-bottom: 10px;
+  font-weight: 1000;
+  font-size: 32px;
+  color: #818181;
+}
+
 
 .team > li {
     padding: 15px;
@@ -195,6 +213,7 @@ h1{
     left: 0;
     background-color: #111; /* Black*/
     overflow-x: hidden; /* Disable horizontal scroll */
+    // overflow-y:visible;
     padding-top: 60px; /* Place content 60px from the top */
     transition: 0.5s; /* 0.5 second transition effect to slide in the sidenav */
 }
@@ -224,10 +243,10 @@ h1{
 }
 
 /* Style page content - use this if you want to push the page content to the right when you open the side navigation */
-/* #main {
+ .main_to_slide {
     transition: margin-left .5s;
     padding: 20px;
-} */
+}
 
 /* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
 @media screen and (max-height: 450px) {

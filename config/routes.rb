@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   patch '/users/:id/update_public' => "users#update_public", :as => 'users_profile'
   get '/welcome/team', :as => 'contact_us'
   get '/welcome/careers', :as => 'careers'
+  get '/welcome/about', :as => 'about'
 
   root "welcome#index"
 
