@@ -19,18 +19,20 @@ class HuntTest < ActiveSupport::TestCase
   end
 
   def test_hunt_exists_on_that_day?
-    category = create(:category)
-    user = create(:user)
+    category = build(:category)
+    user = build(:user)
 
-    hunt = create(:hunt)
+
+    hunt = build(:hunt)
+    hunt.save
+    user.hunts << hunt
     hunt.category_id = category.id
-    hunt.users << user
 
-    hunt2 = create(:hunt)
+    hunt2 = build(:hunt)
+    user.hunts << hunt2
     hunt2.category_id = category.id
-    hunt2.users << user
+    hunt2.save
 
-    hunt2
 
 
     actual = hunt2.hunt_exists_on_that_day?
