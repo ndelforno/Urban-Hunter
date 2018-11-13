@@ -4,5 +4,5 @@ class CompletedTask < ApplicationRecord
 
   has_one_attached :image
 
-  # validates :proof, :completed, presence: true
+  validates :proof, :completed, presence: true
 end
