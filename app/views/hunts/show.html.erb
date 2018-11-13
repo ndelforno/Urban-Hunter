@@ -40,7 +40,7 @@
             | <span><%= link_to('Leave this hunt', hunt_unjoin_path, method: :post, data: {confirm: "Are you sure you want to leave this hunt?"})%></span>
           <% end %>
         <% else %>
-          <% flash.now[:warning] = "You can see the hunt but not edit or join it!"%>
+          <% flash.now[:warning] = "Please log in if you want to join it!"%>
         <% end %></li>
     </div>
   <% end %>
