@@ -62,6 +62,10 @@
   -moz-box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
   transition: all 0.3s ease 0s;
   // border: solid 2px black;
+  a {
+    color: white !important;
+    letter-spacing: 3px;
+  }
 }
 
 .images_content {
@@ -86,7 +90,7 @@
 .description_section {
   border-style: solid white;
   border-radius: 25px;
-  margin-left: 230px;
+  margin: 0px auto;
   background-color: rgba(255, 255, 255, 0.5);
   width: 75%;
   .description_content {
