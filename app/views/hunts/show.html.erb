@@ -1,7 +1,7 @@
+<h3><span class = "hunts_link_back">&#8678; <%= link_to('Back to Hunts', hunts_path) %></span></h3>
 
-<h3><%= link_to('Back to Hunts', hunts_path) %></h3>
 
-<h1><%= @hunt.name %></h1>
+<h1 class = "hunt_name"><%= @hunt.name %></h1>
 
 <div class = "hunt">
 <% if current_user %>
@@ -16,20 +16,22 @@
 
 <% end %>
 
-
-  <p>Category: <span><%= link_to("#{@hunt.category.name}", category_path(@hunt.category)) %></span></p>
-  <p>Created by: <span><%= link_to "#{@hunt.user.full_name}", user_path(@hunt.user) %></span></p>
-  <p>Date of hunt: <span><%=@hunt.hunt_date.strftime("%v")%></span></p>
-  <p>Time of hunt: <span><%=@hunt.hunt_time.strftime("%H:%M")%></span></p>
-  <p>Difficulty:
+<div class = "index_hunt_show">
+  <h3>Category: <span><%= link_to("#{@hunt.category.name}", category_path(@hunt.category)) %></span></h3>
+  <h3>Created by: <span><%= link_to "#{@hunt.user.full_name}", user_path(@hunt.user) %></span></h3>
+  <h3>Date of hunt: <span><%=@hunt.hunt_date.strftime("%v")%></span></h3>
+  <h3>Time of hunt: <span><%=@hunt.hunt_time.strftime("%H:%M")%></span></h3>
+  <h3>Difficulty:
     <span><%@hunt.difficulty_level.times do %>
             <img src="/assets/raccoon-logo-png.png" class="logo_img_diff" width="30" length="30">
           <%end%>
     </span>
-  </p>
-  <p>Tasks: <span><%=@hunt.tasks.count%></p>
-  <p>Available spots: <span><%=@hunt.available_spots%></span></p>
-  <p>Participants to the hunt:</p>
+  </h3>
+  <h3>Tasks: <span><%=@hunt.tasks.count%></h3>
+  <h3>Available spots: <span><%=@hunt.available_spots%></span></h3>
+</div>
+
+  <h3>Participants to the hunt:</h3>
   <% @hunt.users.each do |participant| %>
     <div class="hunt_participants">
       <li><%= link_to "#{participant.full_name}", user_path(participant) %>
