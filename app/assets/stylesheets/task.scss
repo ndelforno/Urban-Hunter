@@ -3,7 +3,10 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 
-#mapid { height: 520px; }
+#mapid {
+  height: 520px;
+  z-index:0;
+ }
 
 .Task_form, .new_completed_task{
 
