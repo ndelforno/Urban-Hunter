@@ -60,6 +60,7 @@ class HuntsController < ApplicationController
       redirect_to hunt_path(@hunt), info: "Hunt updated!"
     else
       # puts @hunt.errors.full_messages
+      params[:hunt] = nil
       render :edit
     end
   end
