@@ -17,10 +17,17 @@
   box-shadow: 0 2px 5px #000;
   box-shadow: 0 2px 5px rgba(0,0,0,0.2);
   a {
-    color: white;
-    font-size: 20px;
-    background-color: #f19f4d;
-    padding: 8px;
+    width: 100%;
+    padding: 10px;
+    border: 0;
+    background: #f19f4d;
+    border-radius: 3px;
+    font-size: 16px;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: #fff;
+    -webkit-font-smoothing: antialiased;
+    cursor: pointer;
   }
 
 }
