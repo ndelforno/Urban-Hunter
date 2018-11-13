@@ -55,11 +55,8 @@
           </ul>
         </div>
       </div>
-
+  <span class="open_button" onclick="openNav()">☰ Menu</span>
       <div class="nav_2">
-        <div class="open_nav">
-          <span class="open_button" onclick="openNav()">☰ Menu</span>
-        </div>
         <div class="search_bar">
           <%= form_tag(hunt_search_path, {:id => 'search_form'}) do %>
           <%= text_field_tag :hunt, params[:hunt], :class => "search_field" %><%= submit_tag 'Search Hunts', name: nil, :class => "search_button" %>
