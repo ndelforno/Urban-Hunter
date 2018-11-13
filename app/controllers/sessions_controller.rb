@@ -12,7 +12,7 @@ class SessionsController < ApplicationController
       if flash[:previous_page] && flash[:previous_page] != :login
         redirect_to flash[:previous_page], notice: "Logged in!"
       else
-        redirect_to root_path, notice: "Logged in as #{@user.first_name} #{@user.last_name}!"
+        redirect_to request.referer, notice: "Logged in as #{@user.first_name} #{@user.last_name}!"
       end
 
     else
