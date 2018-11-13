@@ -8,7 +8,7 @@
     <h2>Completed Tasks: <%= @user.completed_tasks.length %></h2>
 
   <% if current_user == @user %>
-      <%= form_for(@user, url: users_profile_path, :class => "security") do |f| %>
+      <%= form_for(@user, url: users_profile_path, html: {class: "security"}) do |f| %>
         <% if @user.public == true %>
           <%= f.hidden_field :public, :value => false %>
             <%= f.submit "Set to private", :class => 'set_public' %>
