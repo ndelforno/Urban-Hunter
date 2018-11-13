@@ -1,3 +1,46 @@
 // Place all the styles related to the Category controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+.block {
+  display: grid;
+  grid-template-columns: 25% 25% 25% 25%;
+  grid-template-rows: auto;
+  grid-gap: 2em;
+  padding: 0.5em;
+}
+
+.hunts_link_back {
+  color: #f19f4d;
+  font-size: 30px;
+}
+
+.hunts_link_back > a {
+  color: #f19f4d;
+  font-size: 30px;
+}
+
+.category_header > h1 {
+  font-size: 70px;
+  font-weight: bold;
+  text-align: center;
+  color: white;
+  margin-bottom: 20px;
+}
+
+.block > .index_hunt > h3 > a {
+  color: rgb(155, 81, 21);
+  font-size: 35px;
+  text-decoration: underline;
+}
+
+.block > .index_hunt > h3 > span {
+  color: white;
+  font-size: 25px;
+}
+
+.block > .index_hunt > h3 > a {
+  font-size: 35px;
+  color: rgb(155, 81, 21);
+}

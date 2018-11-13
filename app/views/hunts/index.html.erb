@@ -7,7 +7,7 @@
 
     <% @categories.each do |category|%>
       <div class="categories_hunts">
-        <h2><%=category.name%></h2>
+        <h2><span><%= link_to(category.name, category_path(category))%></span></h2>
       <% category.hunts.each do |hunt|%>
         <div class = "index_hunt">
             <h3><%=link_to("#{hunt.name}", hunt_path(hunt))%></h3>
