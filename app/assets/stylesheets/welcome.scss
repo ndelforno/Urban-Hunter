@@ -15,10 +15,10 @@
   border-style: solid white;
   border-radius: 25px;
   margin: 10px;
-  background-color: rgba(255, 255, 255, 0.5);
+  background-color: rgba(241, 159, 77, 0.8);
   a {
     text-decoration: none;
-    color: black;
+    color: white;
   }
   h2 {
     font-size: 90px;
@@ -170,18 +170,24 @@
   }
 }
 
+.images_content {
+  display: inline-block;
+  .images{
+    text-align: center;
+    .image{
+      display: inline;
+      width: 50px;
+    }
+    img {
+      border-color: 1px black;
+      border-style: solid;
+    }
+  }
+}
 
-.images{
-  text-align: center;
-  .image{
-    display: inline;
-    margin-left: 50px;
-    margin-right: 50px;
-  }
-  img {
-    border-color: 1px black;
-    border-style: solid;
-  }
+
+.stock_pic1 {
+  background-size: auto;
 }
 
 .search_form {
@@ -195,7 +201,6 @@
 body{
     text-align: center;
     // background: #00ECB9;
-  font-family: sans-serif;
   font-weight: 100;
 }
 
