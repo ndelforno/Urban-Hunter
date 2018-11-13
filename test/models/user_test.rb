@@ -14,7 +14,13 @@ class UserTest < ActiveSupport::TestCase
     user.first_name = nil
 
     refute user.valid?
+  end
 
+
+  def test_user_can_be_created
+    user = build(:user)
+
+    assert user.valid?
   end
 
   def test_full_name
@@ -25,22 +31,36 @@ class UserTest < ActiveSupport::TestCase
   end
 
   def test_user_must_have_first_name
-    user = build(:user, last_name: "Smith", email:'nick@hotmail.com', password: 'password', password_confirmation: 'password')
+    user = build(:user, last_name: "Smith", email: 'nick@hotmail.com', password: 'password', password_confirmation: 'password')
     user.first_name = nil
 
     refute user.valid?
   end
 
   def test_user_must_have_last_name
-    user = build(:user)
+    user = build(:user, first_name: "Smith", email: "nick@hotmail.com", password: 'password', password_confirmation: 'password')
     user.last_name = nil
 
     assert user.invalid?
   end
 
   def test_user_must_have_email
-    user = build(:user)
+    user = build(:user, first_name: "Smith", password: 'password', password_confirmation: 'password')
     user.email = nil
+
+    refute user.valid?
+  end
+  #
+  def test_user_must_have_password
+    user = build(:user)
+    user.password = nil
+
+    refute user.valid?
+  end
+
+  def test_user_must_have_password_confirmation
+    user = build(:user)
+    user.password_confirmation = nil
 
     refute user.valid?
   end
@@ -59,5 +79,11 @@ class UserTest < ActiveSupport::TestCase
     refute user.valid?
   end
 
+  def test_user_must_be_unique
+    user = create(:user)
+    user2 = build(:user)
+
+    refute user2.valid?
+  end
 
 end
