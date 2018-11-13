@@ -24,6 +24,11 @@ a {
   padding: 0;
 }
 
+.navigation_bar {
+  // background-color: rgba(255, 255, 255, 0.2);
+  // // position: absolute;
+}
+
 .side_nav_button span {
   @media screen and (max-width: 700px) {
     font-size: 10px;
@@ -89,7 +94,6 @@ a {
 
 .nav_1 {
   padding-top: 70px;
-  // background-color: rgba(255, 255, 255, 0.2);
   height: 200px;
   text-align: center;
   .top_center {
@@ -115,8 +119,8 @@ a {
   }
   .top_right {
     position: absolute;
-    right: 0;
-    top: 10px;
+    right: 50px;
+    top: 70px;
     @media screen and (max-width: 600px) {
       text-align: center;
     }

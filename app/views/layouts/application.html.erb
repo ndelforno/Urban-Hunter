@@ -53,7 +53,6 @@
               <% end %>
             </ul>
           </div>
-        </div>
       </div>
       <div class="nav_2">
         <div class="">
@@ -146,23 +145,23 @@
 
     </div>
 
-        <main>
-          <% flash.each do |key, message| %>
-          <div class="flash-<%= key %>"><span class="error_message"><%= message %><span></div>
-          <% end %>
-           <%= render 'sessions/form' %>
-           <%= render 'users/form' %>
-          <%= yield %>
-        </main>
-        <footer>
-          <div class="info_nav">
-            <ul class="info_list">
-              <p>Made by Nicolas, Constantine, Mamun and Kevin ©</p>
-              <li><%= link_to('Contact Us', contact_us_path) %></li>
-              <li><%= link_to('About Us', about_path) %></li>
-              <p>Happy Hunting!</p>
-            </ul>
-          </div>
-        </footer>
+    <main>
+      <% flash.each do |key, message| %>
+      <div class="flash-<%= key %>"><span class="error_message"><%= message %><span></div>
+      <% end %>
+       <%= render 'sessions/form' %>
+       <%= render 'users/form' %>
+      <%= yield %>
+    </main>
+    <footer>
+      <div class="info_nav">
+        <ul class="info_list">
+          <p>Made by Nicolas, Constantine, Mamun and Kevin ©</p>
+          <li><%= link_to('Contact Us', contact_us_path) %></li>
+          <li><%= link_to('About Us', about_path) %></li>
+          <p>Happy Hunting!</p>
+        </ul>
+      </div>
+    </footer>
   </body>
 </html>

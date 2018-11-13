@@ -33,7 +33,7 @@
   // }
   a {
     text-decoration: none;
-    color: black;
+    color: white;
   }
   h2 {
     font-size: 90px;
@@ -45,6 +45,7 @@
     text-align: center;
     position: relative;
     margin-top: 5px;
+    font-size: 25px;
 
   }
 }
@@ -62,7 +63,7 @@
   transition: all 0.3s ease 0s;
   // border: solid 2px black;
   a {
-    color: white !important;
+    color: black !important;
     letter-spacing: 3px;
   }
 }
@@ -95,13 +96,15 @@
   .description_content {
     padding: 20px;
     h2 {
+      margin-bottom: 15px;
       text-align: center;
-      margin-bottom: 0;
+      font-size: 30px;
     }
     p {
       text-align: center;
       position: relative;
       margin-top: 5px;
+      font-size: 22px;
     }
   }
 }
@@ -264,8 +267,9 @@ h1{
 .navigation_bar .side_nav_button {
   display: block;
   position: absolute;
-  top: 100px;
-  left: 50px;
+  top: 110px;
+  left: 135px;
+
 }
 
 .navigation_bar .side_nav_button > span {
