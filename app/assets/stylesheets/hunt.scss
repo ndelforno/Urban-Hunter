@@ -15,13 +15,81 @@
 }
 .block {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: 25% 25% 25% 25%;
   grid-template-rows: auto;
+  grid-gap: 2em;
+  padding: 0.5em;
 }
 
-.text-center, h2 {
+.index_hunt {
+  padding: 1px 0px;
+  background: rgba(252, 227, 207, 0.3);
+  border-radius: 50px;
+  margin-bottom: 2em;
+  -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  -moz-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  -ms-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  -o-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  -webkit-transition: all 0.25s ease-in-out;
+  -moz-transition: all 0.25s ease-in-out;
+  -ms-transition: all 0.25s ease-in-out;
+  -o-transition: all 0.25s ease-in-out;
+  transition: all 0.25s ease-in-out;
+}
+
+.index_hunt:hover {
+  -webkit-box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+  -moz-box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+  -ms-box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+  -o-box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+  background: rgba(252, 227, 207, 0.7);
+}
+
+.all-hunts {
+  font-size: 70px;
+}
+
+.categories_hunts > h2 {
+  color: white;
+  font-size: 50px;
+  font-weight: bold;
+}
+
+.block > .categories_hunts {
+  padding: 1em;
+  border: 2px solid rgb(155, 81, 21);
+  border-radius: 20px;
+}
+
+.block > .categories_hunts > .index_hunt > h3 > a {
+  color: rgb(155, 81, 21);
+  font-size: 35px;
+  text-decoration: underline;
+}
+
+.block > .categories_hunts > .index_hunt > h3 > span {
+  color: white;
+  font-size: 25px;
+}
+
+.all-hunts, h2 {
   text-align: center;
 }
+
+.index_hunt > h3 > span > a {
+  text-decoration: underline;
+}
+
+.block > .categories_hunts > .index_hunt > h3 > a:hover {
+  color: red;
+}
+
+.index_hunt > h3 > span > a:hover {
+  color: red;
+}
+
 
 fieldset, #hunt_name, #hunt_hunt_date, #hunt_hunt_time, #hunt_max_participants{
   width: 100%;

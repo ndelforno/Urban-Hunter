@@ -1,6 +1,6 @@
 
 
-<h1 class="text-center">ALL FUTURE HUNTS</h1>
+<h1 class="all-hunts">ALL FUTURE HUNTS</h1>
 
 <hr>
 <div class="block">
@@ -8,21 +8,21 @@
     <% @categories.each do |category|%>
       <div class="categories_hunts">
         <h2><%=category.name%></h2>
-        <hr>
       <% category.hunts.each do |hunt|%>
-      <ul>
-            <br>
-            <li>
+        <div class = "index_hunt">
             <h3><%=link_to("#{hunt.name}", hunt_path(hunt))%></h3>
-            <h3>Created by: <%=link_to("#{hunt.user.full_name}", user_path(hunt))%></h3>
-            <h3>Date: <%=hunt.hunt_date.strftime("%v")%></h3>
-            <h3>Time: <%=hunt.hunt_time.strftime("%H:%M")%></h3>
-            <h3>Difficulty: <%=hunt.difflevel_int_to_text%></h3>
-            <h3>Available spots: <%=hunt.available_spots%></h3>
-          </li>
-          <br>
-      </ul>
-        <%end%>
+            <h3>Created by: <span><%=link_to("#{hunt.user.full_name}", user_path(hunt))%></span></h3>
+            <h3>Date: <span><%=hunt.hunt_date.strftime("%v")%></span></h3>
+            <h3>Time: <span><%=hunt.hunt_time.strftime("%H:%M")%></span></h3>
+            <h3>Difficulty:
+              <span><%hunt.difficulty_level.times do %>
+                      <img src="/assets/raccoon-logo-png.png" class="logo_img_diff" width="30" length="30">
+                    <%end%>
+              </span>
+            </h3>
+            <h3>Available spots: <span><%=hunt.available_spots%></span></h3>
         </div>
+      <%end%>
+      </div>
     <%end%>
 </div>

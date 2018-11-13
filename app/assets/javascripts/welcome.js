@@ -2,12 +2,14 @@
 function openNav() {
     document.getElementById("mySidenav").style.width = "350px";
     document.getElementById("main_to_slide").style.marginLeft = "350px";
+    document.getElementById("open_button").style.display = "none";
 }
 
 /* Set the width of the side navigation to 0 and the left margin of the page content to 0 */
 function closeNav() {
     document.getElementById("mySidenav").style.width = "0";
     document.getElementById("main_to_slide").style.marginLeft = "0";
+    document.getElementById("open_button").style.display = "block";
 }
 
 
