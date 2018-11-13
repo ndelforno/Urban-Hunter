@@ -1,7 +1,6 @@
-<h1>Edit <span><%=@hunt.name%><span></h1>
+<h1>Edit: <span><%=@hunt.name%><span></h1>
   <div class="links_nav">
-    <%=  link_to("Back to Hunt view", hunt_path(@hunt)) %>
-    <%=  link_to('Back to Hunts', hunts_path) %>
+    <%=  link_to("Back to Hunt ", hunt_path(@hunt)) %>
   </div>
 
 
@@ -25,5 +24,6 @@
 
 <%= render 'hunts/form_new_hunt', hunt: @hunt, category: @category, categories: @categories %>
 
-
-<%= link_to('Delete Hunt', hunt_path(@hunt), method: :delete, data: {confirm: "Are you sure you want to delete this hunt?"}) %>
+<div class="delete_hunt">
+  <%= link_to('Delete Hunt', hunt_path(@hunt), method: :delete, data: {confirm: "Are you sure you want to delete this hunt?"}) %>
+</div>

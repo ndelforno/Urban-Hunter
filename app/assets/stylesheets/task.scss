@@ -71,6 +71,14 @@
   outline: none;
 }
 
+// .task_info{
+//   margin: 0px;
+//   text-align: center;
+//   border: 2px solid white;
+//   width: 300px;
+//   border-radius: 7px;
+// }
+
 .completed_task {
   display: inline-block;
   width: 300px;
@@ -78,5 +86,32 @@
     width: 300px;
     border: 2px solid white;
     border-radius: 7px;
+  }
+}
+
+.add_new_task{
+  margin: 5px;
+  display: inline-block;
+  width: 150px;
+  padding: 10px;
+  border: 0;
+  background: #f19f4d;
+  border-radius: 3px;
+
+  font-size: 16px;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: #fff;
+	-webkit-font-smoothing: antialiased;
+
+  cursor: pointer;
+}
+.edit_task{
+  list-style-type: none;
+  li{
+    display: inline;
+  }
+  a{
+    color: #f96409;
   }
 }

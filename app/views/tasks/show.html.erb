@@ -1,6 +1,9 @@
 <h1><%= @task.details %></h1>
-<h2>Locations:</h2>
-<p id="address"><%= @task.address %></p>
+
+  <div class="task_info">
+    <h2>Location:</h2>
+    <p id="address"><%= @task.address %></p>
+  </div>
 
 <p><%= link_to 'Back to hunt', hunt_path(@task.hunt) %><p/>
 
