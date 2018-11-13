@@ -20,6 +20,19 @@
   border-radius: 25px;
   margin: 10px;
   background-color: rgba(241, 159, 77, 0.8);
+  padding: 15px;
+  text-align: center;
+  width: 75%;
+  margin-left: 200px;
+  a:hover {
+    color: #404040 !important;
+    font-weight: 700 !important;
+    letter-spacing: 3px;
+    background: none;
+    -webkit-box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
+    -moz-box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
+    transition: all 0.3s ease 0s;
+  }
   a {
     text-decoration: none;
     color: black;
@@ -86,7 +99,7 @@
   .categories {
     text-align: center;
     margin-bottom: 30px;
-    margin-top: 130px;
+    margin-top: 90px;
     // background-color: red;
     .category {
       // background-image: url("https://foodrevolution.org/wp-content/uploads/2018/04/blog-featured-diabetes-20180406-1330.jpg");
@@ -147,6 +160,7 @@
 
 .category_section {
   display: inline-block;
+  margin-top: 35px;
 }
 
 #tourism {
@@ -159,7 +173,7 @@
   background-position: center;
 }
 
-#pub_crawl {
+#pub-crawl {
   background-image: url("https://static.standard.co.uk/s3fs-public/thumbnails/image/2017/06/05/10/the-agenda-10-87.jpg?w968");
   background-position: center;
   background-size: 400px 250px;
@@ -171,7 +185,7 @@
 
 }
 
-#know_your_neighbourhood {
+#sport {
   background-image: url("https://upload.wikimedia.org/wikipedia/commons/thumb/b/b0/Openstreetmap_logo.svg/1200px-Openstreetmap_logo.svg.png");
   background-position: center;
   background-size: 220px 220px;
@@ -243,7 +257,7 @@ h1{
   font-size: 30px;
   font-weight: bold;
   cursor:pointer;
-  color:  rgb(155, 81, 21);
+  color:  #f19f4d;
 }
 
 .smalltext{
@@ -294,7 +308,7 @@ h1{
     z-index: 1; /* Stay on top */
     top: 0; /* Stay at the top */
     left: 0;
-    background-color: rgba(45, 45, 45, 0.5); /* Black*/
+    background-color: rgba(50, 93, 109, 0.9); /* Black*/
 
     overflow-x: hidden; /* Disable horizontal scroll */
     // overflow-y:visible;

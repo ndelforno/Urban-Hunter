@@ -24,7 +24,7 @@ User.create(
 )
 end
 
-["tourism", "social", "pub_crawl", "family", "know_your_neighbourhood"].each do |name|
+["tourism", "social", "pub-crawl", "family", "sport"].each do |name|
   Category.create(name: name)
 end
 

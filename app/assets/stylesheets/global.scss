@@ -136,5 +136,21 @@ footer {
   .info_list {
     list-style-type: none;
     text-align: center;
+    display: inline;
+    li {
+      color: black;
+      display: inline;
+      padding-left: 10px;
+      padding-right: 10px;
+
+    }
+    a {
+      color: black;
+      background-color: yellow;
+      padding: 3px;
+    }
+    p {
+      color: black;
+    }
   }
 }
