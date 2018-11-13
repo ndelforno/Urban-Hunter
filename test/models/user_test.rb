@@ -37,12 +37,12 @@ class UserTest < ActiveSupport::TestCase
     refute user.valid?
   end
 
-  # def test_user_must_have_last_name
-  #   user = create(:user, first_name: "Smith", email: "nick@hotmail.com", password: 'password', password_confirmation: 'password')
-  #
-  #
-  #   assert user.invalid?
-  # end
+  def test_user_must_have_last_name
+    user = build(:user, first_name: "Smith", email: "nick@hotmail.com", password: 'password', password_confirmation: 'password')
+    user.last_name = nil
+
+    assert user.invalid?
+  end
 
   def test_user_must_have_email
     user = build(:user, first_name: "Smith", password: 'password', password_confirmation: 'password')
@@ -64,7 +64,7 @@ class UserTest < ActiveSupport::TestCase
 
     refute user.valid?
   end
-  #
+
   def test_user_password_must_match_password_confirmation
     user = build(:user)
     user.password = "123"
