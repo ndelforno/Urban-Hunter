@@ -31,12 +31,13 @@
         <span id="open_button" class="open_button" onclick="openNav()">☰ Menu</span>
       </div>
       <div class="nav_1">
-        <div class="top_left">
+        <div class="logo">
+          <div class="top_left">
             <img src="/assets/raccoon-logo-png.png" class="logo_img" width="100" length="100">
-        </div>
-        <div class="top_center">
-          <%= link_to "Urban Hunter", root_path, :class => "logo_text" %>
-        </div>
+          </div>
+          <div class="top_center">
+            <%= link_to "Urban Hunter", root_path, :class => "logo_text" %>
+          </div>
         <div class="top_right">
           <ul class="user_options">
             <% if current_user %>
@@ -54,7 +55,7 @@
           </ul>
         </div>
       </div>
-
+  <span class="open_button" onclick="openNav()">☰ Menu</span>
       <div class="nav_2">
         <div class="search_bar">
           <%= form_tag(hunt_search_path, {:id => 'search_form'}) do %>

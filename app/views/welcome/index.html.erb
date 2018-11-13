@@ -2,25 +2,15 @@
 <div class="welcome_section">
   <div class="welcome_content">
 
-    <div class="intro">
-      <div class="intro_title">
-        <h2><%= link_to("Join the Hunt", hunts_path) %></h2>
-      </div>
-      <div class="intro_text">
-        <p>And be part of the largest hunt accross your city</p>
-      </div>
-  </div>
-
-
-
-  <div class="description">
-    <div class="description_title">
-      <h2>Description</h2>
+  <div class="intro">
+    <div class="intro_title">
+      <h2><%= link_to("Join the Hunt", hunts_path) %></h2>
     </div>
-    <div class="description_text">
-      <p>Participate in a hunt and complete achievements !</p>
+    <div class="intro_text">
+      <p>And be part of the largest hunt accross your city</p>
     </div>
   </div>
+
 
   <div class="images_content">
     <div class="images">
@@ -37,6 +27,17 @@
   </div>
 
   <div class="category_menu">
+    <div class="description_section">
+      <div class="description_content">
+        <div class="description_title">
+          <h2>Choose your hunting field!</h2>
+        </div>
+        <div class="description_text">
+          <p>And be part of the largest hunt accross your city</p>
+        </div>
+      </div>
+    </div>
+
     <div class="categories">
       <% @categories.each do |category| %>
       <div class="category_section">
