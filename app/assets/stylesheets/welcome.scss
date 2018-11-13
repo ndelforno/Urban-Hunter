@@ -4,7 +4,7 @@
 
 .welcome_content {
   display: grid;
-  grid-template-rows: 200px 200px 500px 300px min-content;
+  grid-template-rows: 200px 450px 500px ;
   grid-template-columns: 25% 25% 25% 25% min-content;
   position: relative;
   // top: 350px;
@@ -18,7 +18,7 @@
   background-color: rgba(241, 159, 77, 0.8);
   a {
     text-decoration: none;
-    color: white;
+    color: black;
   }
   h2 {
     font-size: 90px;
@@ -34,44 +34,55 @@
   }
 }
 
-.description {
+.images_content {
+  grid-column: 1/5;
   grid-row: 2/3;
-  grid-column: 2/4;
+  position: relative;
+  margin-top: 60px;
+  // top: 90px;
+  .images {
+    .image {
+      display: inline-block;
+      width: 33%;
+      height:  380px;
+      img {
+        width: 100%;
+        height: 100%  ;
+      }
+    }
+  }
+}
+
+.description_section {
   border-style: solid white;
   border-radius: 25px;
   margin: 10px;
   background-color: rgba(255, 255, 255, 0.5);
   position: relative;
-  top: 30px;
-  h2 {
-    font-size: 90px;
-    text-align: center;
-    margin-bottom: 0;
-    margin-top: 35px;
-  }
-  p {
-    text-align: center;
-    position: relative;
-    margin-top: 5px;
+  .description_content {
+    padding: 20px;
+    h2 {
+      text-align: center;
+      margin-bottom: 0;
+    }
+    p {
+      text-align: center;
+      position: relative;
+      margin-top: 5px;
+    }
   }
 }
 
-
-
-.images_content {
-  grid-column: 1/5;
-  grid-row: 3/4;
-  position: relative;
-  top: 90px;
-}
 .category_menu {
   text-align: center;
   grid-column: 1/5;
-  grid-row: 4/5;
+  grid-row: 3/4;
   margin-top: 45px;
+  display: inline-block;
   .categories {
     text-align: center;
     margin-bottom: 30px;
+    margin-top: 30px;
     // background-color: red;
     .category {
       // background-image: url("https://foodrevolution.org/wp-content/uploads/2018/04/blog-featured-diabetes-20180406-1330.jpg");
@@ -163,27 +174,6 @@
 
 }
 
-.intro{
-  text-align: left;
-  .intro_text {
-
-  }
-}
-
-.images_content {
-  display: inline-block;
-  .images{
-    text-align: center;
-    .image{
-      display: inline;
-      width: 50px;
-    }
-    img {
-      border-color: 1px black;
-      border-style: solid;
-    }
-  }
-}
 
 
 .stock_pic1 {
