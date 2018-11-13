@@ -210,4 +210,7 @@ legend{
 
 
 
-#mapid_all { height: 520px; }
+#mapid_all {
+  height: 520px;
+  z-index: 0;
+}
