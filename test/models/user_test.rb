@@ -39,7 +39,10 @@ class UserTest < ActiveSupport::TestCase
   end
 
   def test_user_must_have_email
+    user = build(:user)
+    user.email = nil
 
+    refute user.valid?
   end
 
   def test_user_password_must_match_password_confirmation
