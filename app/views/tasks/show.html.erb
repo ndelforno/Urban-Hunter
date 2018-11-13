@@ -5,7 +5,7 @@
     <p id="address"><%= @task.address %></p>
   </div>
 
-<p><%= link_to 'Back to hunt', hunt_path(@task.hunt) %><p/>
+<span class = "hunts_link_back"><%= link_to '⇦ Back to hunt', hunt_path(@task.hunt) %></span>
 
 <% if current_user && @task.completed_by_user?(current_user) == true %>
   <div class="completed_task">
@@ -13,7 +13,9 @@
     <% proof_text = current_user.completed_tasks.find_by(task_id: @task.id)%>
     <p> Proof: <%= proof_text.proof %></p>
     <% proof_image = current_user.completed_tasks.find_by(task_id: @task.id) %>
+    <% if proof_image.image != nil %>
     <%= image_tag proof_image.image %>
+    <% end %>
   </div>
 
 <% else %>

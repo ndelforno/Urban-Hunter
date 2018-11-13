@@ -33,8 +33,8 @@ class HuntsController < ApplicationController
       @hunt.max_participants = params[:hunt][:max_participants]
       @hunt.user_id = session[:user_id]
       if @hunt.save
-        flash[:notice] = "Hunt added!"
-        redirect_to new_hunt_task_path(@hunt)
+        # flash[:notice] = "Hunt added!"
+        redirect_to new_hunt_task_path(@hunt), info: "Hunt Added !"
       else
         # puts @hunt.errors.full_messages
         params[:hunt] = nil
@@ -56,10 +56,11 @@ class HuntsController < ApplicationController
     @hunt.max_participants = params[:hunt][:max_participants]
     @category = Category.find_by(id: params[:category_id])
     if @hunt.save
-      flash[:notice] = "Hunt updated!"
-      redirect_to hunt_path(@hunt)
+      # flash[:notice] = "Hunt updated!"
+      redirect_to hunt_path(@hunt), info: "Hunt updated!"
     else
       # puts @hunt.errors.full_messages
+      params[:hunt] = nil
       render :edit
     end
   end
@@ -67,8 +68,8 @@ class HuntsController < ApplicationController
   def destroy
     @hunt.destroy
     if @hunt.destroy
-      flash[:notice] = "Hunt deleted!"
-      redirect_to hunts_path
+      # flash[:notice] = "Hunt deleted!"
+      redirect_to hunts_path, info: "Hunt deleted!"
     end
   end
 
@@ -92,6 +93,7 @@ class HuntsController < ApplicationController
       else
         @hunt.users << current_user
         flash[:notice] = "You have joined the hunt!"
+
       end
     end
     redirect_to hunt_path
