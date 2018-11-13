@@ -8,10 +8,10 @@ local:
 
 amazon:
   service: S3
-  access_key_id: ""
-  secret_access_key: ""
+  access_key_id: <%= ENV['AWS_ACCESS_KEY_ID'] %>
+  secret_access_key: <%= ENV['AWS_secret_key_id'] %>
   bucket: ""
-  region: "" # e.g. 'us-east-1'
+  region: "Canada (central)" # e.g. 'us-east-1'
 
 # Use rails credentials:edit to set the AWS secrets (as aws:access_key_id|secret_access_key)
 # amazon:
