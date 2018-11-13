@@ -2,11 +2,19 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+//styling for search_results
+
+.index_hunt > h3 > .hunt_name > a {
+  color: rgb(155, 81, 21);
+  font-size: 35px;
+}
+
 //styling for index_hunt page
 
 .index_hunt > h3 > span > a:hover {
   color: red;
 }
+
 .block {
   display: grid;
   grid-template-columns: 25% 25% 25% 25%;
@@ -45,7 +53,13 @@
   font-size: 70px;
 }
 
-.categories_hunts > h2 {
+.create_hunt {
+  color: white;
+  font-size: 70px;
+  font-weight: bold;
+}
+
+.categories_hunts > h2 > span {
   color: white;
   font-size: 50px;
   font-weight: bold;
