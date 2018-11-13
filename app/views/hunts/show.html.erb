@@ -4,16 +4,16 @@
 <h1><%= @hunt.name %></h1>
 
 <div class = "hunt">
-<% if current_user %>
+<% if current_user && @hunt.users.include?(current_user) == false %>
     <div class="join_hunt">
       <%= link_to('Join Hunt', hunt_join_path, method: :post, data: {confirm: "Are you sure you want to join this hunt?"}) %>
     </div>
-      <% if current_user == @hunt.user %>
-      <div class="edit_hunt_button">
-        <%= link_to('Edit Hunt', edit_hunt_path) %>
-      </div>
-      <% end %>
+<% end %>
 
+<% if current_user == @hunt.user %>
+<div class="edit_hunt_button">
+  <%= link_to('Edit Hunt', edit_hunt_path) %>
+</div>
 <% end %>
 
 
