@@ -133,6 +133,10 @@ legend{
   text-align: center;
 }
 
+.hunt_participants > li > span > a {
+  color: rgb(155, 81, 21);
+}
+
 .join_hunt, .edit_hunt_button, .delete_hunt {
   margin: 5px;
   display: inline-block;
