@@ -1,7 +1,10 @@
 class ApplicationController < ActionController::Base
 
 
+before_action :set_locale
+
 add_flash_types :info
+
 
 def current_user
   User.find_by(id: session[:user_id])
@@ -20,6 +23,11 @@ end
 
 def sign_up
   @user = User.new
+end
+
+def set_locale
+  locale = params[:locale].to_s.strip.to_sym
+  I18n.locale = I18n.available_locales.include?(locale) ? locale : I18n.default_locale
 end
 
 helper_method :current_user
