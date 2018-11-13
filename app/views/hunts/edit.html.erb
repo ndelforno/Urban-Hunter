@@ -4,24 +4,6 @@
   </div>
 
 
-
-
-<div class="error_css">
-    <%  if @hunt.errors.any? %>
-        <h2> Errors ! </h2>
-
-        <ul>
-            <%  @hunt.errors.full_messages.each do |message| %>
-              <li> <%= message %> </li>
-            <% end  %>
-        </ul>
-    <% end %>
-</div>
-
-
-
-
-
 <%= render 'hunts/form_new_hunt', hunt: @hunt, category: @category, categories: @categories %>
 
 <div class="delete_hunt">
