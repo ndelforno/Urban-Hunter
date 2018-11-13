@@ -5,7 +5,7 @@
     <p id="address"><%= @task.address %></p>
   </div>
 
-<p><%= link_to 'Back to hunt', hunt_path(@task.hunt) %><p/>
+<span class = "hunts_link_back"><%= link_to '⇦ Back to hunt', hunt_path(@task.hunt) %></span>
 
 <% if current_user && @task.completed_by_user?(current_user) == true %>
   <div class="completed_task">
