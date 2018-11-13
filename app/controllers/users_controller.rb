@@ -6,6 +6,7 @@ class UsersController < ApplicationController
 
   def new
     @user = User.new
+    flash[:previous_page] = request.referer
   end
 
   def create
@@ -17,9 +18,9 @@ class UsersController < ApplicationController
     @user.password_confirmation = params[:user][:password_confirmation]
     if @user.save
       session[:user_id] = @user.id
-      redirect_to root_url
+      redirect_to request.referer, notice: "Logged in as #{@user.first_name} #{@user.last_name}!"
     else
-      render :new
+      redirect_to request.referer, notice: "signup failed !"
     end
   end
 
