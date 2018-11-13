@@ -19,19 +19,14 @@
    margin: 0.5rem;
  }
 
- .flash-notice {
-   background-color: rgb(206, 244, 183);
- }
 
  .flash-alert {
    background-color: red;
  }
 
- .flash-warning {
-   background-color: yellow;
- }
 
 
  .error_message {
   font-size: 1.5em;
+  color: red;
 }
