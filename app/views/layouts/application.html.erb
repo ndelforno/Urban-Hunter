@@ -44,7 +44,6 @@
               <div class="logged_in">
                 <li><%= link_to "Hello! #{current_user.first_name}", user_path(current_user) %></li>
                 <li><%= link_to "Sign Out", session_path("purple"), :method => :delete %></li>
-                <li><%= link_to('Make your hunt !', new_hunt_path) %></li>
               </div>
             <% else %>
               <div class="logged_out">
@@ -56,15 +55,26 @@
         </div>
       </div>
       <div class="nav_2">
-        <div class="search_bar">
-          <%= form_tag(hunt_search_path, {:id => 'search_form'}) do %>
-          <%= text_field_tag :hunt, params[:hunt], :class => "search_field" %><%= submit_tag 'Search Hunts', name: nil, :class => "search_button" %>
-        <% end %>
+        <div class="">
+          <div class="user_options">
+            <% if current_user %>
+            <%= link_to('Make your hunt !', new_hunt_path) %>
+            <% end %>
+          </div>
+          <div class="search_bar">
+            <%= form_tag(hunt_search_path, {:id => 'search_form'}) do %>
+            <%= text_field_tag :hunt, params[:hunt], :class => "search_field" %><%= submit_tag '🔎 Search Hunts', :placeholder => 'Search for hunts!', name: nil, :class => "search_button" %>
+          </div>
+          <% end %>
         </div>
-        <br>
+
       </div>
 
+
+        <br>
+      </div>
     </div>
+
 
       <div id="mySidenav" class="sidenav">
         <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
