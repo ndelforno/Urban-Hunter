@@ -19,6 +19,8 @@ class CompletedTasksController < ApplicationController
     @completed_task.completed = true
     if @completed_task.save
       redirect_to("/hunts/#{@task.hunt_id}/tasks/#{@task.id}")
+    else
+      redirect_to("/hunts/#{@task.hunt_id}/tasks/#{@task.id}")
     end
   end
 

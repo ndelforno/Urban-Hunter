@@ -18,7 +18,6 @@ class TasksController< ApplicationController
 
 
         if @task.save
-
           redirect_to new_hunt_task_path
         else
          render 'tasks/new'

@@ -3,7 +3,7 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 .welcome_section {
-  margin-top: 50px;
+
 }
 
 .welcome_content {
@@ -18,21 +18,20 @@
   grid-column: 2/4;
   border-style: solid white;
   border-radius: 25px;
-  margin: 10px;
+  margin: 100px auto;
   background-color: rgba(241, 159, 77, 0.8);
   padding: 15px;
-  text-align: center;
-  width: 75%;
-  margin-left: 200px;
-  a:hover {
-    color: #404040 !important;
-    font-weight: 700 !important;
-    letter-spacing: 3px;
-    background: none;
-    -webkit-box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
-    -moz-box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
-    transition: all 0.3s ease 0s;
-  }
+  width: 50%;
+  margin-left: 440px;
+  // a:hover {
+  //   color: #404040 !important;
+  //   font-weight: 700 !important;
+  //   letter-spacing: 3px;
+  //   background: none;
+  //   -webkit-box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
+  //   -moz-box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
+  //   transition: all 0.3s ease 0s;
+  // }
   a {
     text-decoration: none;
     color: black;
@@ -49,6 +48,20 @@
     margin-top: 5px;
 
   }
+}
+
+.intro:hover {
+  -webkit-transform: scale(1.3);
+  -ms-transform: scale(1.3);
+  transform: scale(1.3);
+  color: #404040 !important;
+  font-weight: 700 !important;
+  letter-spacing: 3px;
+  // background: none;
+  -webkit-box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
+  -moz-box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
+  transition: all 0.3s ease 0s;
+  // border: solid 2px black;
 }
 
 .images_content {
@@ -94,11 +107,10 @@
   text-align: center;
   grid-column: 1/5;
   grid-row: 3/4;
-  margin-top: 110px;
   display: inline-block;
   .categories {
     text-align: center;
-    margin-bottom: 30px;
+    margin-bottom: 90px;
     margin-top: 90px;
     // background-color: red;
     .category {
@@ -134,7 +146,6 @@
       margin-right: 50px;
 
       a {
-      height: 20px;
       font-weight: bold;
       border: none;
       background: #f19f4d;
