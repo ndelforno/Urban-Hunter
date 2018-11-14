@@ -1,0 +1,53 @@
+
+<div class="welcome_section">
+  <div class="welcome_content">
+
+    <div class="category_menu">
+      <div class="categories">
+        <% @categories.each do |category| %>
+        <div class="category_section">
+          <div class="category_logo">
+            <%= link_to("", category_path(category), :class => "category", :id => category.name) %>
+          </div>
+          <div class="category_button">
+            <%= link_to("#{category.name}", category_path(category)) %>
+          </div>
+        </div>
+        <% end %>
+      </div>
+      <div class="description_section">
+        <div class="description_content">
+          <div class="description_title">
+            <h2>あなたの狩猟畑を選ぶか、自分の狩りを作りましょう！</h2>
+          </div>
+          <div class="description_text">
+            <p>他のハンターとは、さまざまな種類の狩りで一緒に参加しましょう！一緒に仕事を完了し、あなた自身の都市のジャングルをナビゲートしてください！</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="intro">
+      <div class="intro_title">
+        <h2><%= link_to("狩りに参加する", hunts_path) %></h2>
+      </div>
+      <div class="intro_text">
+        <p>あなたの街を巡る最大の狩りの一部になる</p>
+      </div>
+    </div>
+
+
+    <div class="images_content">
+      <div class="images">
+        <div class="image">
+          <img src="https://freedesignfile.com/upload/2016/11/Happy-tourists-holding-a-map-of-the-city.jpg" class="stock_pic1" alt="">
+        </div>
+        <div class="image">
+          <img src="https://i.imgur.com/T515z5M.png" alt="">
+        </div>
+        <div class="image">
+          <img src="http://www.prankmenot.com/images/12-11-2018/9KioO7.png" alt="">
+        </div>
+      </div>
+  </div>
+</div>

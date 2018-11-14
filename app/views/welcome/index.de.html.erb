@@ -1,0 +1,54 @@
+
+<div class="welcome_section">
+  <div class="welcome_content">
+
+    <div class="category_menu">
+      <div class="categories">
+        <% @categories.each do |category| %>
+        <div class="category_section">
+          <div class="category_logo">
+            <%= link_to("", category_path(category), :class => "category", :id => category.name) %>
+          </div>
+          <div class="category_button">
+            <%= link_to("#{category.name}", category_path(category)) %>
+          </div>
+        </div>
+        <% end %>
+      </div>
+      <div class="description_section">
+        <div class="description_content">
+          <div class="description_title">
+            <h2>Wählen Sie Ihr Jagdfeld oder erstellen Sie Ihre eigene Jagd!</h2>
+          </div>
+          <div class="description_text">
+            <p>Kommen Sie mit anderen Jägern auf eine Vielzahl verschiedener Jagden! Arbeiten Sie gemeinsam an Aufgaben und navigieren Sie durch Ihren eigenen urbanen Dschungel!
+</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="intro">
+      <div class="intro_title">
+        <h2><%= link_to("Mach mit bei der Jagd", hunts_path) %></h2>
+      </div>
+      <div class="intro_text">
+        <p>Und Teil sei der größten Jagd in deiner Stadt</p>
+      </div>
+    </div>
+
+
+    <div class="images_content">
+      <div class="images">
+        <div class="image">
+          <img src="https://freedesignfile.com/upload/2016/11/Happy-tourists-holding-a-map-of-the-city.jpg" class="stock_pic1" alt="">
+        </div>
+        <div class="image">
+          <img src="https://i.imgur.com/T515z5M.png" alt="">
+        </div>
+        <div class="image">
+          <img src="http://www.prankmenot.com/images/12-11-2018/9KioO7.png" alt="">
+        </div>
+      </div>
+  </div>
+</div>
