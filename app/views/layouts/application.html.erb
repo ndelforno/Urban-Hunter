@@ -25,6 +25,11 @@
 
   <body>
 
+    <div class="lang_switch">
+        <%my_url = request.original_url.split('?').first %>
+        <span id="switch_lang"><%=link_to("en", my_url + "?locale=en")%> | <%=link_to("it", my_url + "?locale=it")%></span>
+    </div>
+
     <div class="navigation_bar">
       <div class="side_nav_button">
         <span id="open_button" class="open_button" onclick="openNav()">☰ Menu</span>

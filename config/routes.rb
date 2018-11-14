@@ -23,7 +23,3 @@ Rails.application.routes.draw do
   resources :sessions
 
 end
-
-# <%if participant.id == current_user.id %>
-#   <p>| <%= link_to('Leave this hunt', hunt_join_path, method: :post, data: {confirm: "Are you sure you want to delete this hunt?"})%></p>
-# <% end %>
