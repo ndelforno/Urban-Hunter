@@ -83,10 +83,10 @@
 
       <div id="mySidenav" class="sidenav">
         <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-
         <div class = "next_5_hunts">
           <h2>Next 5 hunts:</h2>
         </div>
+        <% if @future_hunts_five.count > 0 %>
         <div class = "firsthunt">
           <p>
             <% @future_hunts_five = first_five_hunts %>
@@ -98,6 +98,7 @@
             <%=link_to("#{@future_hunts_five[0].name}", hunt_path(@future_hunts_five[0])) %></p>
             <p>hunt starts in:</p>
         </div>
+
 
         <div id="clockdiv">
           <div>
@@ -123,6 +124,10 @@
                <p><%=link_to("#{hunt.name}", hunt_path(hunt))%></p>
             <% end %>
         </div>
+
+        <%else%>
+          <p>No hunts present</p>
+        <%end%>
 
         <div class = "nav_hrz_divider">
           <img src="/assets/raccoon-logo-png.png" class="logo_img_mini" width="50" length="50">
