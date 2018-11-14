@@ -1,0 +1,6 @@
+<h3><span class = "hunts_link_back">&#8678; <%= link_to('Ritornare alle Cacce', hunts_path) %></span></h3>
+
+
+<h2 class = "create_hunt">Crea Caccia:</h2>
+
+<%= render 'hunts/form_new_hunt', hunt: @hunt, categories: @categories %>

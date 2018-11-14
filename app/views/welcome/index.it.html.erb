@@ -1,0 +1,53 @@
+
+<div class="welcome_section">
+  <div class="welcome_content">
+
+    <div class="category_menu">
+      <div class="categories">
+        <% @categories.each do |category| %>
+        <div class="category_section">
+          <div class="category_logo">
+            <%= link_to("", category_path(category), :class => "category", :id => category.name) %>
+          </div>
+          <div class="category_button">
+            <%= link_to("#{category.name}", category_path(category)) %>
+          </div>
+        </div>
+        <% end %>
+      </div>
+      <div class="description_section">
+        <div class="description_content">
+          <div class="description_title">
+            <h2>Scegli il tuo campo di caccia oppure crea la tua propria caccia!</h2>
+          </div>
+          <div class="description_text">
+            <p>Unisciti agli altri cacciatori in una pletora di cacce! Collabora per completare le prove e naviga attraverso la tua propria giungla urbana!</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="intro">
+      <div class="intro_title">
+        <h2><%= link_to("Unisciti alla caccia", hunts_path) %></h2>
+      </div>
+      <div class="intro_text">
+        <p>e' fai parte della piu' grande caccia nella tua citta'</p>
+      </div>
+    </div>
+
+
+    <div class="images_content">
+      <div class="images">
+        <div class="image">
+          <img src="https://freedesignfile.com/upload/2016/11/Happy-tourists-holding-a-map-of-the-city.jpg" class="stock_pic1" alt="">
+        </div>
+        <div class="image">
+          <img src="https://i.imgur.com/T515z5M.png" alt="">
+        </div>
+        <div class="image">
+          <img src="http://www.prankmenot.com/images/12-11-2018/9KioO7.png" alt="">
+        </div>
+      </div>
+  </div>
+</div>

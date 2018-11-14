@@ -1,0 +1,25 @@
+<h3><span class = "hunts_link_back">&#8678; <%= link_to('Ritornare alla Cacce', hunts_path) %></span></h3>
+
+<h1 class="text-center">Risulato ricerca:</h1>
+<hr>
+
+
+<div class = "block">
+  <% @hunts.each do |hunt|%>
+    <div class = "index_hunt">
+      <h3>Categoria: <span><%= link_to(hunt.category.name, category_path(hunt.category)) %></span></h3>
+      <h3>Titolo caccia: <span class = "hunt_name"><%= link_to(hunt.name, hunt_path(hunt)) %></span></h3>
+      <h3>Creata da: <span><%= link_to(hunt.user.full_name, user_path(hunt.user)) %></span></h3>
+      <h3>Data caccia: <span><%=hunt.hunt_date.strftime("%v")%></span></h3>
+      <h3>Orario caccia: <span><%=hunt.hunt_time.strftime("%H:%M")%></span></h3>
+      <h3>Difficolta:
+        <span><%hunt.difficulty_level.times do %>
+                <img src="/assets/raccoon-logo-png.png" class="logo_img_diff" width="30" length="30">
+              <%end%>
+        </span>
+      </h3>
+      <h3>Prove: <span><%=hunt.tasks.count%></h3>
+      <h3>Posti disponibili: <span><%=hunt.available_spots%></span></h3>
+    </div>
+  <%end%>
+</div>

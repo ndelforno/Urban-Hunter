@@ -31,7 +31,6 @@
 .block > .index_hunt > h3 > a {
   color: rgb(155, 81, 21);
   font-size: 35px;
-  // text-decoration: underline;
 }
 
 .block > .index_hunt > h3 > span {
@@ -39,7 +38,6 @@
   font-size: 25px;
 }
 
-.block > .index_hunt > h3 > a {
-  font-size: 35px;
-  color: rgb(155, 81, 21);
+.block > .index_hunt > h3 > a:hover {
+  color: red;
 }

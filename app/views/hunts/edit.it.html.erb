@@ -1,0 +1,11 @@
+<h1>Modificare: <span><%=@hunt.name%><span></h1>
+  <div class="links_nav">
+    <%=  link_to("Ritornare alle Cacce ", hunt_path(@hunt)) %>
+  </div>
+
+
+<%= render 'hunts/form_new_hunt', hunt: @hunt, category: @category, categories: @categories %>
+
+<div class="delete_hunt">
+  <%= link_to('Cancellare Caccia', hunt_path(@hunt), method: :delete, data: {confirm: "Sei sicuro di voler cancellare questa caccia?"}) %>
+</div>

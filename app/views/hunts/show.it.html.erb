@@ -1,0 +1,84 @@
+<h3><span class = "hunts_link_back">&#8678; <%= link_to('Ritornare alle Cacce', hunts_path) %></span></h3>
+
+
+<h1 class = "hunt_name"><%= @hunt.name %></h1>
+
+<div class = "hunt">
+<% if current_user && @hunt.users.include?(current_user) == false %>
+    <div class="join_hunt">
+      <%= link_to('Unirsi alla Caccia', hunt_join_path, method: :post, data: {confirm: "Sei sicuro di voler unirsi a questa caccia?"}) %>
+    </div>
+<% end %>
+
+<% if current_user == @hunt.user %>
+<div class="edit_hunt_button">
+  <%= link_to('Modifica Caccia', edit_hunt_path) %>
+</div>
+<% end %>
+
+<div class = "index_hunt_show">
+  <h3>Categoria: <span><%= link_to("#{@hunt.category.name}", category_path(@hunt.category)) %></span></h3>
+  <h3>Creata da: <span><%= link_to "#{@hunt.user.full_name}", user_path(@hunt.user) %></span></h3>
+  <h3>Data caccia: <span><%=@hunt.hunt_date.strftime("%v")%></span></h3>
+  <h3>Orario caccia: <span><%=@hunt.hunt_time.strftime("%H:%M")%></span></h3>
+  <h3>Difficolta':
+    <span><%@hunt.difficulty_level.times do %>
+            <img src="/assets/raccoon-logo-png.png" class="logo_img_diff" width="30" length="30">
+          <%end%>
+    </span>
+  </h3>
+  <h3>Prove: <span><%=@hunt.tasks.count%></h3>
+  <h3>Posti disponibili: <span><%=@hunt.available_spots%></span></h3>
+</div>
+
+  <h3>Membri della caccia:</h3>
+  <% @hunt.users.each do |participant| %>
+    <div class="hunt_participants">
+      <li><%= link_to "#{participant.full_name}", user_path(participant) %>
+        <%if current_user %>
+          <%if participant.id == current_user.id %>
+            | <span><%= link_to('Lasciare la caccia', hunt_unjoin_path, method: :post, data: {confirm: "Sei sicuro di voler lasciare questa caccia?"})%></span>
+          <% end %>
+        <% else %>
+          <% flash.now[:warning] = "Prima di unirsi alla caccia e' necessario completare il login!"%>
+        <% end %></li>
+    </div>
+  <% end %>
+</div>
+
+
+
+<h2>Prove :</h2>
+  <% if current_user == @hunt.user %>
+      <div class="add_new_task">
+        <%= link_to 'Aggiungere Prova', new_hunt_task_path(@hunt) %></h2>
+      </div>
+  <% end %>
+  <div class="tasks">
+     <% @tasks.each do |t| %>
+        <div class = "task"  >
+          <p> Dettagli: <%= link_to "#{t.details}", "/hunts/#{@hunt.id}/tasks/#{t.id}" %></p>
+          <p> Indirizzo: <span class = "taskaddress"> <%= t.address  %></span></p>
+          <p> Quartiere: <%= t.neighbourhood %> </p>
+          <% if current_user == @hunt.user %>
+          <div class="edit_task">
+            <li><%= link_to 'Modifica Prova', "/hunts/#{@hunt.id}/tasks/#{t.id}/edit" %> </li> |
+            <li><%= link_to 'Cancellare Prova', "/hunts/#{@hunt.id}/tasks/#{t.id}", method: :delete %></li>
+          </div>
+          <% end %>
+        </div>
+     <% end  %>
+  </div>
+
+
+
+<div id = "mapid_all">
+</div>
+
+
+<%= render(partial: 'comments/form', locals: { hunt: @hunt, comment: @comment }) %>
+
+<% @comments.each do |comment| %>
+  <p>lasciato da:  <%= comment.user.first_name %>   a   <%= comment.created_at.strftime("%B %d, %Y") %> <%= comment.created_at.strftime("%I:%M %p ") %></p>
+  <p><%= comment.description %></p>
+<% end %>
