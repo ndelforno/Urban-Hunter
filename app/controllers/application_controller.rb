@@ -33,6 +33,10 @@ def set_locale
   # redirect_to request.referer || root_url
 end
 
+def default_url_options
+  { locale: I18n.locale }
+end
+
 # def set_locale
 #   if cookies[:lang_locale] && I18n.available_locales.include?(cookies[:lang_locale].to_sym)
 #     this_locale = cookies[:lang_locale].to_sym
