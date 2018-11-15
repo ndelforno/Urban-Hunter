@@ -53,7 +53,7 @@ function translateCategories(lang) {
     var arEnLang = ["TOURISM", "SOCIAL", "PUB CRAWL", "FAMILY", "SPORT"];
     var arItLang = ["TURISMO", "SOCIALE", "PUB CRAWL", "FAMIGLIA", "SPORT"];
     var arFrLang = ["TOURISME", "SOCIALE", "PUB CRAWL", "FAMILLE", "SPORT"];
-    var arJpLang = ["TOURISM", "SOCIAL", "PUB CRAWL", "FAMILY", "SPORT"];
+    var arJpLang = ["観光", "社会の", "パブクロール", "家族", "スポーツ"];
     var arDeLang = ["TOURISMUS", "SOZIAL", "KNEIPENTOUR", "FAMILIE", "SPORT"];
     // console.log(lang);
     switch(lang) {
