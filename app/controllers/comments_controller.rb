@@ -18,7 +18,8 @@ class CommentsController < ApplicationController
     if @comment.save
       redirect_to hunt_url(@comment.hunt)
     else
-      render :show
+      flash[:notice] = "Comment not saved!"
+      redirect_to hunt_url(@comment.hunt)
     end
   end
 

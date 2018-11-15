@@ -1,6 +1,8 @@
 
 <h1>Create a task</h1>
 
+<h3><%= link_to "No more tasks", hunt_path(@hunt), :class => "end_tasks" %></h3>
+
 <div class="Task_form">
 
   <%= form_for([@hunt, @task]) do |f| %>
@@ -34,5 +36,4 @@
       <h3><%= f.submit 'add task' %></h3>
 
     <% end %>
-    <h3><%= link_to "No more tasks", hunt_path(@hunt) %></h3>
 </div>

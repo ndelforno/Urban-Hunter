@@ -8,9 +8,10 @@ class User < ApplicationRecord
   has_many :hunts #owned_hunt
   has_many :comments
 
-  validates :first_name, :last_name, :email, :password, :password_confirmation, presence: true
+  validates :first_name, :last_name, presence: true
   validates :password, confirmation: true, on: :create
   validates :password_confirmation, presence: true, on: :create
+  validates :email, presence: true, on: :create
   validates :email, uniqueness: true
 
   def full_name

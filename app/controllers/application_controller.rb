@@ -2,6 +2,7 @@ class ApplicationController < ActionController::Base
 
 
 before_action :set_locale
+before_action :first_five_hunts
 
 add_flash_types :info
 
@@ -28,7 +29,24 @@ end
 def set_locale
   locale = params[:locale].to_s.strip.to_sym
   I18n.locale = I18n.available_locales.include?(locale) ? locale : I18n.default_locale
+  cookies.permanent[:lang_locale] = locale
+  # redirect_to request.referer || root_url
 end
+
+def default_url_options
+  { locale: I18n.locale }
+end
+
+# def set_locale
+#   if cookies[:lang_locale] && I18n.available_locales.include?(cookies[:lang_locale].to_sym)
+#     this_locale = cookies[:lang_locale].to_sym
+#   else
+#     this_locale = I18n.default_locale
+#     cookies.permanent[:lang_locale] = this_locale
+#   end
+#   I18n.locale = this_locale
+# end
+
 
 helper_method :current_user
 helper_method :sign_up

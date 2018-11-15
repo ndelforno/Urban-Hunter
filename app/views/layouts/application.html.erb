@@ -18,12 +18,21 @@
         crossorigin="">
     </script>
 
+    <meta name="google" content="notranslate">
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
+
+    <div class="lang_switch">
+    <%if !request.path_info.include?("search") %>
+        <span id="switch_lang"><%=link_to("🇨🇦", {:locale=>"en"})%>  <%=link_to("🇮🇹", {:locale=>"it"})%>   <%=link_to("🇫🇷", {:locale=>"fr"})%>  <%=link_to("🇯🇵", {:locale=>"jp"})%>  <%=link_to("🇩🇪", {:locale=>"de"})%>
+        </span>
+    <%end%>
+
+    </div>
 
     <div class="navigation_bar">
       <div class="side_nav_button">
@@ -32,7 +41,7 @@
       <div class="nav_1">
         <div class="logo">
           <div class="top_left">
-            <img src="/assets/raccoon-logo-png.png" class="logo_img" width="100" length="100">
+            <%= image_tag 'raccoon-logo-png.png', :class => "logo_img", :width => "100", :length =>"100" %>
           </div>
           <div class="top_center">
             <%= link_to "Urban Hunter", root_path, :class => "logo_text" %>
@@ -78,13 +87,13 @@
 
       <div id="mySidenav" class="sidenav">
         <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-
         <div class = "next_5_hunts">
           <h2>Next 5 hunts:</h2>
         </div>
+        <% if @future_hunts_five.count > 0 %>
         <div class = "firsthunt">
           <p>
-            <% @future_hunts_five = first_five_hunts %>
+            <%# @future_hunts_five = first_five_hunts %>
             <%d = @future_hunts_five[0].hunt_date%>
             <%t = Time.parse(@future_hunts_five[0].hunt_time.to_s)%>
             <%time = Time.now%>
@@ -93,6 +102,7 @@
             <%=link_to("#{@future_hunts_five[0].name}", hunt_path(@future_hunts_five[0])) %></p>
             <p>hunt starts in:</p>
         </div>
+
 
         <div id="clockdiv">
           <div>
@@ -118,6 +128,10 @@
                <p><%=link_to("#{hunt.name}", hunt_path(hunt))%></p>
             <% end %>
         </div>
+
+        <%else%>
+          <p>No hunts present</p>
+        <%end%>
 
         <div class = "nav_hrz_divider">
           <img src="/assets/raccoon-logo-png.png" class="logo_img_mini" width="50" length="50">

@@ -12,3 +12,4 @@ test:
 production:
   <<: *default
   database: urban_prod
+  host: localhost

@@ -4,9 +4,12 @@
 
 
 #mapid {
+  width: 85%;
+  margin: 0px auto;
   height: 520px;
   z-index:0;
- }
+}
+
 
 .Task_form, .new_completed_task{
 
@@ -35,6 +38,19 @@
 
 }
 
+.end_tasks {
+  width: 100%;
+  padding: 10px;
+  border: 0;
+  background: #f19f4d;
+  border-radius: 3px;
+  font-size: 16px;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: #fff;
+  -webkit-font-smoothing: antialiased;
+  cursor: pointer;
+}
 
 .tasks {
   margin-bottom: 10px;
