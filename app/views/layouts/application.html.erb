@@ -56,8 +56,8 @@
                 </div>
               <% else %>
                 <div class="logged_out">
-                  <li class="sign_in"><%= link_to "Sign Up", new_user_path %></li>
-                  <li class="log_in"><%= link_to "Log In", new_session_path, :class => "login_button" %></li>
+                  <li class="sign_in"><%= link_to t("welcome_controller.index.sign_up"), new_user_path %></li>
+                  <li class="log_in"><%= link_to t("welcome_controller.index.log_in"), new_session_path, :class => "login_button" %></li>
                 </div>
               <% end %>
             </ul>
