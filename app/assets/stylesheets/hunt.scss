@@ -20,6 +20,9 @@
   grid-template-columns: 25% 25% 25% 25%;
   grid-template-rows: auto;
   padding: 0.5em;
+  @media screen and (max-width: 1400px) {
+   display: block;
+  }
 }
 
 .index_hunt {
