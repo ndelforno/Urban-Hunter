@@ -31,3 +31,19 @@
 
 it:
   hello: "Ciao mondo"
+
+  welcome_controller:
+    index:
+      search_button: "🔎 Cerca Cacce"
+      sign_up: "Sign up"
+      log_in: "Log In"
+      menu: "☰ Menu"
+      made_by: "Fatto da Nicolas, Constantine, Mamun, Kevin ©"
+      contact_us: "Contattarci"
+      about_us: "Chi siamo"
+      happy_hunting: "Buona caccia!"
+      next_5_hunts: "Prossime 5 cacce"
+      hunt_starts: "caccia comincia in:"
+      no_hunts: "Non ci sono cacce"
+      all_hunts: "Cacce"
+      careers: "Carriere"
