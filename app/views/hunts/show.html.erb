@@ -23,7 +23,7 @@
   <h3>Time of hunt: <span><%=@hunt.hunt_time.strftime("%H:%M")%></span></h3>
   <h3>Difficulty:
     <span><%@hunt.difficulty_level.times do %>
-            <img src="/assets/raccoon-logo-png.png" class="logo_img_diff" width="30" length="30">
+              <%= image_tag 'raccoon-logo-png.png', :class => "logo_img_diff", :width => "30", :length => "30" %>
           <%end%>
     </span>
   </h3>

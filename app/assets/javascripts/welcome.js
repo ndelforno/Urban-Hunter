@@ -14,6 +14,61 @@ function closeNav() {
     document.getElementById("open_button").style.display = "block";
 }
 
+/*translate categories labels on link click*/
+
+// document.addEventListener("DOMContentLoaded", function(){
+//
+//   var enLinkLang = document.getElementById("en");
+//   var itLinkLang = document.getElementById("it");
+//   var frLinkLang = document.getElementById("fr");
+//   var jpLinkLang = document.getElementById("jp");
+//   var deLinkLang = document.getElementById("de");
+//   // console.log(itLinkLang.id);
+//
+//   enLinkLang.addEventListener('click', function(){
+//         translateCategories(this.id);
+//   });
+//   itLinkLang.addEventListener('click', function(){
+//         translateCategories(this.id);
+//   });
+// });
+//
+// /* Set the width of the side navigation to 0 and the left margin of the page content to 0 */
+// function translateCategories(lang) {
+//     var arEnLang = ["TOURISM", "SOCIAL", "PUB CRAWL", "FAMILY", "SPORT"];
+//     var arItLang = ["TURISMO", "SOCIALE", "PUB CRAWL", "FAMIGLIA", "SPORT"];
+//     var arFrLang = ["TOURISME", "SOCIALE", "PUB CRAWL", "FAMILLE", "SPORT"];
+//     var arJpLang = ["TOURISM", "SOCIAL", "PUB CRAWL", "FAMILY", "SPORT"];
+//     var arDeLang = ["TOURISMUS", "SOZIAL", "KNEIPENTOUR", "FAMILIE", "SPORT"];
+//     // console.log(lang);
+//     switch(lang) {
+//       case "en":
+//         var arNewCat = arEnLang;
+//         break;
+//       case "it":
+//         var arNewCat = arItLang;
+//         break;
+//       case "fr":
+//         var arNewCat = arFrLang;
+//         break;
+//       case "jp":
+//         var arNewCat = arJpLang;
+//         break;
+//       case "de":
+//         var arNewCat = arDeLang;
+//         break;
+//       default:
+//         var arNewCat = arEnLang;
+//     };
+//     // return arNewCat;
+//     // console.log(arNewCat);
+//     var arCategories = document.querySelectorAll('.category_names');
+//     // console.log(arCategories[0].innerHTML);
+//     var iCatLength = arNewCat.length;
+//     for (var i = 0; i < iCatLength; i++){
+//       arCategories[i].innerText = arNewCat[i];
+//     };
+// };
 
 function getTimeRemaining(endtime) {
   var t = Date.parse(endtime) - Date.parse(new Date());

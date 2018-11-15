@@ -29,7 +29,7 @@
 # To learn more, please read the Rails Internationalization guide
 # available at http://guides.rubyonrails.org/i18n.html.
 
-en:
+de:
   hello: "Hello world"
 
   welcome_controller:
@@ -38,10 +38,10 @@ en:
       sign_up: "Sign up"
       log_in: "Log In"
       menu: "☰ Menu"
-      made_by: "Made by Nicolas, Constantine, Mamun, Kevin ©"
-      contact_us: "Contact Us"
-      about_us: "About Us"
-      happy_hunting: "Happy Hunting!"
+      made_by: "Hergestellt von Nicolas, Constantine, Mamun, Kevin ©"
+      contact_us: "Kontakt uns"
+      about_us: "Uber uns"
+      happy_hunting: "Gluck mit Jagen!"
       next_5_hunts: "Next 5 hunts"
       hunt_starts: "hunt starts in:"
       no_hunts: "No hunts present"
