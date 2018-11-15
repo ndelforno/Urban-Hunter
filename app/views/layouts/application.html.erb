@@ -18,6 +18,7 @@
         crossorigin="">
     </script>
 
+    <meta name="google" content="notranslate">
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
@@ -26,8 +27,11 @@
   <body>
 
     <div class="lang_switch">
-        <%my_url = request.original_url.split('?').first %>
-        <span id="switch_lang"><%=link_to("🇨🇦", my_url + "?locale=en")%>  <%=link_to("🇮🇹", my_url + "?locale=it")%>   <%=link_to("🇫🇷", my_url + "?locale=fr")%>  <%=link_to("🇯🇵", my_url + "?locale=jp")%>  <%=link_to("🇩🇪", my_url + "?locale=de")%></span>
+    <%if !request.path_info.include?("search") %>
+        <span id="switch_lang"><%=link_to("🇨🇦", {:locale=>"en"})%>  <%=link_to("🇮🇹", {:locale=>"it"})%>   <%=link_to("🇫🇷", {:locale=>"fr"})%>  <%=link_to("🇯🇵", {:locale=>"jp"})%>  <%=link_to("🇩🇪", {:locale=>"de"})%>
+        </span>
+    <%end%>
+
     </div>
 
     <div class="navigation_bar">
@@ -89,7 +93,7 @@
         <% if @future_hunts_five.count > 0 %>
         <div class = "firsthunt">
           <p>
-            <% @future_hunts_five = first_five_hunts %>
+            <%# @future_hunts_five = first_five_hunts %>
             <%d = @future_hunts_five[0].hunt_date%>
             <%t = Time.parse(@future_hunts_five[0].hunt_time.to_s)%>
             <%time = Time.now%>
