@@ -47,16 +47,26 @@
 </div>
 
 
-
 <h2>Tasks :</h2>
   <% if current_user == @hunt.user %>
       <div class="add_new_task">
         <%= link_to 'Add New Task', new_hunt_task_path(@hunt) %></h2>
       </div>
   <% end %>
+
+<% if @hunt.users.include?(current_user) %>
+<h3>Progress: </h3>
+  <div id="progressbar">
+    <div id="mybar"></div>
+  </div>
+<br>
+<% end %>
   <div class="tasks">
      <% @tasks.each do |t| %>
         <div class = "task"  >
+          <% if current_user && t.completed_by_user?(current_user) == true %>
+          <p class = "completed_task">Task completed !</p>
+          <% end %>
           <p> Details: <%= link_to "#{t.details}", "/hunts/#{@hunt.id}/tasks/#{t.id}" %></p>
           <p> Address: <span class = "taskaddress"> <%= t.address  %></span></p>
           <p> Neighbourhood: <%= t.neighbourhood %> </p>
