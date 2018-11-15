@@ -42,8 +42,14 @@ if(document.getElementById('mapid_all')){
       var taskscompleted = document.querySelectorAll('.completed_task')
       var completed_task = document.querySelectorAll('completed_task')
       var elem = document.getElementById("mybar");
-      elem.style.width = (taskscompleted.length / totaltasks.length)* 100 + '%';
-      elem.innerText = `${taskscompleted.length} / ${totaltasks.length}`;
+      if (taskscompleted.length < 1) {
+        elem.style.width = 10 + '%'
+        elem.style.backgroundColor = "white"
+        elem.innerText = `${taskscompleted.length} / ${totaltasks.length}`;
+      }else{
+        elem.style.width = (taskscompleted.length / totaltasks.length)* 100 + '%';
+        elem.innerText = `${taskscompleted.length} / ${totaltasks.length}`;
+      }
   }
 
 
