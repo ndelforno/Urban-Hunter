@@ -203,6 +203,21 @@ legend{
 
 }
 
+#progressbar {
+  margin:auto;
+  width: 20%;
+  background-color: white;
+  border-radius: 13px;
+  /* (height of inner div) / 2 + padding */
+  padding: 3px;
+}
+
+#mybar {
+  background-color: #f19f4d;
+  /* Adjust with JavaScript */
+  height: 20px;
+  border-radius: 10px;
+}
 
 
 #mapid_all {

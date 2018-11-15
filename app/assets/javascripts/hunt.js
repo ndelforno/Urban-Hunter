@@ -4,7 +4,6 @@ if(document.getElementById('mapid_all')){
   var mymapAll = L.map('mapid_all').setView([43.6532, -79.3832], 13);
   var taskaddresses = document.querySelectorAll(".taskaddress")
 
-  console.log('not good');
   var searchAddresses = []
 
   for (var i = 0; i < taskaddresses.length; i++) {
@@ -37,5 +36,15 @@ if(document.getElementById('mapid_all')){
       accessToken: 'pk.eyJ1IjoibmRlbGZvcm5vIiwiYSI6ImNqbzY2MzlyZTBoczUzcW5sc2k3dGFsZ2YifQ.JL97VOzlsaPc4uDrUwlAnw'
     }).addTo(mymapAll);
   }
+
+  if (document.getElementById("progressbar")){
+      var totaltasks = document.querySelectorAll('.task')
+      var taskscompleted = document.querySelectorAll('.completed_task')
+      var completed_task = document.querySelectorAll('completed_task')
+      var elem = document.getElementById("mybar");
+      elem.style.width = (taskscompleted.length / totaltasks.length)* 100 + '%';
+      elem.innerText = `${taskscompleted.length} / ${totaltasks.length}`;
+  }
+
 
 });
