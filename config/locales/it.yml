@@ -35,8 +35,11 @@ it:
   welcome_controller:
     index:
       search_button: "🔎 Cerca Cacce"
-      sign_up: "Sign up"
-      log_in: "Log In"
+      hello: Ciao
+      sign_up: "Registrarsi"
+      log_in: "Connettersi"
+      sign_out: "Disconnettersi"
+      make_hunt: "Crea caccia!"
       menu: "☰ Menu"
       made_by: "Fatto da Nicolas, Constantine, Mamun, Kevin ©"
       contact_us: "Contattarci"

@@ -34,16 +34,19 @@ de:
 
   welcome_controller:
     index:
-      search_button: "🔎 Search Hunts"
+      search_button: "🔎 Jagen Suchen"
+      hello: Guten tag
       sign_up: "Sign up"
-      log_in: "Log In"
+      log_in: "Einloggen"
+      sign_out: "Ausloggen"
+      make_hunt: "Erstellen Sie Ihrem Jagen!"
       menu: "☰ Menu"
       made_by: "Hergestellt von Nicolas, Constantine, Mamun, Kevin ©"
       contact_us: "Kontakt uns"
       about_us: "Uber uns"
       happy_hunting: "Gluck mit Jagen!"
-      next_5_hunts: "Next 5 hunts"
-      hunt_starts: "hunt starts in:"
-      no_hunts: "No hunts present"
-      all_hunts: "All Hunts"
-      careers: "Careers"
+      next_5_hunts: "Nachter 5 Jagen"
+      hunt_starts: ":Jagen anfangen"
+      no_hunts: "Kein Jagen"
+      all_hunts: "Alle Jagen"
+      careers: "Carrier"
