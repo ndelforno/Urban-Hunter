@@ -34,6 +34,9 @@ jp:
 
   welcome_controller:
     index:
+      hello: Ciao!
+      sign_out: "Disconnettersi"
+      make_hunt: "Crea caccia!"
       search_button: "🔎 探索を探し"
       sign_up: "申し込む"
       log_in: "ログイン"

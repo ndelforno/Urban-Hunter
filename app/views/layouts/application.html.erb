@@ -51,8 +51,8 @@
             <ul class="user_options">
               <% if current_user %>
                 <div class="logged_in">
-                  <li><%= link_to "Hello! #{current_user.first_name}", user_path(current_user) %></li>
-                  <li><%= link_to "Sign Out", session_path("purple"), :method => :delete %></li>
+                  <li><%= link_to t("welcome_controller.index.hello") + " " + "#{current_user.first_name}", user_path(current_user) %></li>
+                  <li><%= link_to t("welcome_controller.index.sign_out"), session_path("purple"), :method => :delete %></li>
                 </div>
               <% else %>
                 <div class="logged_out">
@@ -67,7 +67,7 @@
         <div class="">
           <div class="user_options">
             <% if current_user %>
-            <%= link_to('Make your hunt !', new_hunt_path) %>
+            <%= link_to(t("welcome_controller.index.make_hunt"), new_hunt_path) %>
             <% end %>
           </div>
           <div class="search_bar">
