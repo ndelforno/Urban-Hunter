@@ -22,6 +22,17 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+
+    <% %w(192 512).each do |s| %>
+      <%= favicon_link_tag "android-chrome-#{s}x#{s}.png", rel: 'android-chrome-icon', type: 'image/png', sizes: "#{s}x#{s}" %>
+    <% end %>
+
+      <%= favicon_link_tag "apple-touch-icon.png", rel: 'apple-touch-icon', type: 'image/png' %>
+
+    <% %w(16 32).each do |s| %>
+      <%= favicon_link_tag "favicon-#{s}x#{s}.png", rel: 'icon', type: 'image/png', sizes: "#{s}x#{s}" %>
+    <% end %>
   </head>
 
   <body>
@@ -49,15 +60,19 @@
         </div>
           <div class="top_right">
             <ul class="user_options">
-              <% if current_user %>
+              <% if current_user%>
                 <div class="logged_in">
-                  <li><%= link_to t("welcome_controller.index.hello") + " " + "#{current_user.first_name}", user_path(current_user) %></li>
-                  <li><%= link_to t("welcome_controller.index.sign_out"), session_path("purple"), :method => :delete %></li>
+                  <% if !request.path_info.include?("search") %>
+                    <li><%= link_to t("welcome_controller.index.hello") + " " + "#{current_user.first_name}", user_path(current_user) %></li>
+                    <li><%= link_to t("welcome_controller.index.sign_out"), session_path("purple"), :method => :delete %></li>
+                  <% end %>
                 </div>
               <% else %>
                 <div class="logged_out">
-                  <li class="sign_in"><%= link_to t("welcome_controller.index.sign_up"), new_user_path %></li>
-                  <li class="log_in"><%= link_to t("welcome_controller.index.log_in"), new_session_path, :class => "login_button" %></li>
+                  <% if !request.path_info.include?("search") %>
+                    <li class="sign_in"><%= link_to t("welcome_controller.index.sign_up"), new_user_path %></li>
+                    <li class="log_in"><%= link_to t("welcome_controller.index.log_in"), new_session_path, :class => "login_button" %></li>
+                  <% end %>
                 </div>
               <% end %>
             </ul>
