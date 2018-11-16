@@ -37,7 +37,7 @@
       <%= f.date_field :hunt_date, min: Date.tomorrow %>
 
 <h3>  <%= f.label :hunt_time %></h3>
-      <%= f.time_field :hunt_time, step: 1800, min: "08:00:00", max: "24:00:00" %>
+      <%= f.time_field :hunt_time, step: 1800, min: "08:00:00", max: "23:00:00" %>
 
 <h3>  <%= f.label(:max_participants)%></h3>
       <%= f.number_field :max_participants, value: 20, min: 1, max: 20 %>
