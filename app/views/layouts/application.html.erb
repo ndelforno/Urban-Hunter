@@ -108,7 +108,6 @@
         <% if @future_hunts_five.count > 0 %>
         <div class = "firsthunt">
           <p>
-            <%# @future_hunts_five = first_five_hunts %>
             <%d = @future_hunts_five[0].hunt_date%>
             <%t = Time.parse(@future_hunts_five[0].hunt_time.to_s)%>
             <%time = Time.now%>
