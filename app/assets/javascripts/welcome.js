@@ -39,7 +39,7 @@ function closeNav() {
     document.getElementById("open_button").style.display = "block";
 }
 
-/*translate categories labels on link click*/
+/*read lang cookie and translate categories labels on link click*/
 
 document.addEventListener("DOMContentLoaded", function(){
   var lang = readCookie("lang_locale")
@@ -47,8 +47,6 @@ document.addEventListener("DOMContentLoaded", function(){
 
 });
 
-
-/* Set the width of the side navigation to 0 and the left margin of the page content to 0 */
 function translateCategories(lang) {
     var arEnLang = ["TOURISM", "SOCIAL", "PUB CRAWL", "FAMILY", "SPORT"];
     var arItLang = ["TURISMO", "SOCIALE", "PUB CRAWL", "FAMIGLIA", "SPORT"];
